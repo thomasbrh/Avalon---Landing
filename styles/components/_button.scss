@@ -1,0 +1,17 @@
+@use '../utils/variables' as *;
+@use '../utils/responsive' as *;
+
+/* button */
+@mixin button-style($bg, $color, $bg-hover, $hover) {
+	@include font-size-responsive(16px, 18px, 20px);
+    background-color: $bg;
+    color: $color;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    &:hover { background-color: $bg-hover; color: $hover; }
+}
+
+.btn {
+    @include button-style($color-primary, $color-white, $color-secondary, $color-white);
+}
