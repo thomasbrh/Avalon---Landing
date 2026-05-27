@@ -1,0 +1,56 @@
+﻿@use '../utils/variables' as *;
+
+.btn 
+{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-primary;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: $color-text-title;
+    text-decoration: none;
+    border: 1px solid $color-border-gold;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    &::before 
+    {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: $color-accent-gold;
+        transform: translateX(-101%);
+        transition: transform 0.35s cubic-bezier(0.75, 0, 0.2, 1);
+    }
+
+    &:hover 
+    {
+        color: $color-bg-deep;
+
+        &::before
+        {
+            transform: translateX(0);
+        }
+    }
+}
+
+/* small */
+.btn--small 
+{
+    padding: 12px 16px;
+}
+
+/* large */
+.btn--large 
+{
+    font-size: 32px;
+    padding: 12px 16px;
+    border-color: rgba(200, 169, 110, 0.5);
+}

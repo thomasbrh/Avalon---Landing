@@ -1,0 +1,41 @@
+/* opacités */
+$opacity-low: 0.25;
+$opacity-medium: 0.5; 
+$opacity-high: 0.75;
+$opacity-full: 1;
+
+
+/* typographies */
+$font-primary: 'Uncial Antiqua', serif;
+$font-secondary: 'Faculty Glyphic', sans-serif;
+
+
+/* backgrounds */
+$color-bg-deep: #3D2A47;
+$color-bg-surface: #2d1e35;
+
+
+/* accents */
+$color-accent-gold: #FAB56F;
+$color-accent-rose: #D4A0C0;
+
+
+/* textes */
+$color-text-title: #E8E0D4;
+$color-text-paragraph: #E1C4F4;
+$color-text-muted:#A09080;
+
+
+/* ui */
+$color-border-gold: rgba($color-accent-gold, $opacity-low);
+$color-border-rose: rgba($color-accent-rose, $opacity-low);
+
+
+/* letter-spacing */
+$letter-spacing-title: 6px;
+$letter-spacing-paragraph: 2.5px;
+$letter-spacing-muted: 1.5px;
+
+
+/* glow */
+$glow-gold: 0 0 3rem rgba($color-accent-gold, $opacity-low);

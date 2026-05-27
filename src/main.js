@@ -1,6 +1,7 @@
-'use strict';
+import { initHero } from './three.js/hero.js';
 
-/* import animation */
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
+/* hero */
+if (document.getElementById('hero-canvas')) 
+{
+    initHero();
+}

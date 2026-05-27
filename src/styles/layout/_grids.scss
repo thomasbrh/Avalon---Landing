@@ -1,0 +1,61 @@
+@use '../utils/responsive' as *;
+
+/* mixins */
+@mixin grid($padding, $gap) 
+{
+    display: grid;
+    padding: $padding;
+    gap: $gap;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+@mixin grid-cols($count, $gap: 1rem) 
+{
+    display: grid;
+    grid-template-columns: repeat($count, 1fr);
+    gap: $gap;
+}
+
+
+/* grid */
+.grid 
+{
+    box-sizing: border-box;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.grid > * 
+{
+    grid-column: 1 / -1;
+}
+
+@for $i from 1 through 5 
+{
+    .grid-start#{$i} { grid-column-start: $i; }
+    .grid-end#{$i} { grid-column-end: $i; }
+}
+
+
+/* flexbox */
+.grid-flex 
+{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.flex-start 
+{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.flex-end 
+{
+    display: flex;
+    justify-content: flex-end;
+}

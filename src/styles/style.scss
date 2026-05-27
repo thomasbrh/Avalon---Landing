@@ -1,0 +1,29 @@
+@use "modern-normalize" as *;
+@use "utils/variables" as *;
+@use "utils/responsive" as *;
+
+// layout
+@use "layout/grids" as *;
+@use "layout/header";
+@use "layout/footer";
+
+@use "layout/landing";
+@use "layout/credits";
+
+// composants
+@use "components/typography";
+@use "components/button";
+
+
+/* Base */
+:root 
+{
+  font-family: $font-secondary;
+  background-color: $color-bg-deep;
+  color: $color-text-title;
+}
+
+body 
+{
+  overflow-x: hidden;
+}

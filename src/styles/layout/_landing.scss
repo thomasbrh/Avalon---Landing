@@ -1,0 +1,281 @@
+﻿@use '../utils/variables' as *;
+@use '../utils/responsive' as *;
+
+/* bande */
+.bandeau
+{
+    overflow: hidden;
+    border-top: 1px solid $color-border-gold;
+    border-bottom: 1px solid $color-border-gold;
+    padding: 24px 0;
+    background: $color-bg-surface;
+    white-space: nowrap;
+}
+
+.bandeau__track
+{
+    display: inline-flex;
+    gap: 40px;
+    animation: marquee-scroll 28s linear infinite;
+
+    span 
+    {
+        font-family: $font-primary;
+        font-size: 12px;
+        letter-spacing: $letter-spacing-paragraph;
+        text-transform: uppercase;
+        color: $color-text-muted;
+        opacity: 0.5;
+    }
+}
+
+@keyframes marquee-scroll 
+{
+    from { transform: translateX(0); }
+    to   { transform: translateX(-33.33%); }
+}
+
+
+/* numéro */
+.number 
+{
+    position: absolute;
+    font-family: $font-primary;
+    font-size: 320px;
+    line-height: 1;
+    color: rgba($color-accent-gold, $opacity-low);
+    z-index: 0;
+}
+
+.section
+{
+    position: relative;
+}
+
+/* typographie dans le contexte des acts */
+.section .title-h2 
+{
+    font-size: 128px;
+    line-height: 110%;
+    color: $color-accent-gold;
+}
+
+
+/* Section 1 */
+.section--contexte
+{
+    z-index: 40;
+    background: $color-bg-deep;
+    padding: 96px 48px;
+
+    .section__inner 
+    {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 48px;
+
+        @include responsive(desktop) 
+        {
+            grid-template-columns: 1fr 1fr;
+            gap: 96px;
+            align-items: start;
+        }
+    }
+
+    .section__head 
+    {
+        @include responsive(desktop) 
+        {
+            border-right: 2px solid $color-border-rose;
+            padding-right: 64px;
+        }
+    }
+
+    .number 
+    {
+        top: -64px;
+        right: 48px;
+    }
+}
+
+
+/* Section 2 */
+.section--env {
+    z-index: 30;
+    background: $color-bg-surface;
+    padding: 96px 48px;
+
+    .section__inner 
+    {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 48px;
+
+        @include responsive(desktop) 
+        {
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+    }
+
+    .section__content 
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+    }
+
+    .section__img
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        img 
+        {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 16px;
+            outline: 2px solid $color-border-rose;
+        }
+    }
+
+    .number 
+    {
+        position: static;
+        align-self: flex-end;
+    }
+}
+
+
+/* Section 3 */
+.section--vision 
+{
+    z-index: 20;
+    background: $color-bg-deep;
+    padding: 96px 48px;
+    display: flex;
+    justify-content: center;
+
+    .section__inner 
+    {
+        position: relative;
+        z-index: 1;
+        border-left: 2px solid $color-border-rose;
+        padding-left: 96px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        width: 100%;
+    }
+
+    .section__body 
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+        align-items: flex-end;
+        width: 100%;
+    }
+
+    .title-h2 
+    {
+        font-size: 128px;
+        line-height: 110%;
+        letter-spacing: $letter-spacing-title;
+        color: $color-accent-gold;
+        width: 100%;
+        margin: 0;
+    }
+
+
+    .number 
+    {
+        bottom: 0;
+        left: 64px;
+    }
+}
+
+
+/* Section 4 */
+.section--experience
+{
+    z-index: 10;
+    background: $color-bg-deep;
+
+    .section__top 
+    {
+        position: relative;
+        background: $color-bg-surface;
+        border-bottom: 2px solid $color-border-rose;
+        padding: 96px 0;
+        display: flex;
+        justify-content: center;
+        overflow-x: hidden;
+    }
+
+    .section__inner 
+    {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+        width: 100%;
+        padding: 0 48px;
+    }
+
+    .title-h2 
+    {
+        font-size: 128px;
+        line-height: 110%;
+        letter-spacing: $letter-spacing-title;
+        color: $color-accent-gold;
+        margin: 0;
+    }
+
+    .number 
+    {
+        bottom: 96px;
+        right: 48px;
+        top: auto;
+        left: auto;
+        transform: none;
+    }
+}
+
+
+/* Section 4 cta-vidéo */
+.cta__video 
+{
+    position: relative;
+    width: 100dvw;
+    height: 100dvh;
+    overflow: hidden;
+}
+
+.cta__video-bg 
+{
+    position: absolute;
+    inset: 0;
+    width: 100dvw;
+    height: 100dvh;
+    object-fit: cover;
+    transform: scale(1.02);
+}
+
+.cta__video .btn 
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    white-space: nowrap;
+}
