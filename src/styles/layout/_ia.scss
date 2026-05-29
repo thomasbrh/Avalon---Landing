@@ -1,0 +1,110 @@
+@use '../utils/variables' as *;
+@use '../utils/responsive' as *;
+
+
+/* Hero note */
+.hero__note
+{
+    display: none;
+    position: absolute;
+    bottom: 40px;
+    right: 96px;
+    width: 354px;
+    border: 1px solid $color-border-gold;
+    padding: 24px 48px;
+
+    @include responsive(desktop) { display: block; }
+
+    p
+    {
+        font-family: $font-secondary;
+        font-size: 14px;
+        line-height: 185%;
+        letter-spacing: 0.5px;
+        color: $color-text-paragraph;
+        margin: 0;
+    }
+}
+
+
+/* Section Gemini */
+.section--ia-gemini
+{
+    background: $color-bg-deep;
+    padding: 64px 0;
+
+    @include responsive(desktop) { padding: 96px 0; }
+
+    .section__inner
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+        padding: 0 24px;
+
+        @include responsive(tablet) { padding: 0 48px; }
+        @include responsive(desktop) { padding: 0 96px; }
+    }
+
+    .section__head
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+}
+
+
+/* Section ChatGPT */
+.section--ia-gpt
+{
+    background: $color-bg-surface;
+    padding: 64px 0;
+
+    @include responsive(desktop) { padding: 96px 0; }
+
+    .section__inner
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+        padding: 0 24px;
+
+        @include responsive(tablet) { padding: 0 48px; }
+        @include responsive(desktop) { padding: 0 96px; }
+    }
+
+    .section__head
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+}
+
+
+/* Grille de prompts */
+.ia-prompts
+{
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.ia-prompts__row
+{
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    @include responsive(tablet)
+    {
+        flex-direction: row;
+
+        .card
+        {
+            flex: 1;
+            min-width: 0;
+        }
+    }
+}

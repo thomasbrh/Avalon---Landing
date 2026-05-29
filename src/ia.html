@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <title>IA — La dernière quête</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Utilisation de l'IA durant le développement — La dernière quête, TFE de Thomas Bruch.">
+        <meta name="author" content="Thomas Bruch">
+
+        <!-- favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
+        <link rel="manifest" href="/favicon_io/site.webmanifest">
+
+        <!-- meta partage -->
+        <meta property="og:title" content="IA — La dernière quête">
+        <meta property="og:description" content="Utilisation de l'IA dans le projet Avalon, TFE de Thomas Bruch.">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="avalon.thomasbruch.be/ia.html">
+        <meta property="og:image" content="/logo/logo.svg">
+
+        <!-- typographies -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+
+        <!-- styles -->
+        <link rel="stylesheet" href="styles/style.scss">
+    </head>
+
+    <body>
+
+        <!-- navigation -->
+        <nav class="header">
+            <a href="https://www.thomasbruch.be/portfolio/" class="header__credit" target="_blank__portfolio">Thomas Bruch — TFE 2025-2026</a>
+
+            <a href="/" class="header__logo">Back</a>
+            <a href="https://avalon-gules.vercel.app" target="_blank__experience" class="btn btn--small">Entrer</a>
+        </nav>
+
+        <!-- main -->
+        <main>
+
+            <!-- Hero -->
+            <header class="hero" aria-label="Crédits IA">
+                <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+                <div class="hero__text">
+                    <h1 class="subtitle__tag">Crédits</h1>
+
+                    <h2 class="title-h1">
+                        <span class="hero__h1">Crédits</span>
+                        <span class="hero__h1 hero__h1--accent">IA</span>
+                    </h2>
+
+                    <h3 class="hero__caption">Une aide Bénéfique.</h3>
+                </div>
+
+                <div class="hero__note" aria-label="Note sur l'utilisation de l'IA">
+                    <p>L'IA n'a jamais été utilisée à des fins de création. Mais à la recherche et le dépassement des acquis.</p>
+                </div>
+
+                <div class="hero__scroll" aria-hidden="true">
+                    <span class="hero__scroll-label">Défiler</span>
+                </div>
+            </header>
+
+            <!-- bande -->
+            <div class="bandeau" aria-hidden="true">
+                <div class="bandeau__track">
+                    <span>Avalon</span><span>—</span>
+                    <span>IA</span><span>—</span>
+                    <span>ChatGPT</span><span>—</span>
+                    <span>Gemini</span><span>—</span>
+                    <span>Avalon</span><span>—</span>
+                    <span>IA</span><span>—</span>
+                    <span>ChatGPT</span><span>—</span>
+                    <span>Gemini</span><span>—</span>
+                    <span>Avalon</span><span>—</span>
+                    <span>IA</span><span>—</span>
+                    <span>ChatGPT</span><span>—</span>
+                    <span>Gemini</span><span>—</span>
+                </div>
+            </div>
+
+            <!-- Section Gemini -->
+            <section class="section section--ia-gemini" id="gemini">
+                <div class="section__inner">
+                    <div class="section__head">
+                        <h2 class="subtitle__tag">Utilisation IA</h2>
+                        <h3 class="title-h2">Prompt Gemini</h3>
+                    </div>
+
+                    <div class="ia-prompts">
+
+                        <div class="ia-prompts__row">
+
+                            <article class="card">
+                                <div class="card__identity">
+                                    <p class="card__name">Gemini 3.1 Pro</p>
+                                    <p class="card__role">Audio</p>
+                                </div>
+                                <p class="card__desc">J'ai décidé de déplacer ce qui concerne la gestion de l'audio dans audioManager et ce qui est de l'initialisation dans ecpérience (qui n'a pas bouger) mais j'ai des bugs, du coup tu sais m'aider à résoudre toutes les erreurs ?</p>
+                            </article>
+
+                            <article class="card">
+                                <div class="card__identity">
+                                    <p class="card__name">Gemini 3.1 Pro</p>
+                                    <p class="card__role">Audio</p>
+                                </div>
+                                <p class="card__desc">Qu'est-ce qui me manque pour synchroniser le texte et les dialogues sans casser mon système de skip déjà établi ?</p>
+                            </article>
+
+                            <article class="card">
+                                <div class="card__identity">
+                                    <p class="card__name">Gemini 3.1 Pro</p>
+                                    <p class="card__role">Audio</p>
+                                </div>
+                                <p class="card__desc">Que me conseilles-tu pour résoudre mon problème de synchronisation audio/texte ?</p>
+                            </article>
+
+                        </div>
+
+                        <div class="ia-prompts__row">
+
+                            <article class="card">
+                                <div class="card__identity">
+                                    <p class="card__name">Gemini 3.1 Pro</p>
+                                    <p class="card__role">HTML</p>
+                                </div>
+                                <p class="card__desc">Est-ce que c'est possible de vérifier si une page est déjà ouverte dans un navigateur en html pour éviter d'ouvrir un onglet à chaque clic ?</p>
+                            </article>
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section ChatGPT -->
+            <section class="section section--ia-gpt" id="chatgpt">
+                <div class="section__inner">
+                    <div class="section__head">
+                        <h2 class="subtitle__tag">Utilisation IA</h2>
+                        <h3 class="title-h2">Prompt chatGPT</h3>
+                    </div>
+
+                    <div class="ia-prompts">
+
+                        <div class="ia-prompts__row">
+
+                            <article class="card">
+                                <div class="card__identity">
+                                    <p class="card__name">ChatGPT 4.5</p>
+                                    <p class="card__role">Shaders GLSL</p>
+                                </div>
+                                <p class="card__desc">Modifie mon fragments.glsl pour que le centre sois transparent et en forme de bubble avec un variable scale pour mon état hover.</p>
+                            </article>
+
+                            <article class="card">
+                                <div class="card__identity">
+                                    <p class="card__name">ChatGPT 5.5</p>
+                                    <p class="card__role">Shaders GLSL</p>
+                                </div>
+                                <p class="card__desc">Modifie mon fragment.glsl pour te concentrer sur une seule orbe et ajoute sur variable aléatoire pour que je puisse randomiser un déplacement.</p>
+                            </article>
+
+                            <article class="card">
+                                <div class="card__identity">
+                                    <p class="card__name">ChatGPT 4.5</p>
+                                    <p class="card__role">Blender</p>
+                                </div>
+                                <p class="card__desc">Comment est-ce que je devrais m'y prendre si je voulais récupérer des empties enregistrée dans un glb ?</p>
+                            </article>
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- footer -->
+        <footer class="footer">
+            <div class="footer__inner">
+                <!-- réseaux sociaux -->
+                <nav class="footer__social" aria-label="Réseaux sociaux">
+
+                    <a href="https://www.linkedin.com/in/thomas-bruch-a21055357/" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/thomasbrh" target="_blank">GitHub</a>
+                    <a href="https://www.instagram.com/thomas_brh/" target="_blank">Instagram</a>
+
+                </nav>
+
+                <!-- colonne centrale -->
+                <div class="footer__brand">
+
+                    <a href="/" class="footer__logo">Avalon</a>
+                    <p class="footer__copy">Thomas Bruch © 2025-2026 | Travail de Fin d'Études</p>
+
+                </div>
+
+                <!-- navigation -->
+                <nav class="footer__nav" aria-label="Navigation footer">
+
+                    <a href="https://thomasbruch.be" target="_blank">Mon portfolio</a>
+                    <a href="credits.html">Crédits</a>
+                    <a href="ia.html">IA</a>
+
+                </nav>
+            </div>
+        </footer>
+
+        <!-- script -->
+        <script type="module" src="/main.js"></script>
+    </body>
+</html>
