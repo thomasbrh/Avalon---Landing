@@ -1,22 +1,31 @@
 ﻿@use '../utils/variables' as *;
+@use '../utils/responsive' as *;
 
 /* header */
-.header 
+.header
 {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 100;
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 24px 96px;
+    padding: 16px 24px;
 
     -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
     border-bottom: 1px solid $color-border-gold;
     transition: background 0.4s ease, backdrop-filter 0.4s ease;
+
+    @include responsive(tablet)
+    {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        padding: 20px 48px;
+    }
+    @include responsive(desktop) { padding: 24px 96px; }
 }
 
 .header--scrolled 
@@ -27,8 +36,9 @@
     border-bottom: 1px solid $color-border-gold;
 }
 
-.header__credit 
+.header__credit
 {
+    display: none;
     font-family: $font-secondary;
     font-size: 12px;
     letter-spacing: $letter-spacing-paragraph;
@@ -37,6 +47,8 @@
     color: $color-text-muted;
     opacity: 0.5;
     justify-self: start;
+
+    @include responsive(tablet) { display: block; }
 
     &:hover
     {
@@ -110,7 +122,7 @@
 .hero__caption
 {
     font-family: $font-secondary;
-    font-size: 28px;
+    @include font-size-responsive(14px, 28px);
     letter-spacing: $letter-spacing-muted;
     text-transform: uppercase;
     color: $color-text-muted;

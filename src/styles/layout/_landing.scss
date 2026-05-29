@@ -41,7 +41,7 @@
 {
     position: absolute;
     font-family: $font-primary;
-    font-size: 320px;
+    @include font-size-responsive(100px, 320px);
     line-height: 1;
     color: rgba($color-accent-gold, $opacity-low);
     z-index: 0;
@@ -55,7 +55,7 @@
 
 .section .title-h2
 {
-    font-size: 128px;
+    @include font-size-responsive(40px, 128px);
     line-height: 110%;
     letter-spacing: 4px;
     color: $color-accent-gold;
@@ -67,7 +67,9 @@
 {
     z-index: 40;
     background: $color-bg-deep;
-    padding: 96px 0;
+    padding: 64px 0;
+
+    @include responsive(desktop) { padding: 96px 0; }
 
     .section__inner
     {
@@ -76,7 +78,10 @@
         display: grid;
         grid-template-columns: 1fr;
         gap: 48px;
-        padding: 0 96px;
+        padding: 0 24px;
+
+        @include responsive(tablet) { padding: 0 48px; }
+        @include responsive(desktop) { padding: 0 96px; }
 
         @include responsive(desktop)
         {
@@ -104,6 +109,7 @@
         {
             position: static;
             align-self: flex-end;
+            order: 1;
         }
     }
 }
@@ -114,7 +120,9 @@
 {
     z-index: 30;
     background: $color-bg-surface;
-    padding: 96px 0;
+    padding: 64px 0;
+
+    @include responsive(desktop) { padding: 96px 0; }
 
     .section__inner
     {
@@ -123,7 +131,10 @@
         display: grid;
         grid-template-columns: 1fr;
         gap: 48px;
-        padding: 0 96px;
+        padding: 0 24px;
+
+        @include responsive(tablet) { padding: 0 48px; }
+        @include responsive(desktop) { padding: 0 96px; }
 
         @include responsive(desktop)
         {
@@ -169,7 +180,9 @@
 {
     z-index: 20;
     background: $color-bg-deep;
-    padding: 96px 0;
+    padding: 64px 0;
+
+    @include responsive(desktop) { padding: 96px 0; }
 
     .section__inner
     {
@@ -178,7 +191,10 @@
         display: flex;
         flex-direction: column;
         gap: 48px;
-        padding: 0 96px;
+        padding: 0 24px;
+
+        @include responsive(tablet) { padding: 0 48px; }
+        @include responsive(desktop) { padding: 0 96px; }
     }
 
     .section__head
@@ -210,7 +226,13 @@
             margin-right: 180px;
         }
 
-        .number { position: static; }
+        .number
+        {
+            position: static;
+            order: 1;
+
+            @include responsive(desktop) { order: 0; }
+        }
     }
 
     .title-h2
@@ -231,8 +253,10 @@
         position: relative;
         background: $color-bg-surface;
         border-bottom: 2px solid $color-border-rose;
-        padding: 96px 0;
+        padding: 64px 0;
         overflow-x: hidden;
+
+        @include responsive(desktop) { padding: 96px 0; }
     }
 
     .section__inner
@@ -242,7 +266,10 @@
         display: flex;
         flex-direction: column;
         gap: 48px;
-        padding: 0 96px;
+        padding: 0 24px;
+
+        @include responsive(tablet) { padding: 0 48px; }
+        @include responsive(desktop) { padding: 0 96px; }
     }
 
     .section__head

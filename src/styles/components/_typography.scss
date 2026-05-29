@@ -15,11 +15,11 @@
     margin: 0 0 32px;
 }
 
-.title-h1 { @include font-size-responsive(105px, 165px, 224px); }
-.title-h2 { @include font-size-responsive(81px, 91px, 106px); }
-.title-h3 { @include font-size-responsive(54px, 61px, 71px); }
-.title-h4 { @include font-size-responsive(36px, 41px, 47px); }
-.title-h5 { @include font-size-responsive(24px, 27px, 32px); }
+.title-h1 { @include font-size-responsive(40px, 224px); }
+.title-h2 { @include font-size-responsive(81px, 106px); }
+.title-h3 { @include font-size-responsive(54px, 71px); }
+.title-h4 { @include font-size-responsive(36px, 47px); }
+.title-h5 { @include font-size-responsive(24px, 32px); }
 
 
 /* paragraphe */
@@ -30,7 +30,7 @@
     letter-spacing: 0.5px;
     line-height: 185%;
     max-width: 50ch;
-    @include font-size-responsive(16px, 18px, 21px);
+    @include font-size-responsive(16px, 21px);
 }
 
 

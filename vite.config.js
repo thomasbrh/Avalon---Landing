@@ -17,9 +17,9 @@ export default defineConfig(
         {
             input:
             {
-                main:    resolve(__dirname, 'src/index.html'),
+                main: resolve(__dirname, 'src/index.html'),
                 credits: resolve(__dirname, 'src/credits.html'),
-                ia:      resolve(__dirname, 'src/ia.html'),
+                /* ia: resolve(__dirname, 'src/ia.html'), */
             },
         },
     },
