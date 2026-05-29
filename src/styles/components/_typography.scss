@@ -27,6 +27,7 @@
 {
     font-family: $font-secondary;
     color: $color-text-paragraph;
+    letter-spacing: 0.5px;
     line-height: 185%;
     max-width: 50ch;
     @include font-size-responsive(16px, 18px, 21px);
@@ -45,6 +46,6 @@
     letter-spacing: $letter-spacing-paragraph;
     text-transform: uppercase;
     color: $color-accent-rose;
-    margin-bottom: 24px;
+    margin: 0 0 24px;
     opacity: 1;
 }

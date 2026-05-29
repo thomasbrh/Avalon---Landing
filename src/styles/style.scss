@@ -15,15 +15,7 @@
 @use "components/button";
 
 
-/* Base */
-:root 
-{
-  font-family: $font-secondary;
-  background-color: $color-bg-deep;
-  color: $color-text-title;
-}
-
-body 
+body
 {
   overflow-x: hidden;
 }

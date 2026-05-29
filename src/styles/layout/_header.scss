@@ -11,9 +11,10 @@
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    padding: 24px 48px;
-    backdrop-filter: blur(3px);
+    padding: 24px 96px;
+
     -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
     border-bottom: 1px solid $color-border-gold;
     transition: background 0.4s ease, backdrop-filter 0.4s ease;
 }
@@ -21,8 +22,8 @@
 .header--scrolled 
 {
     background: rgba(61, 42, 71, 0.75);
-    backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
     border-bottom: 1px solid $color-border-gold;
 }
 
@@ -136,4 +137,3 @@
     color: $color-text-muted;
     opacity: 0.5;
 }
-
