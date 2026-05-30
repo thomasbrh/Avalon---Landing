@@ -38,13 +38,18 @@
 {
     display: none;
     font-family: $font-secondary;
-    font-size: 16px;
+    font-size: 14px;
     letter-spacing: $letter-spacing-muted;
     text-transform: uppercase;
     color: $color-text-muted;
-    opacity: 0.5;
+    opacity: $opacity-medium;
     text-decoration: none;
     justify-self: start;
+
+    &:hover
+    {
+        text-decoration: underline;
+    }
 
     @include responsive(desktop)
     {

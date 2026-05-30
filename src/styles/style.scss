@@ -41,7 +41,7 @@ body
 {
     font-family: $font-primary;
     color: $color-accent-gold;
-    opacity: 0.25;
+    opacity: $opacity-low;
     line-height: 100%;
     pointer-events: none;
     user-select: none;

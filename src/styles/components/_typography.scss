@@ -14,13 +14,13 @@
 .title-h1
 {
     color: $color-text-title;
-    line-height: 90%;
-    letter-spacing: 1.5px;
+    line-height: $line-height-compressed;
+    letter-spacing: $letter-spacing-muted;
     @include font-size-responsive(64px, 137px, 228px);
 
     @include responsive(desktop)
     {
-        letter-spacing: 5px;
+        letter-spacing: $letter-spacing-title--desktop;
     }
 }
 
@@ -28,13 +28,14 @@
 .title-h2
 {
     color: $color-accent-gold;
-    line-height: 120%;
-    letter-spacing: 2px;
+    line-height: $line-height-base;
+    letter-spacing: $letter-spacing-h2;
     @include font-size-responsive(48px, 91px, 152px);
 
     @include responsive(desktop)
     {
-        letter-spacing: 4px;
+        line-height: $line-height-relaxed;
+        letter-spacing: $letter-spacing-title--desktop;
     }
 }
 
@@ -45,7 +46,7 @@
 {
     font-family: $font-secondary;
     color: $color-accent-rose;
-    line-height: 110%;
+    line-height: $line-height-base;
     letter-spacing: $letter-spacing-muted;
     text-transform: uppercase;
     margin: 0;
@@ -59,8 +60,8 @@
 {
     font-family: $font-secondary;
     color: $color-text-paragraph;
-    line-height: 185%;
-    letter-spacing: 0.5px;
+    line-height: $line-height-paragraph;
+    letter-spacing: $letter-spacing-paragraph;
     margin: 0;
     max-width: 55ch;
     @include font-size-responsive(16px, 18px, 20px);

@@ -1,5 +1,6 @@
 @use '../utils/variables' as *;
 @use '../utils/responsive' as *;
+@use './grids' as *;
 
 
 
@@ -52,7 +53,7 @@
 {
     font-family: $font-secondary;
     font-size: 16px;
-    line-height: 1.85;
+    line-height: $line-height-paragraph;
     color: $color-text-paragraph;
     margin: 0;
 }
