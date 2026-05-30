@@ -11,11 +11,12 @@
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
     padding: 0 12px;
-    position: sticky;
+    position: fixed;
+    width: 100%;
     top: 0;
     z-index: 100;
     
-    background: rgba($color-bg-surface, $opacity-high);
+    background: rgba($color-bg-surface, $opacity-medium);
     -webkit-backdrop-filter: blur(6px);
     backdrop-filter: blur(6px);
     border-bottom: 1px solid $color-border-gold;
