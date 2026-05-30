@@ -87,6 +87,11 @@
     color: $color-accent-gold;
     text-decoration: none;
 
+    &:hover
+    {
+        opacity: $opacity-medium;
+    }
+
     @include responsive(desktop)
     {
         font-size: 45px;

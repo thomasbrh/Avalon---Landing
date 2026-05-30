@@ -7,14 +7,9 @@
 /* cartes */
 .credits-collabs
 {
-    display: flex;
-    flex-direction: column;
-    gap: 48px;
-
-    @include responsive(desktop)
-    {
-        @include grid-cols(2, 48px);
-    }
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: clamp(24px, 4vw, 48px);
 }
 
 .card
@@ -33,6 +28,8 @@
 
 .card__name
 {
+    text-transform: uppercase;
+    padding-bottom: 12px;
     font-family: $font-secondary;
     font-size: 24px;
     color: $color-text-title;

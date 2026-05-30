@@ -117,10 +117,7 @@
 
 .hero__note
 {
-    position: absolute;
-    bottom: 96px;
-    right: 96px;
-    max-width: 50ch;
+    display: none;
 
     p
     {
@@ -129,6 +126,15 @@
         color: $color-text-paragraph;
         line-height: $line-height-paragraph;
         margin: 0;
+    }
+
+    @include responsive(desktop)
+    {
+        display: block;
+        position: absolute;
+        bottom: 96px;
+        right: 96px;
+        max-width: 50ch;
     }
 }
 

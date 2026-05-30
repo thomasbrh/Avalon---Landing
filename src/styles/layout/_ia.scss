@@ -1,12 +1,10 @@
 @use '../utils/variables' as *;
 @use '../utils/responsive' as *;
-@use './grids' as *;
 
 
 
 /* page ia */
-.section--ia-gemini,
-.section--ia-chatgpt
+.section--ia-gemini
 {
     background: $color-bg-deep;
 
@@ -18,9 +16,43 @@
         gap: 48px;
         padding: 24px 16px;
 
-        @include responsive(desktop) 
-        { 
-            padding: 96px; 
+        @include responsive(desktop)
+        {
+            padding: 96px;
+        }
+    }
+
+
+    .section__head
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+
+        @include responsive(desktop)
+        {
+            gap: 24px;
+            padding-left: 120px;
+        }
+    }
+}
+
+
+.section--ia-chatgpt
+{
+    background: $color-bg-surface;
+
+
+    .section__inner
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+        padding: 24px 16px;
+
+        @include responsive(desktop)
+        {
+            padding: 96px;
         }
     }
 
@@ -44,13 +76,12 @@
 /* grid prompt */
 .section__body--prompts
 {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
     gap: 48px;
 
     @include responsive(desktop)
     {
-        @include grid-cols(3, 48px);
         padding-left: 120px;
     }
 }

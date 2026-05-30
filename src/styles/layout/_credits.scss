@@ -1,13 +1,12 @@
 @use '../utils/variables' as *;
 @use '../utils/responsive' as *;
-@use './grids' as *;
 
 
 
 /* page crédits */
 /* section 1 — art 3d */
-.section--credits-art 
-{ 
+.section--credits-art
+{
     background: $color-bg-deep;
 
 
@@ -18,9 +17,9 @@
         gap: 48px;
         padding: 24px 16px;
 
-        @include responsive(desktop) 
-        { 
-            padding: 96px; 
+        @include responsive(desktop)
+        {
+            padding: 96px;
         }
     }
 
@@ -44,6 +43,7 @@
         display: flex;
         flex-direction: column;
         gap: 48px;
+        align-items: flex-end;
 
         @include responsive(desktop)
         {
@@ -58,7 +58,7 @@
 
 /* section 2 — sound design */
 .section--credits-sound
-{ 
+{
     background: $color-bg-surface;
 
 
@@ -73,7 +73,7 @@
         {
             flex-direction: row;
             align-items: flex-start;
-            gap: 48px;
+            gap: 96px;
             padding: 96px;
         }
     }
@@ -84,11 +84,6 @@
         display: flex;
         flex-direction: column;
         gap: 24px;
-
-        @include responsive(desktop) 
-        { 
-            flex: 1; 
-        }
     }
 
 
@@ -98,11 +93,6 @@
         flex-direction: column;
         gap: 48px;
         align-items: flex-end;
-
-        @include responsive(desktop) 
-        { 
-            flex: 1; 
-        }
     }
 }
 
@@ -110,7 +100,7 @@
 
 /* section 3 — developpement */
 .section--credits-dev
-{ 
+{
     background: $color-bg-deep;
 
 
@@ -121,9 +111,9 @@
         gap: 48px;
         padding: 24px 16px;
 
-        @include responsive(desktop) 
-        { 
-            padding: 96px; 
+        @include responsive(desktop)
+        {
+            padding: 96px;
         }
     }
 
@@ -161,8 +151,8 @@
 
 
 /* section 4 — merci */
-.section--credits-merci 
-{ 
+.section--credits-merci
+{
     background: $color-bg-surface;
 
 
@@ -173,9 +163,9 @@
         gap: 48px;
         padding: 24px 16px;
 
-        @include responsive(desktop) 
-        { 
-            padding: 96px; 
+        @include responsive(desktop)
+        {
+            padding: 96px;
         }
     }
 
@@ -217,5 +207,3 @@
     flex-direction: column;
     gap: 16px;
 }
-
-

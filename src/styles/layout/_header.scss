@@ -70,6 +70,11 @@
     color: $color-accent-gold;
     text-decoration: none;
 
+    &:hover
+    {
+        opacity: $opacity-medium;
+    }
+
     @include responsive(desktop)
     {
         justify-self: center;
