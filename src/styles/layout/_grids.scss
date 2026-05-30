@@ -1,5 +1,7 @@
 @use '../utils/responsive' as *;
 
+
+
 /* mixins */
 @mixin grid($padding, $gap) 
 {
@@ -16,6 +18,7 @@
     grid-template-columns: repeat($count, 1fr);
     gap: $gap;
 }
+
 
 
 /* grid */
@@ -37,6 +40,7 @@
     .grid-start#{$i} { grid-column-start: $i; }
     .grid-end#{$i} { grid-column-end: $i; }
 }
+
 
 
 /* flexbox */

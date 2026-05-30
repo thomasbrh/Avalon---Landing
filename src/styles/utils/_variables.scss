@@ -32,10 +32,7 @@ $color-border-rose: rgba($color-accent-rose, $opacity-low);
 
 
 /* letter-spacing */
-$letter-spacing-title: 6px;
-$letter-spacing-paragraph: 2.5px;
-$letter-spacing-muted: 1.5px;
-
-
-/* glow */
-$glow-gold: 0 0 3rem rgba($color-accent-gold, $opacity-low);
+$letter-spacing-title--h2: 6px;
+$letter-spacing-title--h3: 4px;
+$letter-spacing-paragraph: 0.5px;
+$letter-spacing-low: 1.5px;

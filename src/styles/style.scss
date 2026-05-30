@@ -1,12 +1,16 @@
+// utils
 @use "modern-normalize" as *;
 @use "utils/variables" as *;
 @use "utils/responsive" as *;
 
 // layout
 @use "layout/grids" as *;
+@use "layout/hero";
 @use "layout/header";
 @use "layout/footer";
+@use "layout/cards";
 
+// pages
 @use "layout/landing";
 @use "layout/credits";
 @use "layout/ia";
@@ -16,7 +20,35 @@
 @use "components/button";
 
 
+// base
 body
 {
   overflow-x: hidden;
+}
+
+
+
+/* section */
+.section 
+{ 
+    width: 100%; 
+}
+
+
+
+/* number */
+.number
+{
+    font-family: $font-primary;
+    color: $color-accent-gold;
+    opacity: 0.25;
+    line-height: 100%;
+    pointer-events: none;
+    user-select: none;
+    font-size: 90px;
+
+    @include responsive(desktop) 
+    { 
+        font-size: 220px; 
+    }
 }

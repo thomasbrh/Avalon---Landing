@@ -1,51 +1,67 @@
-﻿@use '../utils/variables' as *;
+@use '../utils/variables' as *;
 @use '../utils/responsive' as *;
 
-/* titres du framework */
+
+
+/* titres */
 .title-h1,
-.title-h2,
-.title-h3,
-.title-h4,
-.title-h5 
+.title-h2
 {
     font-family: $font-primary;
-    color: $color-text-title;
-    line-height: 110%;
-    letter-spacing: $letter-spacing-title;
-    margin: 0 0 32px;
+    margin: 0;
 }
 
-.title-h1 { @include font-size-responsive(40px, 224px); }
-.title-h2 { @include font-size-responsive(81px, 106px); }
-.title-h3 { @include font-size-responsive(54px, 71px); }
-.title-h4 { @include font-size-responsive(36px, 47px); }
-.title-h5 { @include font-size-responsive(24px, 32px); }
+.title-h1
+{
+    color: $color-text-title;
+    line-height: 90%;
+    letter-spacing: 1.5px;
+    @include font-size-responsive(64px, 137px, 228px);
+
+    @include responsive(desktop)
+    {
+        letter-spacing: 5px;
+    }
+}
+
+
+.title-h2
+{
+    color: $color-accent-gold;
+    line-height: 120%;
+    letter-spacing: 2px;
+    @include font-size-responsive(48px, 91px, 152px);
+
+    @include responsive(desktop)
+    {
+        letter-spacing: 4px;
+    }
+}
+
+
+
+/* tag de section */
+.subtitle__tag
+{
+    font-family: $font-secondary;
+    color: $color-accent-rose;
+    line-height: 110%;
+    letter-spacing: $letter-spacing-muted;
+    text-transform: uppercase;
+    margin: 0;
+    @include font-size-responsive(12px, 13px, 13px);
+}
+
 
 
 /* paragraphe */
-.paragraph 
+.paragraph
 {
     font-family: $font-secondary;
     color: $color-text-paragraph;
-    letter-spacing: 0.5px;
     line-height: 185%;
-    max-width: 50ch;
-    @include font-size-responsive(16px, 21px);
-}
-
-
-/* tag */
-.subtitle__tag
-{
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: $font-secondary;
-    font-size: 12px;
-    line-height: 120%;
-    letter-spacing: $letter-spacing-paragraph;
-    text-transform: uppercase;
-    color: $color-accent-rose;
-    margin: 0 0 24px;
-    opacity: 1;
+    letter-spacing: 0.5px;
+    margin: 0;
+    max-width: 55ch;
+    @include font-size-responsive(16px, 18px, 20px);
 }

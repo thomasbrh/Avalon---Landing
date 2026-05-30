@@ -1,5 +1,3 @@
-@use 'sass:math';
-
 /* responsive */
 @mixin responsive($breakpoint)
 {
@@ -14,10 +12,10 @@
 }
 
 
-// texte fluide — clamp() calculé entre $from et $to viewport
-@mixin font-size-responsive($min, $max, $from: 320px, $to: 1280px)
+// texte responsive
+@mixin font-size-responsive($mobile, $tablet, $desktop) 
 {
-    $slope: math.div($max - $min, $to - $from);
-    $intercept: $min - ($slope * $from);
-    font-size: clamp(#{$min}, calc(#{$intercept} + #{$slope * 100}vw), #{$max});
+    font-size: $mobile;
+    @include responsive(tablet) { font-size: $tablet; }
+    @include responsive(desktop) { font-size: $desktop; }
 }

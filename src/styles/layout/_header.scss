@@ -1,151 +1,71 @@
-﻿@use '../utils/variables' as *;
+@use '../utils/variables' as *;
 @use '../utils/responsive' as *;
 
+
+
 /* header */
+/* grids header */
 .header
 {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    padding: 16px 24px;
-
-    -webkit-backdrop-filter: blur(3px);
-    backdrop-filter: blur(3px);
+    padding: 0 12px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    
+    background: $color-bg-surface;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
     border-bottom: 1px solid $color-border-gold;
-    transition: background 0.4s ease, backdrop-filter 0.4s ease;
 
-    @include responsive(tablet)
+    @include responsive(desktop)
     {
-        display: grid;
-        grid-template-columns: 1fr auto 1fr;
-        padding: 20px 48px;
+        height: auto;
+        padding: 8px 96px;
     }
-    @include responsive(desktop) { padding: 24px 96px; }
+
+
+    .btn--small 
+    { 
+        justify-self: end; 
+    }
 }
 
-.header--scrolled 
-{
-    background: rgba(61, 42, 71, 0.75);
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid $color-border-gold;
-}
 
 .header__credit
 {
     display: none;
     font-family: $font-secondary;
-    font-size: 12px;
-    letter-spacing: $letter-spacing-paragraph;
+    font-size: 16px;
+    letter-spacing: $letter-spacing-muted;
     text-transform: uppercase;
-    text-decoration: none;
     color: $color-text-muted;
     opacity: 0.5;
+    text-decoration: none;
     justify-self: start;
 
-    @include responsive(tablet) { display: block; }
-
-    &:hover
+    @include responsive(desktop)
     {
-        text-decoration: underline;
+        display: block;
     }
 }
+
 
 .header__logo
 {
     font-family: $font-primary;
-    font-size: 18px;
+    font-size: 16px;
     letter-spacing: 1.5px;
+    text-transform: uppercase;
     color: $color-accent-gold;
     text-decoration: none;
     justify-self: center;
-    transition: opacity 0.2s;
 
-    &:hover { opacity: 0.75; }
-}
-
-
-.header .btn 
-{
-    justify-self: end;
-}
-
-
-/* hero */
-.hero 
-{
-    position: relative;
-    height: 100dvh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background: $color-bg-deep;
-}
-
-#hero-canvas 
-{
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-}
-
-.hero__text 
-{
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    padding: 0 32px;
-}
-
-.hero__h1
-{
-    display: block;
-    overflow: hidden;
-    padding-bottom: 0.2em;
-    margin-bottom: -0.2em;
-
-    &--accent 
+    @include responsive(desktop)
     {
-        color: $color-accent-gold;
+        font-size: 20px;
+        letter-spacing: 1px;
     }
-}
-
-
-.hero__caption
-{
-    font-family: $font-secondary;
-    @include font-size-responsive(14px, 28px);
-    letter-spacing: $letter-spacing-muted;
-    text-transform: uppercase;
-    color: $color-text-muted;
-    line-height: 1;
-    margin: 0;
-}
-
-
-.hero__scroll
-{
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
-}
-
-.hero__scroll-label 
-{
-    font-family: $font-secondary;
-    font-size: 12px;
-    letter-spacing: $letter-spacing-paragraph;
-    text-transform: uppercase;
-    color: $color-text-muted;
-    opacity: 0.5;
 }

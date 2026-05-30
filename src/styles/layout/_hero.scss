@@ -1,0 +1,181 @@
+@use '../utils/variables' as *;
+@use '../utils/responsive' as *;
+
+
+
+/* hero */
+.hero
+{
+    height: 100dvh;
+    position: relative;
+    background: $color-bg-deep;
+    overflow: hidden;
+}
+
+/* canvas */
+#hero-canvas
+{
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+}
+
+.hero__text
+{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 48px 12px;
+    inset: 0;
+
+    @include responsive(desktop)
+    {
+        top: 217px;
+        left: 96px;
+        right: 96px;
+        bottom: auto;
+        height: 745px;
+        padding: 0;
+    }
+}
+
+.hero__title
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    gap: 18px;
+
+    @include responsive(desktop)
+    {
+        gap: 48px;
+    }
+
+
+    .subtitle__tag
+    {
+        @include responsive(desktop) 
+        { 
+            margin-bottom: -24px; 
+        }
+    }
+
+
+    .hero__caption
+    {
+        margin-top: 12px;
+        @include responsive(desktop) 
+        { 
+            margin-top: 0; 
+        }
+    }
+}
+
+
+.hero__h1
+{ 
+    display: block; 
+    color: $color-text-title; 
+}
+.hero__h1--accent 
+{ 
+    color: $color-accent-gold; 
+}
+
+
+.hero__caption
+{
+    font-family: $font-secondary;
+    font-size: 24px;
+    line-height: 110%;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: $color-text-muted;
+    margin: 0;
+
+    @include responsive(tablet) { font-size: 36px;}
+    @include responsive(desktop) { font-size: 45px;}
+}
+
+
+.hero__scroll
+{
+    font-family: $font-secondary;
+    font-size: 8px;
+    letter-spacing: $letter-spacing-muted;
+    text-transform: uppercase;
+    color: $color-text-muted;
+
+    @include responsive(desktop) 
+    { 
+        font-size: 13px; 
+    }
+}
+
+
+.hero__note
+{
+    position: absolute;
+    bottom: 96px;
+    right: 96px;
+    max-width: 60ch;
+
+    p
+    {
+        font-family: $font-secondary;
+        font-size: 16px;
+        color: $color-text-paragraph;
+        line-height: 185%;
+        margin: 0;
+    }
+}
+
+
+
+/* bandeau */
+.bandeau
+{
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 24px 0;
+
+    background: $color-bg-surface;
+    border-top: 2px solid rgba($color-text-muted, $opacity-low);
+    border-bottom: 2px solid rgba($color-text-muted, $opacity-low);
+}
+
+.bandeau__list
+{
+    display: flex;
+    font-family: $font-primary;
+    font-size: 8px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    color: $color-text-muted;
+    text-transform: uppercase;
+
+    gap: 8px;
+    opacity: 0.5;
+    animation: bandeau-scroll 20s linear infinite;
+
+    @include responsive(desktop)
+    {
+        gap: 24px;
+        font-size: 13px;
+        letter-spacing: $letter-spacing-muted;
+    }
+}
+
+@keyframes bandeau-scroll
+{
+    from { transform: translateX(0);}
+    to { transform: translateX(-50%);}
+}

@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="fr">
     <head>
-        <title>Crédits — La dernière quête</title>
+        <title>La dernière quête - Crédits</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Crédits de réalisation — La dernière quête, TFE de Thomas Bruch.">
+        <meta name="description" content="Crédits de réalisation du projet Avalon.">
         <meta name="author" content="Thomas Bruch">
 
         <!-- favicon -->
@@ -14,11 +14,14 @@
         <link rel="manifest" href="/favicon_io/site.webmanifest">
 
         <!-- meta partage -->
-        <meta property="og:title" content="Crédits — La dernière quête">
-        <meta property="og:description" content="Crédits du projet Avalon, TFE de Thomas Bruch.">
+        <meta property="og:site_name" content="La dernière quête">
+        <meta property="og:title" content="La dernière quête - Crédits">
+        <meta property="og:description" content="Crédits de réalisation du projet Avalon.">
         <meta property="og:type" content="website">
-        <meta property="og:url" content="avalon.thomasbruch.be/credits.html">
-        <meta property="og:image" content="/logo/logo.svg">
+        <meta property="og:url" content="https://avalon-landing-zeta.vercel.app/credits.html">
+        <meta property="og:image" content="/favicon_io/favicon-32x32.png"> <!-- modif -->
+        <meta property="og:image:width" content="1800">
+        <meta property="og:image:height" content="945">
 
         <!-- typographies -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,65 +36,61 @@
 
         <!-- navigation -->
         <nav class="header">
-            <a href="https://www.thomasbruch.be/portfolio/" class="header__credit" target="_blank__portfolio">Thomas Bruch — TFE 2025-2026</a>
-
-            <a href="/" class="header__logo">Back</a>
+            <a href="https://www.thomasbruch.be/portfolio/" class="header__credit" target="_blank">Thomas Bruch - TFE 2025-2026</a>
+            <a href="/" class="header__logo">Avalon</a>
             <a href="https://avalon-gules.vercel.app" target="_blank__experience" class="btn btn--small">Entrer</a>
         </nav>
 
         <!-- main -->
         <main>
 
-            <!-- Hero -->
+            <!-- hero -->
             <header class="hero" aria-label="Crédits de réalisation">
                 <canvas id="hero-canvas" aria-hidden="true"></canvas>
 
                 <div class="hero__text">
-                    <h1 class="subtitle__tag">Crédits</h1>
+                    <div class="hero__title">
+                        <h1 class="subtitle__tag">Crédits</h1>
 
-                    <h2 class="title-h1">
+                        <h2 class="title-h1">
+                            <span class="hero__h1">Crédits de</span>
+                            <span class="hero__h1 hero__h1--accent">Réalisation</span>
+                        </h2>
 
-                        <span class="hero__h1">Crédits de</span>
-                        <span class="hero__h1 hero__h1--accent">Réalisation</span>
+                        <h3 class="hero__caption">Des collaborations bénéfiques.</h3>
+                    </div>
 
-                    </h2>
-
-                    <h3 class="hero__caption">Des collaborations bénéfiques.</h3>
-                </div>
-
-                <div class="hero__scroll" aria-hidden="true">
                     <span class="hero__scroll-label">Défiler</span>
                 </div>
             </header>
 
-            <!-- bande -->
+
+            <!-- bandeau -->
             <div class="bandeau" aria-hidden="true">
-                <div class="bandeau__track">
-                    <span>Avalon</span><span>—</span>
-                    <span>Collaborations</span><span>—</span>
-                    <span>Three.js Journey</span><span>—</span>
-                    <span>Envato</span><span>—</span>
-                    <span>Avalon</span><span>—</span>
-                    <span>Collaborations</span><span>—</span>
-                    <span>Three.js Journey</span><span>—</span>
-                    <span>Envato</span><span>—</span>
-                    <span>Avalon</span><span>—</span>
-                    <span>Collaborations</span><span>—</span>
-                    <span>Three.js Journey</span><span>—</span>
-                    <span>Envato</span><span>—</span>
+                <div class="bandeau__list">
+                    <span>Avalon</span><span>-</span>
+                    <span>Brume &amp; mémoire</span><span>-</span>
+                    <span>La légende arthurienne</span><span>-</span>
+                    <span>Three.js</span><span>-</span>
+                    <span>Avalon</span><span>-</span>
+                    <span>Brume &amp; mémoire</span><span>-</span>
+                    <span>La légende arthurienne</span><span>-</span>
+                    <span>Three.js</span><span>-</span>
                 </div>
             </div>
 
-            <!-- Section 1 -->
+
+            <!-- section 1 - art 3D -->
             <section class="section section--credits-art" id="art-3d">
                 <div class="section__inner">
+
                     <div class="section__head">
-                        <h2 class="subtitle__tag">3D Art</h2>
-                        <h3 class="title-h2">Environnement</h3>
+                        <p class="subtitle__tag">3D Art</p>
+                        <h2 class="title-h2">Environnement</h2>
                     </div>
 
                     <div class="section__body">
-                        <span class="title-h2" aria-hidden="true">3d</span>
+                        <span class="number" aria-hidden="true">3d</span>
 
                         <div class="credits-collabs">
                             <article class="card">
@@ -100,7 +99,7 @@
                                     <p class="card__role">Level Building &amp; Animation</p>
                                 </div>
 
-                                <p class="card__desc">Blockings de modélisation, assemblage de l'île et son océan, création des animations et texturing de la version alpha.</p>
+                                <p class="card__description">Blockings de modélisation, assemblage de l'île et son océan, création des animations et texturing de la version alpha.</p>
                             </article>
 
                             <article class="card">
@@ -109,39 +108,41 @@
                                     <p class="card__role">Environment Art &amp; Texturing</p>
                                 </div>
 
-                                <p class="card__desc">Modélisation de toutes les zones du projet et texturing pour la version finale.</p>
+                                <p class="card__description">Modélisation de toutes les zones du projet et texturing pour la version finale.</p>
                             </article>
                         </div>
-
-                        <span class="number" aria-hidden="true">01</span>
                     </div>
+
                 </div>
             </section>
 
-            <!-- Section 2 -->
+
+            <!-- section 2 - sound Design -->
             <section class="section section--credits-sound" id="son">
                 <div class="section__inner">
-                    <div class="section__head">
-                        <h2 class="subtitle__tag">Sound Design</h2>
-                        <h3 class="title-h2">Sound<br>Design</h3>
-                        <p class="paragraph">La musique et les ambiances sonores <br>proviennent de la plateforme Envato.</p>
+
+                    <div class="section__content">
+                        <p class="subtitle__tag">Sound Design</p>
+                        <h2 class="title-h2">Sound<br>Design</h2>
+
+                        <p class="paragraph">La musique et les ambiances sonores proviennent de la plateforme Envato.</p>
                     </div>
 
                     <div class="section__body">
                         <div class="credits-voix">
-                            <h4 class="subtitle__tag">Voix</h4>
+                            <p class="subtitle__tag">Voix</p>
 
-                            <article class="card card--voice">
+                            <article class="card card--voix">
                                 <p class="card__name">Thomas Bruch</p>
                                 <p class="card__role">Arthur</p>
                             </article>
 
-                            <article class="card card--voice">
+                            <article class="card card--voix">
                                 <p class="card__name">Julie Meessen</p>
                                 <p class="card__role">Morganne</p>
                             </article>
 
-                            <article class="card card--voice">
+                            <article class="card card--voix">
                                 <p class="card__name">Léa Guissard</p>
                                 <p class="card__role">Dame du Lac</p>
                             </article>
@@ -149,79 +150,81 @@
 
                         <span class="number" aria-hidden="true">02</span>
                     </div>
+
                 </div>
             </section>
 
-            <!-- Section 3 -->
+
+            <!-- section 3 - developpement -->
             <section class="section section--credits-dev" id="dev">
                 <div class="section__inner">
+
                     <div class="section__head">
-                        <h2 class="subtitle__tag">Développement web</h2>
-                        <h3 class="title-h2">Développement</h3>
+                        <p class="subtitle__tag">Développement web</p>
+                        <h2 class="title-h2">Développement</h2>
                     </div>
 
                     <div class="section__body">
                         <span class="number" aria-hidden="true">03</span>
                         <p class="paragraph">J'ai mené le développement en solo, en utilisant le framework de Bruno Simon comme base technique. J'ai également intégré et adapté certains shaders appris lors de sa formation Three.js Journey.</p>
                     </div>
+
                 </div>
             </section>
 
-            <!-- Section 4 -->
+
+            <!-- section 4 - remerciements -->
             <section class="section section--credits-merci" id="merci">
                 <div class="section__inner">
+
                     <div class="section__head">
-                        <h2 class="subtitle__tag">Un merci particulier</h2>
-                        <h3 class="title-h2">Remerciements</h3>
+                        <p class="subtitle__tag">Un merci particulier</p>
+                        <h2 class="title-h2">Remerciements</h2>
                     </div>
 
                     <div class="section__body">
-                        <div class="section__names-group">
-                            <div class="section__names">
-                                <p class="card__name">Nathan Candela</p>
-                                <p class="card__name">Louis Jennes</p>
-                                <p class="card__name">Julie Meessen</p>
-                            </div>
+                        <div class="credits-names">
+                            <p class="card__name">Nathan Candela</p>
+                            <p class="card__name">Louis Jennes</p>
+                            <p class="card__name">Julie Meessen</p>
                             <p class="paragraph">Merci à toutes ces personnes pour leurs temps et leurs talents.</p>
                         </div>
+
                         <span class="number" aria-hidden="true">04</span>
                     </div>
+
                 </div>
             </section>
 
         </main>
 
+
         <!-- footer -->
         <footer class="footer">
             <div class="footer__inner">
-                <!-- réseaux sociaux -->
-                <nav class="footer__social" aria-label="Réseaux sociaux">
 
+                <nav class="footer__social" aria-label="Réseaux sociaux">
+                    <a href="https://www.facebook.com/" target="_blank">Facebook</a>
                     <a href="https://www.linkedin.com/in/thomas-bruch-a21055357/" target="_blank">LinkedIn</a>
                     <a href="https://github.com/thomasbrh" target="_blank">GitHub</a>
-                    <a href="https://www.instagram.com/thomas_brh/" target="_blank">Instagram</a>
-
                 </nav>
 
-                <!-- colonne centrale -->
-                <div class="footer__brand">
-
+                <div class="footer__middle">
                     <a href="/" class="footer__logo">Avalon</a>
-                    <p class="footer__copy">Thomas Bruch © 2025-2026 | Travail de Fin d'Études</p>
-
                 </div>
 
-                <!-- navigation -->
                 <nav class="footer__nav" aria-label="Navigation footer">
-
                     <a href="https://thomasbruch.be" target="_blank">Mon portfolio</a>
                     <a href="credits.html">Crédits</a>
                     <a href="ia.html">IA</a>
-
                 </nav>
+
             </div>
+
+            <p class="footer__copy">Thomas Bruch © 2025–2026 | Travail de Fin d'Études</p>
         </footer>
 
+        
         <!-- script -->
         <script type="module" src="/main.js"></script>
     </body>

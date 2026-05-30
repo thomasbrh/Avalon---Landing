@@ -1,155 +1,112 @@
 @use '../utils/variables' as *;
 @use '../utils/responsive' as *;
 
-/* bande */
-.bandeau
-{
-    overflow: hidden;
-    border-top: 1px solid $color-border-gold;
-    border-bottom: 1px solid $color-border-gold;
-    padding: 24px 0;
-    background: $color-bg-surface;
-    white-space: nowrap;
-}
-
-.bandeau__track
-{
-    display: inline-flex;
-    gap: 40px;
-    animation: marquee-scroll 28s linear infinite;
-
-    span
-    {
-        font-family: $font-primary;
-        font-size: 12px;
-        letter-spacing: $letter-spacing-paragraph;
-        text-transform: uppercase;
-        color: $color-text-muted;
-        opacity: 0.5;
-    }
-}
-
-@keyframes marquee-scroll
-{
-    from { transform: translateX(0); }
-    to   { transform: translateX(-33.33%); }
-}
 
 
-/* numéro */
-.number
-{
-    position: absolute;
-    font-family: $font-primary;
-    @include font-size-responsive(100px, 320px);
-    line-height: 1;
-    color: rgba($color-accent-gold, $opacity-low);
-    z-index: 0;
-}
+/* section 1 - contexte */
+.section--contexte 
+{ 
+    background: $color-bg-deep; 
 
-.section
-{
-    position: relative;
-}
-
-
-.section .title-h2
-{
-    @include font-size-responsive(40px, 128px);
-    line-height: 110%;
-    letter-spacing: 4px;
-    color: $color-accent-gold;
-}
-
-
-/* Section 1 */
-.section--contexte
-{
-    z-index: 40;
-    background: $color-bg-deep;
-    padding: 64px 0;
-
-    @include responsive(desktop) { padding: 96px 0; }
 
     .section__inner
     {
-        position: relative;
-        z-index: 1;
-        display: grid;
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         gap: 48px;
-        padding: 0 24px;
-
-        @include responsive(tablet) { padding: 0 48px; }
-        @include responsive(desktop) { padding: 0 96px; }
+        padding: 24px 16px;
 
         @include responsive(desktop)
         {
-            grid-template-columns: 1fr 1fr;
-            align-items: end;
+            flex-direction: row;
+            align-items: flex-end;
+            padding: 96px;
         }
     }
+
 
     .section__head
     {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+
         @include responsive(desktop)
         {
+            gap: 24px;
             border-right: 2px solid $color-border-rose;
-            padding-right: 64px;
+            padding-right: 48px;
         }
     }
+
 
     .section__content
     {
         display: flex;
         flex-direction: column;
         gap: 48px;
+        align-items: flex-end;
 
+        @include responsive(desktop) 
+        { 
+            flex: 1; 
+        }
+
+        
         .number
         {
-            position: static;
-            align-self: flex-end;
-            order: 1;
+            @include responsive(desktop) 
+            { 
+                order: -1; 
+            }
         }
     }
 }
 
 
-/* Section 2 */
-.section--env
-{
-    z-index: 30;
-    background: $color-bg-surface;
-    padding: 64px 0;
 
-    @include responsive(desktop) { padding: 96px 0; }
+/* section 2 - environement*/
+.section--env 
+{ 
+    background: $color-bg-surface; 
+
 
     .section__inner
     {
-        position: relative;
-        z-index: 1;
-        display: grid;
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         gap: 48px;
-        padding: 0 24px;
-
-        @include responsive(tablet) { padding: 0 48px; }
-        @include responsive(desktop) { padding: 0 96px; }
+        padding: 24px 16px;
 
         @include responsive(desktop)
         {
-            grid-template-columns: 1fr 1fr;
+            flex-direction: row;
+            align-items: center;
             gap: 96px;
-            align-items: start;
+            padding: 96px;
         }
     }
+
 
     .section__content
     {
         display: flex;
         flex-direction: column;
         gap: 48px;
+        align-items: flex-start;
+
+        @include responsive(desktop) 
+        { 
+            flex: 1; 
+        }
+
+
+        .number 
+        { 
+            align-self: flex-end; 
+        }
     }
+
 
     .section__img
     {
@@ -157,131 +114,129 @@
         flex-direction: column;
         gap: 48px;
 
+        @include responsive(desktop) 
+        { 
+            flex: 1; 
+        }
+
+
         img
         {
             width: 100%;
-            aspect-ratio: 16 / 9;
+            aspect-ratio: 3 / 2;
             object-fit: cover;
-            border-radius: 16px;
-            outline: 2px solid $color-border-rose;
+            border-radius: 48px;
+            border: 2px solid $color-border-rose;
+            display: block;
         }
-    }
-
-    .number
-    {
-        position: static;
-        align-self: flex-end;
     }
 }
 
 
-/* Section 3 */
-.section--vision
-{
-    z-index: 20;
-    background: $color-bg-deep;
-    padding: 64px 0;
 
-    @include responsive(desktop) { padding: 96px 0; }
+/* Section 3 - vision */
+.section--vision 
+{ 
+    background: $color-bg-deep; 
+
 
     .section__inner
     {
-        position: relative;
-        z-index: 1;
         display: flex;
         flex-direction: column;
         gap: 48px;
-        padding: 0 24px;
+        padding: 24px 16px;
 
-        @include responsive(tablet) { padding: 0 48px; }
-        @include responsive(desktop) { padding: 0 96px; }
+        @include responsive(desktop) 
+        { 
+            padding: 96px; 
+        }
     }
+
 
     .section__head
     {
         display: flex;
         flex-direction: column;
-        gap: 24px;
+        gap: 18px;
 
         @include responsive(desktop)
         {
-            margin-left: 180px;
-            margin-right: 180px;
+            gap: 24px;
+            padding-left: 120px;
         }
     }
+
 
     .section__body
     {
         display: flex;
         flex-direction: column;
         gap: 48px;
+        align-items: flex-end;
 
         @include responsive(desktop)
         {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 48px;
-            align-items: start;
-            margin-left: 180px;
-            margin-right: 180px;
+            flex-direction: row;
+            align-items: flex-start;
+            padding-left: 120px;
         }
+
 
         .number
         {
-            position: static;
-            order: 1;
-
-            @include responsive(desktop) { order: 0; }
+            @include responsive(desktop) 
+            { 
+                order: -1; 
+            }
         }
-    }
-
-    .title-h2
-    {
-        margin: 0;
     }
 }
 
 
-/* Section 4 */
-.section--experience
-{
-    z-index: 10;
-    background: $color-bg-deep;
+
+/* section 4 - expérience */
+.section--experience 
+{ 
+    display: flex; 
+    flex-direction: column; 
+
 
     .section__top
     {
-        position: relative;
         background: $color-bg-surface;
-        border-bottom: 2px solid $color-border-rose;
-        padding: 64px 0;
-        overflow-x: hidden;
+        border-bottom: 1px solid $color-border-gold;
 
-        @include responsive(desktop) { padding: 96px 0; }
+        @include responsive(desktop) 
+        { 
+            border-bottom: none; 
+        }
     }
+
 
     .section__inner
     {
-        position: relative;
-        z-index: 1;
         display: flex;
         flex-direction: column;
         gap: 48px;
-        padding: 0 24px;
+        padding: 24px 16px;
 
-        @include responsive(tablet) { padding: 0 48px; }
-        @include responsive(desktop) { padding: 0 96px; }
+        @include responsive(desktop) 
+        { 
+            padding: 96px; 
+        }
     }
 
     .section__head
     {
         display: flex;
         flex-direction: column;
-        gap: 24px;
+        gap: 18px;
 
         @include responsive(desktop)
         {
-            margin-left: 180px;
-            margin-right: 180px;
+            gap: 24px;
+            padding-left: 120px;
         }
     }
 
@@ -290,52 +245,48 @@
         display: flex;
         flex-direction: column;
         gap: 48px;
+        align-items: flex-end;
 
         @include responsive(desktop)
         {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 48px;
-            align-items: start;
-            margin-left: 180px;
-            margin-right: 180px;
+            flex-direction: row;
+            align-items: flex-start;
+            padding-left: 120px;
         }
-
-        .number { position: static; }
-    }
-
-    .title-h2
-    {
-        margin: 0;
     }
 }
 
 
-/* Section 4 cta-vidéo */
+
+/* cta */
 .cta__video
 {
     position: relative;
-    width: 100dvw;
-    height: 100dvh;
+    height: 327px;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include responsive(desktop) 
+    { 
+        height: 964px; 
+    }
+
+
+    .btn--large 
+    { 
+        position: relative; 
+        z-index: 1; 
+    }
 }
 
 .cta__video-bg
 {
     position: absolute;
     inset: 0;
-    width: 100dvw;
-    height: 100dvh;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    transform: scale(1.02);
 }
 
-.cta__video .btn
-{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    white-space: nowrap;
-}
