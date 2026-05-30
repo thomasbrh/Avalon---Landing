@@ -39,18 +39,19 @@
 {
     display: none;
     font-family: $font-secondary;
-    font-size: 14px;
-    letter-spacing: $letter-spacing-muted;
+    font-size: 13px;
+    letter-spacing: $letter-spacing-paragraph;
     text-transform: uppercase;
+    text-decoration: none;
     color: $color-text-muted;
     opacity: $opacity-medium;
-    text-decoration: none;
     justify-self: start;
 
     &:hover
     {
         text-decoration: underline;
     }
+
 
     @include responsive(desktop)
     {
@@ -63,7 +64,7 @@
 {
     font-family: $font-primary;
     font-size: 16px;
-    letter-spacing: 1.5px;
+    letter-spacing: $letter-spacing-low;
     text-transform: uppercase;
     color: $color-accent-gold;
     text-decoration: none;

@@ -43,15 +43,17 @@
 {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    text-transform: uppercase;
 
     a
     {
         font-family: $font-secondary;
-        font-size: 14px;
+        font-size: 16px;
         line-height: $line-height-paragraph;
+        letter-spacing: $letter-spacing-low;
         color: $color-text-muted;
         text-decoration: none;
+        opacity: $opacity-medium;
 
 
         &:hover
@@ -80,7 +82,7 @@
 {
     font-family: $font-primary;
     font-size: 20px;
-    letter-spacing: 1.5px;
+    letter-spacing: $letter-spacing-low;
     text-transform: uppercase;
     color: $color-accent-gold;
     text-decoration: none;
@@ -88,7 +90,6 @@
     @include responsive(desktop)
     {
         font-size: 45px;
-        letter-spacing: 1px;
     }
 }
 
