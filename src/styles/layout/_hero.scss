@@ -164,7 +164,7 @@
 
     gap: 8px;
     opacity: $opacity-medium;
-    animation: bandeau-scroll 20s linear infinite;
+    animation: bandeau-scroll 35s linear infinite;
 
     @include responsive(desktop)
     {
