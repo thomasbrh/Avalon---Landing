@@ -7,15 +7,15 @@
 /* grids header */
 .header
 {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 0 12px;
+    padding: 12px;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 100;
-    
+
     background: rgba($color-bg-surface, $opacity-medium);
     -webkit-backdrop-filter: blur(6px);
     backdrop-filter: blur(6px);
@@ -23,14 +23,15 @@
 
     @include responsive(desktop)
     {
-        height: auto;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
         padding: 8px 96px;
     }
 
 
-    .btn--small 
-    { 
-        justify-self: end; 
+    .btn--small
+    {
+        @include responsive(desktop) { justify-self: end; }
     }
 }
 
@@ -68,10 +69,10 @@
     text-transform: uppercase;
     color: $color-accent-gold;
     text-decoration: none;
-    justify-self: center;
 
     @include responsive(desktop)
     {
+        justify-self: center;
         font-size: 20px;
         letter-spacing: 1px;
     }

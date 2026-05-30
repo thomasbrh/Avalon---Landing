@@ -29,22 +29,11 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 48px 12px;
     inset: 0;
     z-index: 1;
-
-    @include responsive(desktop)
-    {
-        top: 217px;
-        left: 96px;
-        right: 96px;
-        bottom: auto;
-        height: 745px;
-        padding: 0;
-    }
 }
 
 .hero__title
@@ -110,15 +99,18 @@
 
 .hero__scroll
 {
+    position: absolute;
+    bottom: 48px;
     font-family: $font-secondary;
     font-size: 8px;
     letter-spacing: $letter-spacing-muted;
     text-transform: uppercase;
     color: $color-text-muted;
 
-    @include responsive(desktop) 
-    { 
-        font-size: 13px; 
+    @include responsive(desktop)
+    {
+        font-size: 13px;
+        bottom: 96px;
     }
 }
 
