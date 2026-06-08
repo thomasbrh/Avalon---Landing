@@ -6,7 +6,8 @@
 /* hero */
 .hero
 {
-    height: 100dvh;
+    min-height: 560px;
+    height: 100svh;
     position: relative;
     background: $color-bg-deep;
     overflow: hidden;
@@ -33,6 +34,8 @@
     align-items: center;
     text-align: center;
     inset: 0;
+    box-sizing: border-box;
+    padding: 96px 16px 80px;
     z-index: 1;
 }
 
@@ -45,9 +48,14 @@
     width: 100%;
     gap: 18px;
 
-    @include responsive(desktop)
-    {
-        gap: 48px;
+    @include responsive(tablet) 
+    { 
+        gap: 32px; 
+    }
+
+    @include responsive(desktop) 
+    { 
+        gap: 48px; 
     }
 
 
@@ -75,6 +83,7 @@
 { 
     display: block; 
     color: $color-text-title; 
+    white-space: nowrap;
 }
 .hero__h1--accent 
 { 
@@ -85,33 +94,24 @@
 .hero__caption
 {
     font-family: $font-secondary;
-    font-size: 24px;
+    font-size: clamp(20px, 4vw, 45px);
     line-height: $line-height-base;
     letter-spacing: $letter-spacing-low;
     text-transform: uppercase;
     color: $color-text-muted;
     margin: 0;
-
-    @include responsive(tablet) { font-size: 36px;}
-    @include responsive(desktop) { font-size: 45px;}
 }
 
 
 .hero__scroll
 {
     position: absolute;
-    bottom: 48px;
+    bottom: clamp(32px, 7vw, 96px);
     font-family: $font-secondary;
-    font-size: 8px;
+    font-size: clamp(8px, 1.5vw, 13px);
     letter-spacing: $letter-spacing-muted;
     text-transform: uppercase;
     color: $color-text-muted;
-
-    @include responsive(desktop)
-    {
-        font-size: 13px;
-        bottom: 96px;
-    }
 }
 
 
@@ -134,7 +134,7 @@
         position: absolute;
         bottom: 96px;
         right: 96px;
-        max-width: 50ch;
+        width: 50ch;
     }
 }
 
@@ -145,8 +145,11 @@
 {
     display: flex;
     align-items: center;
+    position: relative;
     overflow: hidden;
-    padding: 24px 0;
+    overflow-x: clip;
+    contain: layout paint;
+    padding: clamp(18px, 3vw, 24px) 0;
 
     background: $color-bg-surface;
     border-top: 2px solid rgba($color-text-muted, $opacity-low);
@@ -156,8 +159,11 @@
 .bandeau__list
 {
     display: flex;
+    position: absolute;
+    top: 50%;
+    left: 0;
     font-family: $font-primary;
-    font-size: 8px;
+    font-size: clamp(8px, 1.4vw, 13px);
     letter-spacing: $letter-spacing-low;
     white-space: nowrap;
     color: $color-text-muted;
@@ -167,16 +173,27 @@
     opacity: $opacity-medium;
     animation: bandeau-scroll 35s linear infinite;
 
+    @include responsive(tablet) 
+    { 
+        gap: 16px; 
+    }
+
     @include responsive(desktop)
     {
         gap: 24px;
-        font-size: 13px;
         letter-spacing: $letter-spacing-muted;
     }
 }
 
 @keyframes bandeau-scroll
 {
-    from { transform: translateX(0);}
-    to { transform: translateX(-50%);}
+    from 
+    { 
+        transform: translate3d(0, -50%, 0);
+    }
+
+    to 
+    { 
+        transform: translate3d(-50%, -50%, 0);
+    }
 }

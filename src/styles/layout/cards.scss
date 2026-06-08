@@ -8,8 +8,20 @@
 .credits-collabs
 {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-    gap: clamp(24px, 4vw, 48px);
+    grid-template-columns: 1fr;
+    gap: 24px;
+
+    @include responsive(tablet)
+    {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+    }
+
+    @include responsive(desktop)
+    {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 48px;
+    }
 }
 
 .card

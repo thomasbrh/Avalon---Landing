@@ -24,13 +24,21 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px;
+    gap: 8px;
+    padding: 24px clamp(12px, 4vw, 16px);
     border-bottom: 1px solid $color-border-gold;
+
+    @include responsive(tablet)
+    {
+        gap: 12px;
+        padding: 32px clamp(32px, 6vw, 72px);
+    }
 
     @include responsive(desktop)
     {
         flex: 1;
-        padding: 48px 240px;
+        gap: 16px;
+        padding: 48px clamp(96px, 16vw, 240px);
         border-bottom: none;
     }
 }
@@ -48,7 +56,7 @@
     a
     {
         font-family: $font-secondary;
-        font-size: 16px;
+        font-size: clamp(12px, 2vw, 16px);
         line-height: $line-height-paragraph;
         letter-spacing: $letter-spacing-low;
         color: $color-text-muted;

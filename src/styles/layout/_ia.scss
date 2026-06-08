@@ -77,11 +77,17 @@
 .section__body--prompts
 {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+    grid-template-columns: 1fr;
     gap: 48px;
+
+    @include responsive(tablet)
+    {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
     @include responsive(desktop)
     {
+        grid-template-columns: repeat(3, 1fr);
         padding-left: 120px;
     }
 }

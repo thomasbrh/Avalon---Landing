@@ -7,7 +7,6 @@
 .title-h1,
 .title-h2
 {
-    hyphens: auto;
     font-family: $font-primary;
     margin: 0;
 }
@@ -17,10 +16,11 @@
     color: $color-text-title;
     line-height: $line-height-compressed;
     letter-spacing: $letter-spacing-muted;
-    font-size: clamp(64px, 17.8vw, 228px);
+    font-size: clamp(40px, 12.5vw, 198px);
 
     @include responsive(desktop)
     {
+        font-size: clamp(156px, 14vw, 210px);
         letter-spacing: $letter-spacing-title--desktop;
     }
 }
@@ -31,7 +31,7 @@
     color: $color-accent-gold;
     line-height: $line-height-base;
     letter-spacing: $letter-spacing-h2;
-    font-size: clamp(48px, calc(7px + 11.3vw), 152px);
+    font-size: clamp(44px, 10vw, 152px);
 
     @include responsive(desktop)
     {
@@ -54,6 +54,16 @@
     font-size: clamp(12px, calc(11.1px + 0.25vw), 13px);
 }
 
+.br-mobile
+{
+    display: inline;
+
+    @include responsive(tablet) 
+    { 
+        display: none; 
+    }
+}
+
 
 
 /* paragraphe */
@@ -64,6 +74,11 @@
     line-height: $line-height-paragraph;
     letter-spacing: $letter-spacing-paragraph;
     margin: 0;
-    max-width: 50ch;
+    width: 100%;
     font-size: clamp(16px, calc(14.5px + 0.43vw), 20px);
+
+    @include responsive(desktop) 
+    { 
+        width: 50ch; 
+    }
 }

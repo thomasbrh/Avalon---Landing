@@ -13,14 +13,19 @@
     {
         display: flex;
         flex-direction: column;
-        gap: 48px;
-        padding: 24px 16px;
+        gap: 40px;
+        padding: clamp(48px, 8vw, 96px) clamp(16px, 6vw, 96px);
+
+        @include responsive(tablet) 
+        { 
+            gap: 56px; 
+        }
 
         @include responsive(desktop)
         {
             flex-direction: row;
             align-items: flex-end;
-            padding: 96px;
+            gap: 72px;
         }
     }
 
@@ -44,11 +49,17 @@
     {
         display: flex;
         flex-direction: column;
-        gap: 48px;
+        gap: 32px;
         align-items: flex-end;
+
+        @include responsive(tablet) 
+        { 
+            gap: 40px; 
+        }
 
         @include responsive(desktop) 
         { 
+            gap: 48px;
             flex: 1; 
         }
 
@@ -75,15 +86,19 @@
     {
         display: flex;
         flex-direction: column;
-        gap: 48px;
-        padding: 24px 16px;
+        gap: 40px;
+        padding: clamp(48px, 8vw, 96px) clamp(16px, 6vw, 96px);
+
+        @include responsive(tablet) 
+        { 
+            gap: 56px; 
+        }
 
         @include responsive(desktop)
         {
             flex-direction: row;
             align-items: center;
             gap: 96px;
-            padding: 96px;
         }
     }
 
@@ -92,11 +107,17 @@
     {
         display: flex;
         flex-direction: column;
-        gap: 48px;
+        gap: 32px;
         align-items: flex-start;
+
+        @include responsive(tablet) 
+        { 
+            gap: 40px; 
+        }
 
         @include responsive(desktop) 
         { 
+            gap: 48px;
             flex: 1; 
         }
 
@@ -110,13 +131,20 @@
 
     .section__img
     {
-        display: flex;
-        flex-direction: column;
-        gap: 48px;
+        display: grid;
+        gap: 24px;
+
+        @include responsive(tablet)
+        {
+            gap: 32px;
+            grid-template-columns: repeat(2, 1fr);
+        }
 
         @include responsive(desktop) 
         { 
             flex: 1; 
+            gap: 48px;
+            grid-template-columns: 1fr;
         }
 
 
@@ -125,7 +153,7 @@
             width: 100%;
             aspect-ratio: 3 / 2;
             object-fit: cover;
-            border-radius: 48px;
+            border-radius: clamp(24px, 4vw, 48px);
             border: 2px solid $color-border-rose;
             display: block;
         }
@@ -144,12 +172,17 @@
     {
         display: flex;
         flex-direction: column;
-        gap: 48px;
-        padding: 24px 16px;
+        gap: 40px;
+        padding: clamp(48px, 8vw, 96px) clamp(16px, 6vw, 96px);
+
+        @include responsive(tablet) 
+        { 
+            gap: 56px; 
+        }
 
         @include responsive(desktop) 
         { 
-            padding: 96px; 
+            gap: 72px; 
         }
     }
 
@@ -163,7 +196,7 @@
         @include responsive(desktop)
         {
             gap: 24px;
-            padding-left: 120px;
+            padding-left: clamp(72px, 8vw, 120px);
         }
     }
 
@@ -172,14 +205,20 @@
     {
         display: flex;
         flex-direction: column;
-        gap: 48px;
+        gap: 32px;
         align-items: flex-end;
+
+        @include responsive(tablet) 
+        { 
+            gap: 40px; 
+        }
 
         @include responsive(desktop)
         {
             flex-direction: row;
             align-items: flex-start;
-            padding-left: 120px;
+            gap: 48px;
+            padding-left: clamp(72px, 8vw, 120px);
         }
 
 
@@ -218,12 +257,17 @@
     {
         display: flex;
         flex-direction: column;
-        gap: 48px;
-        padding: 24px 16px;
+        gap: 40px;
+        padding: clamp(48px, 8vw, 96px) clamp(16px, 6vw, 96px);
+
+        @include responsive(tablet) 
+        { 
+            gap: 56px; 
+        }
 
         @include responsive(desktop) 
         { 
-            padding: 96px; 
+            gap: 72px; 
         }
     }
 
@@ -236,7 +280,7 @@
         @include responsive(desktop)
         {
             gap: 24px;
-            padding-left: 120px;
+            padding-left: clamp(72px, 8vw, 120px);
         }
     }
 
@@ -244,14 +288,20 @@
     {
         display: flex;
         flex-direction: column;
-        gap: 48px;
+        gap: 32px;
         align-items: flex-end;
+
+        @include responsive(tablet) 
+        { 
+            gap: 40px; 
+        }
 
         @include responsive(desktop)
         {
             flex-direction: row;
             align-items: flex-start;
-            padding-left: 120px;
+            gap: 48px;
+            padding-left: clamp(72px, 8vw, 120px);
         }
     }
 }
@@ -262,16 +312,11 @@
 .cta__video
 {
     position: relative;
-    height: 327px;
+    height: clamp(327px, 65vw, 964px);
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    @include responsive(desktop) 
-    { 
-        height: 964px; 
-    }
 
 
     .btn--large 
@@ -289,4 +334,3 @@
     height: 100%;
     object-fit: cover;
 }
-

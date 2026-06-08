@@ -10,10 +10,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px;
+    gap: 16px;
+    padding: 12px clamp(12px, 4vw, 32px);
     position: fixed;
     width: 100%;
     top: 0;
+    box-sizing: border-box;
     z-index: 100;
 
     background: rgba($color-bg-surface, $opacity-medium);
@@ -25,13 +27,16 @@
     {
         display: grid;
         grid-template-columns: 1fr auto 1fr;
-        padding: 8px 96px;
+        padding: 8px clamp(48px, 7.5vw, 96px);
     }
 
 
     .btn--small
     {
-        @include responsive(desktop) { justify-self: end; }
+        @include responsive(desktop) 
+        { 
+            justify-self: end; 
+        }
     }
 }
 
@@ -64,7 +69,7 @@
 .header__logo
 {
     font-family: $font-primary;
-    font-size: 16px;
+    font-size: clamp(15px, 4vw, 20px);
     letter-spacing: $letter-spacing-low;
     text-transform: uppercase;
     color: $color-accent-gold;

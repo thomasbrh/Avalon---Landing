@@ -21,6 +21,11 @@
 
 
 // base
+html
+{
+  overflow-x: hidden;
+}
+
 body
 {
   overflow-x: hidden;
@@ -35,6 +40,12 @@ body
     width: 100%; 
 }
 
+.section__inner
+{
+    box-sizing: border-box;
+    width: 100%;
+}
+
 
 
 /* number */
@@ -46,10 +57,10 @@ body
     line-height: $line-height-base;
     pointer-events: none;
     user-select: none;
-    font-size: 90px;
+    font-size: clamp(72px, 18vw, 220px);
 
-    @include responsive(desktop) 
+    @include responsive(tablet) 
     { 
-        font-size: 220px; 
+        line-height: 0.95; 
     }
 }
