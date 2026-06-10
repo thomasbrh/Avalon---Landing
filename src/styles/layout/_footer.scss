@@ -61,7 +61,7 @@
         letter-spacing: $letter-spacing-low;
         color: $color-text-muted;
         text-decoration: none;
-        opacity: $opacity-medium;
+        opacity: $opacity-high;
 
 
         &:hover
@@ -113,7 +113,7 @@
     font-size: 14px;
     line-height: $line-height-paragraph;
     color: $color-text-muted;
-    opacity: $opacity-medium;
+    opacity: $opacity-high;
     text-align: center;
     margin: 0;
     padding: 12px 16px;
