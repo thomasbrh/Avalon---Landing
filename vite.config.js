@@ -13,13 +13,14 @@ export default defineConfig(
     build: 
     {
         outDir: '../dist',
+        emptyOutDir: true,
         rollupOptions: 
         {
             input:
             {
                 main: resolve(__dirname, 'src/index.html'),
                 credits: resolve(__dirname, 'src/credits.html'),
-                /* ia: resolve(__dirname, 'src/ia.html'), */
+                ia: resolve(__dirname, 'src/ia.html'),
             },
         },
     },

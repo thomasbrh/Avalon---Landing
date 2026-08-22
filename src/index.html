@@ -39,10 +39,10 @@
     <body>
 
         <!-- navigation -->
-        <nav class="header">
-            <a href="https://www.thomasbruch.be/portfolio/" class="header__credit" target="_blank">Thomas Bruch - TFE 2025-2026</a>
+        <nav class="header" aria-label="Navigation principale">
+            <a href="https://www.thomasbruch.be/portfolio/" class="header__credit" target="_blank" rel="noopener noreferrer">Thomas Bruch - TFE 2025-2026</a>
             <a href="/" class="header__logo">Accueil</a>
-            <a href="https://avalon-gules.vercel.app" target="_blank__experience" class="btn btn--small">Entrer</a>
+            <a href="https://avalon-gules.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn--small">Entrer</a>
         </nav>
 
         <!-- main -->
@@ -54,14 +54,14 @@
 
                 <div class="hero__text" data-animate="hero">
                     <div class="hero__title">
-                        <h1 class="subtitle__tag">Expérience interactive &amp;<br class="br-mobile"> narrative</h1>
+                        <p class="subtitle__tag">Expérience interactive &amp;<br class="br-mobile"> narrative</p>
 
-                        <h2 class="title-h1">
+                        <h1 class="title-h1">
                             <span class="hero__h1">La dernière</span>
                             <span class="hero__h1 hero__h1--accent">quête</span>
-                        </h2>
+                        </h1>
 
-                        <h3 class="hero__caption">La légende<br class="br-mobile"> d'Avalon.</h3>
+                        <p class="hero__caption">La légende<br class="br-mobile"> d'Avalon.</p>
                     </div>
 
                     <span class="hero__scroll">Défiler</span>
@@ -124,8 +124,12 @@
                     </div>
 
                     <div class="section__img" data-animate="image">
-                        <img src="/img/environnement-1.webp" alt="L'île d'Avalon - vue 1" loading="lazy">
-                        <img src="/img/environnement-2.webp" alt="L'île d'Avalon - vue 2" loading="lazy">
+                        <figure class="section__img-frame">
+                            <img src="/img/environnement-1.webp" alt="L'île d'Avalon - vue 1" loading="lazy">
+                        </figure>
+                        <figure class="section__img-frame">
+                            <img src="/img/environnement-2.webp" alt="L'île d'Avalon - vue 2" loading="lazy">
+                        </figure>
                     </div>
 
                 </div>
@@ -170,10 +174,10 @@
                 </div>
                 <!-- CTA vidéo -->
                 <div class="cta__video" data-animate="cta">
-                    <video class="cta__video-bg" autoplay muted loop playsinline>
+                    <video class="cta__video-bg" autoplay muted loop playsinline aria-hidden="true">
                         <source src="/video/video-cta.mp4" type="video/mp4">
                     </video>
-                    <a href="https://avalon-gules.vercel.app" target="_blank" class="btn btn--large">Entrer</a>
+                    <a href="https://avalon-gules.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn--large">Entrer</a>
                 </div>
 
             </section>
@@ -187,8 +191,8 @@
 
                 <nav class="footer__social" aria-label="Réseaux sociaux">
                     <a href="mailto:bruchthomas@outlook.fr">Mail</a>
-                    <a href="https://www.linkedin.com/in/thomas-bruch-a21055357/" target="_blank">LinkedIn</a>
-                    <a href="https://github.com/thomasbrh" target="_blank">GitHub</a>
+                    <a href="https://www.linkedin.com/in/thomas-bruch-a21055357/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://github.com/thomasbrh" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </nav>
 
                 <div class="footer__middle">
@@ -196,7 +200,7 @@
                 </div>
 
                 <nav class="footer__nav" aria-label="Navigation footer">
-                    <a href="https://thomasbruch.be" target="_blank">Portfolio</a>
+                    <a href="https://thomasbruch.be" target="_blank" rel="noopener noreferrer">Portfolio</a>
                     <a href="credits.html">Crédits</a>
                     <a href="ia.html">IA</a>
                 </nav>

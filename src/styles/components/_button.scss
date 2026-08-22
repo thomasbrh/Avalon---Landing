@@ -12,6 +12,7 @@
 
     font-family: $font-primary;
     color: $color-text-title;
+    line-height: 1;
     text-transform: uppercase;
     text-decoration: none;
     background: $color-bg-deep;
@@ -54,9 +55,21 @@
 /* nav button */
 .btn--small
 {
-    padding: 10px clamp(12px, 2vw, 16px);
-    font-size: clamp(12px, 2vw, 13px);
+    padding: $space-half 0.75rem;
+    font-size: $font-tag-mobile;
     letter-spacing: $letter-spacing-low;
+
+    @include responsive(tablet)
+    {
+        padding: 0.55rem 0.85rem;
+        font-size: $font-tag-tablet;
+    }
+
+    @include responsive(desktop)
+    {
+        padding: 0.6rem 0.9rem;
+        font-size: $font-tag-desktop;
+    }
 }
 
 
@@ -64,7 +77,19 @@
 /* CTA button */
 .btn--large
 {
-    padding: clamp(12px, 2vw, 20px) clamp(16px, 3vw, 32px);
-    font-size: clamp(18px, 3.2vw, 45px);
+    padding: 0.75rem $space-1;
+    font-size: $font-text-mobile;
     letter-spacing: $letter-spacing-low;
+
+    @include responsive(tablet)
+    {
+        padding: $space-1 $space-2;
+        font-size: $font-card-mobile;
+    }
+
+    @include responsive(desktop)
+    {
+        padding: $space-1 $space-3;
+        font-size: $font-card-desktop;
+    }
 }

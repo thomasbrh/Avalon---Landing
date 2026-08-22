@@ -21,15 +21,49 @@
 
 
 // base
+*,
+*::before,
+*::after
+{
+  box-sizing: border-box;
+}
+
 html
 {
-  overflow-x: hidden;
+  font-size: 100%;
+  background: $color-bg-deep;
+
+  @include responsive(tablet)
+  {
+    font-size: 112.5%;
+  }
+
+  @include responsive(desktop)
+  {
+    font-size: 131.25%;
+  }
 }
 
 body
 {
-  overflow-x: hidden;
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
   background: $color-bg-deep;
+}
+
+img,
+video,
+canvas
+{
+  display: block;
+  max-width: 100%;
+}
+
+a:focus-visible
+{
+  outline: 2px solid $color-accent-gold;
+  outline-offset: 4px;
 }
 
 
@@ -38,12 +72,42 @@ body
 .section 
 { 
     width: 100%; 
+    position: relative;
+    isolation: isolate;
+    overflow: clip;
 }
 
 .section__inner
 {
-    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: $space-3;
+    position: relative;
+    z-index: 1;
     width: 100%;
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: $space-3 $space-1;
+
+    @include responsive(tablet)
+    {
+        gap: $space-3;
+        padding: $space-4 $space-2;
+    }
+
+    @include responsive(desktop)
+    {
+        gap: $space-4;
+        padding: $space-4 $space-3;
+    }
+}
+
+.section__inner > *,
+.section__head,
+.section__content,
+.section__body
+{
+    min-width: 0;
 }
 
 
@@ -57,10 +121,18 @@ body
     line-height: $line-height-base;
     pointer-events: none;
     user-select: none;
-    font-size: clamp(72px, 18vw, 220px);
+    font-size: $font-number-mobile;
 
     @include responsive(tablet) 
     { 
+        font-size: $font-number-tablet;
         line-height: 0.95; 
     }
+
+    @include responsive(desktop)
+    {
+        font-size: $font-number-desktop;
+    }
 }
+
+

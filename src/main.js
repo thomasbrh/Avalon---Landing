@@ -25,6 +25,26 @@ if (document.getElementById('hero-canvas'))
 
 
 /**
+ * bandeau infini
+ */
+document.querySelectorAll('.bandeau__list').forEach(list =>
+{
+    const content = list.innerHTML.trim();
+
+    if (!content || list.querySelector('.bandeau__track'))
+    {
+        return;
+    }
+
+    list.innerHTML = `
+        <div class="bandeau__track">${content}</div>
+        <div class="bandeau__track">${content}</div>
+    `;
+});
+
+
+
+/**
  * animations
  * */
 gsap.registerPlugin(ScrollTrigger);
@@ -42,7 +62,8 @@ gsap.from('.header > *',
     y: -60,
     duration: 0.5, 
     ease: 'power2.out', 
-    stagger: 0.1
+    stagger: 0.1,
+    clearProps: 'transform'
 });
 
 /* hero text */
@@ -52,7 +73,8 @@ gsap.from('.hero__text',
     opacity: 0, 
     duration: 0.8, 
     ease: 'power3.out', 
-    delay: 0.3
+    delay: 0.3,
+    clearProps: 'transform,opacity'
 });
 
 
@@ -68,6 +90,7 @@ gsap.utils.toArray('.section__head, .section__content').forEach(el =>
         opacity: 0, 
         duration: 0.6, 
         ease: 'power2.out',
+        clearProps: 'transform,opacity',
 
         scrollTrigger: 
         { 
@@ -89,6 +112,7 @@ gsap.utils.toArray('.section__body').forEach(el =>
             opacity: 0, 
             duration: 0.6,
             ease: 'power2.out',
+            clearProps: 'transform,opacity',
             
             scrollTrigger: 
             { 
@@ -109,6 +133,7 @@ gsap.utils.toArray('[data-animate="cards"]').forEach(container =>
         duration: 0.6, 
         stagger: 0.1, 
         ease: 'power2.out',
+        clearProps: 'transform,opacity',
 
         scrollTrigger: 
         { 
@@ -120,17 +145,18 @@ gsap.utils.toArray('[data-animate="cards"]').forEach(container =>
 });
 
 /* img */
-gsap.utils.toArray('[data-animate="image"] img').forEach(img =>
+gsap.utils.toArray('[data-animate="image"] .section__img-frame').forEach(frame =>
 {
-    gsap.from(img,
+    gsap.from(frame,
     {
-        scale: 1.05, 
+        y: 24,
         opacity: 0, 
         duration: 0.9, 
         ease: 'power2.out',
+        clearProps: 'transform,opacity',
 
         scrollTrigger: 
-        { trigger: img, 
+        { trigger: frame, 
             start: 'top 80%', 
             once: true 
         }
@@ -146,6 +172,7 @@ if (document.querySelector('[data-animate="cta"]'))
         opacity: 0, 
         duration: 0.8, 
         ease: 'power2.out',
+        clearProps: 'transform,opacity',
 
         scrollTrigger: 
         { 
@@ -157,12 +184,12 @@ if (document.querySelector('[data-animate="cta"]'))
 }
 
 /* footer */
-gsap.from('.footer',
+gsap.from('.footer__inner, .footer__copy',
 {
-    y: 20, 
     opacity: 0, 
     duration: 0.6, 
     ease: 'power2.out',
+    clearProps: 'opacity',
     
     scrollTrigger: 
     { 

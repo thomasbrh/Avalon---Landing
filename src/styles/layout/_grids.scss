@@ -1,3 +1,4 @@
+@use '../utils/variables' as *;
 @use '../utils/responsive' as *;
 
 
@@ -15,7 +16,7 @@
 @mixin grid-cols($count, $gap: 1rem) 
 {
     display: grid;
-    grid-template-columns: repeat($count, 1fr);
+    grid-template-columns: repeat($count, minmax(0, 1fr));
     gap: $gap;
 }
 
@@ -28,6 +29,18 @@
     width: 100%;
     display: grid;
     grid-template-columns: 1fr;
+    gap: $space-1;
+
+    @include responsive(tablet)
+    {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    @include responsive(desktop)
+    {
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: $space-2;
+    }
 }
 
 .grid > * 
@@ -47,9 +60,9 @@
 .grid-flex 
 {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: space-between;
-    gap: 1rem;
+    gap: $space-1;
 }
 
 .flex-start 

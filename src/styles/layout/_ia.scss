@@ -4,71 +4,25 @@
 
 
 /* page ia */
-.section--ia-gemini
+.section--ia-gemini,
+.section--ia-chatgpt
 {
-    background: $color-bg-deep;
-
-
-    .section__inner
-    {
-        display: flex;
-        flex-direction: column;
-        gap: 48px;
-        padding: 24px 16px;
-
-        @include responsive(desktop)
-        {
-            padding: 96px;
-        }
-    }
-
-
     .section__head
     {
         display: flex;
         flex-direction: column;
-        gap: 18px;
-
-        @include responsive(desktop)
-        {
-            gap: 24px;
-            padding-left: 120px;
-        }
+        gap: $space-1;
     }
 }
 
+.section--ia-gemini
+{
+    background: $color-bg-deep;
+}
 
 .section--ia-chatgpt
 {
     background: $color-bg-surface;
-
-
-    .section__inner
-    {
-        display: flex;
-        flex-direction: column;
-        gap: 48px;
-        padding: 24px 16px;
-
-        @include responsive(desktop)
-        {
-            padding: 96px;
-        }
-    }
-
-
-    .section__head
-    {
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
-
-        @include responsive(desktop)
-        {
-            gap: 24px;
-            padding-left: 120px;
-        }
-    }
 }
 
 
@@ -78,16 +32,16 @@
 {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: $space-2;
 
     @include responsive(tablet)
     {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     @include responsive(desktop)
     {
-        grid-template-columns: repeat(3, 1fr);
-        padding-left: 120px;
+        grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+        gap: $space-3;
     }
 }

@@ -3,207 +3,147 @@
 
 
 
-/* page crédits */
-/* section 1 — art 3d */
-.section--credits-art
+/* sections credits */
+.section--credits-art,
+.section--credits-sound,
+.section--credits-dev,
+.section--credits-merci
 {
-    background: $color-bg-deep;
-
-
-    .section__inner
-    {
-        display: flex;
-        flex-direction: column;
-        gap: 48px;
-        padding: 24px 16px;
-
-        @include responsive(desktop)
-        {
-            padding: 96px;
-        }
-    }
-
-
-    .section__head
-    {
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
-
-        @include responsive(desktop)
-        {
-            gap: 24px;
-            padding-left: 120px;
-        }
-    }
-
-
+    .section__head,
+    .section__content,
     .section__body
     {
         display: flex;
         flex-direction: column;
-        gap: 48px;
-        align-items: flex-end;
-
-        @include responsive(desktop)
-        {
-            flex-direction: row;
-            align-items: flex-start;
-            padding-left: 120px;
-        }
+        gap: $space-1;
     }
-}
-
-
-
-/* section 2 — sound design */
-.section--credits-sound
-{
-    background: $color-bg-surface;
-
-
-    .section__inner
-    {
-        display: flex;
-        flex-direction: column;
-        gap: 48px;
-        padding: 24px 16px;
-
-        @include responsive(desktop)
-        {
-            flex-direction: row;
-            align-items: flex-start;
-            gap: 96px;
-            padding: 96px;
-        }
-    }
-
-
-    .section__content
-    {
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-    }
-
 
     .section__body
     {
-        display: flex;
-        flex-direction: column;
-        gap: 48px;
-        align-items: flex-end;
+        gap: $space-2;
+    }
+
+    .number
+    {
+        align-self: flex-end;
     }
 }
 
-
-
-/* section 3 — developpement */
+.section--credits-art,
 .section--credits-dev
 {
     background: $color-bg-deep;
-
-
-    .section__inner
-    {
-        display: flex;
-        flex-direction: column;
-        gap: 48px;
-        padding: 24px 16px;
-
-        @include responsive(desktop)
-        {
-            padding: 96px;
-        }
-    }
-
-
-    .section__head
-    {
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
-
-        @include responsive(desktop)
-        {
-            gap: 24px;
-            padding-left: 120px;
-        }
-    }
-
-
-    .section__body
-    {
-        display: flex;
-        flex-direction: column;
-        gap: 48px;
-        align-items: flex-end;
-
-        @include responsive(desktop)
-        {
-            flex-direction: row;
-            align-items: flex-start;
-            padding-left: 120px;
-        }
-    }
 }
 
-
-
-/* section 4 — merci */
+.section--credits-sound,
 .section--credits-merci
 {
     background: $color-bg-surface;
+}
 
 
-    .section__inner
-    {
-        display: flex;
-        flex-direction: column;
-        gap: 48px;
-        padding: 24px 16px;
 
-        @include responsive(desktop)
-        {
-            padding: 96px;
-        }
-    }
-
-
-    .section__head
-    {
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
-
-        @include responsive(desktop)
-        {
-            gap: 24px;
-            padding-left: 120px;
-        }
-    }
-
-
+/* section 1 - art 3d */
+.section--credits-art
+{
     .section__body
     {
-        display: flex;
-        flex-direction: column;
-        gap: 48px;
-        align-items: flex-end;
-
         @include responsive(desktop)
         {
-            flex-direction: row;
-            align-items: flex-start;
-            padding-left: 120px;
+            display: grid;
+            grid-template-columns: auto minmax(0, 1fr);
+            align-items: start;
+            gap: $space-3;
+        }
+    }
+
+    .number
+    {
+        @include responsive(desktop)
+        {
+            align-self: start;
         }
     }
 }
 
+
+
+/* section 2 - sound design */
+.section--credits-sound
+{
+    .section__inner
+    {
+        @include responsive(desktop)
+        {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.8fr);
+            align-items: start;
+            gap: $space-4;
+        }
+    }
+}
+
+
+
+/* section 3 - developpement */
+.section--credits-dev
+{
+    .section__body
+    {
+        @include responsive(desktop)
+        {
+            flex-direction: row;
+            align-items: flex-start;
+            gap: $space-3;
+        }
+    }
+
+    .paragraph
+    {
+        @include responsive(desktop)
+        {
+            flex: 0 1 $paragraph-width-desktop;
+        }
+    }
+
+    .number
+    {
+        @include responsive(desktop)
+        {
+            order: -1;
+            align-self: flex-start;
+        }
+    }
+}
+
+
+
+/* section 4 - remerciements */
+.section--credits-merci
+{
+    .section__body
+    {
+        @include responsive(desktop)
+        {
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: flex-end;
+            gap: $space-3;
+        }
+    }
+
+    .number
+    {
+        @include responsive(desktop)
+        {
+            align-self: flex-start;
+        }
+    }
+}
 
 .credits-names
 {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: $space-half;
 }

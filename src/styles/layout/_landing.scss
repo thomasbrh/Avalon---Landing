@@ -3,159 +3,129 @@
 
 
 
+/* sections communes */
+.section--contexte,
+.section--env,
+.section--vision,
+.section--experience
+{
+    .section__head,
+    .section__content,
+    .section__body
+    {
+        display: flex;
+        flex-direction: column;
+        gap: $space-1;
+    }
+
+    .number
+    {
+        align-self: flex-end;
+    }
+}
+
+
+
 /* section 1 - contexte */
-.section--contexte 
-{ 
-    background: $color-bg-deep; 
-
-
-    .section__inner
-    {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-        padding: clamp(48px, 8vw, 96px) clamp(16px, 6vw, 96px);
-
-        @include responsive(tablet) 
-        { 
-            gap: 56px; 
-        }
-
-        @include responsive(desktop)
-        {
-            flex-direction: row;
-            align-items: flex-end;
-            gap: 72px;
-        }
-    }
-
-
-    .section__head
-    {
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
-
-        @include responsive(desktop)
-        {
-            gap: 24px;
-            border-right: 2px solid $color-border-rose;
-            padding-right: 48px;
-        }
-    }
-
+.section--contexte
+{
+    background: $color-bg-deep;
 
     .section__content
     {
-        display: flex;
-        flex-direction: column;
-        gap: 32px;
-        align-items: flex-end;
+        gap: $space-2;
 
-        @include responsive(tablet) 
-        { 
-            gap: 40px; 
-        }
-
-        @include responsive(desktop) 
-        { 
-            gap: 48px;
-            flex: 1; 
-        }
-
-        
-        .number
+        @include responsive(desktop)
         {
-            @include responsive(desktop) 
-            { 
-                order: -1; 
-            }
+            display: grid;
+            grid-template-columns: minmax(0, $paragraph-width-desktop) auto;
+            justify-content: end;
+            align-items: end;
+            gap: $space-3;
         }
     }
 }
 
 
 
-/* section 2 - environement*/
-.section--env 
-{ 
-    background: $color-bg-surface; 
-
+/* section 2 - environnement */
+.section--env
+{
+    background: $color-bg-surface;
 
     .section__inner
     {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-        padding: clamp(48px, 8vw, 96px) clamp(16px, 6vw, 96px);
-
-        @include responsive(tablet) 
-        { 
-            gap: 56px; 
-        }
-
         @include responsive(desktop)
         {
-            flex-direction: row;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.9fr);
             align-items: center;
-            gap: 96px;
+            gap: $space-4;
         }
     }
-
 
     .section__content
     {
-        display: flex;
-        flex-direction: column;
-        gap: 32px;
-        align-items: flex-start;
-
-        @include responsive(tablet) 
-        { 
-            gap: 40px; 
-        }
-
-        @include responsive(desktop) 
-        { 
-            gap: 48px;
-            flex: 1; 
-        }
-
-
-        .number 
-        { 
-            align-self: flex-end; 
-        }
+        gap: $space-2;
     }
-
 
     .section__img
     {
         display: grid;
-        gap: 24px;
+        grid-template-columns: 1fr;
+        gap: $space-1;
 
         @include responsive(tablet)
         {
-            gap: 32px;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: $space-2;
         }
 
-        @include responsive(desktop) 
-        { 
-            flex: 1; 
-            gap: 48px;
+        @include responsive(desktop)
+        {
             grid-template-columns: 1fr;
         }
+    }
 
+    .section__img-frame
+    {
+        margin: 0;
+        aspect-ratio: 3 / 2;
+        overflow: hidden;
+        border-radius: $space-1;
+        border: 2px solid $color-border-rose;
 
+        @include responsive(desktop)
+        {
+            border-radius: $space-2;
+        }
+
+        &:hover img
+        {
+            transform: scale(1.08);
+        }
+    }
+
+    img
+    {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.8s ease;
+        transform-origin: center;
+        will-change: transform;
+    }
+
+    @media (prefers-reduced-motion: reduce)
+    {
         img
         {
-            width: 100%;
-            aspect-ratio: 3 / 2;
-            object-fit: cover;
-            border-radius: clamp(24px, 4vw, 48px);
-            border: 2px solid $color-border-rose;
-            display: block;
+            transition: none;
+        }
+
+        .section__img-frame:hover img
+        {
+            transform: none;
         }
     }
 }
@@ -163,145 +133,80 @@
 
 
 /* section 3 - vision */
-.section--vision 
-{ 
-    background: $color-bg-deep; 
-
-
-    .section__inner
-    {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-        padding: clamp(48px, 8vw, 96px) clamp(16px, 6vw, 96px);
-
-        @include responsive(tablet) 
-        { 
-            gap: 56px; 
-        }
-
-        @include responsive(desktop) 
-        { 
-            gap: 72px; 
-        }
-    }
-
-
-    .section__head
-    {
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
-
-        @include responsive(desktop)
-        {
-            gap: 24px;
-            padding-left: clamp(72px, 8vw, 120px);
-        }
-    }
-
+.section--vision
+{
+    background: $color-bg-deep;
 
     .section__body
     {
-        display: flex;
-        flex-direction: column;
-        gap: 32px;
-        align-items: flex-end;
-
-        @include responsive(tablet) 
-        { 
-            gap: 40px; 
-        }
+        gap: $space-2;
 
         @include responsive(desktop)
         {
             flex-direction: row;
             align-items: flex-start;
-            gap: 48px;
-            padding-left: clamp(72px, 8vw, 120px);
+            gap: $space-3;
         }
+    }
 
-
-        .number
+    .paragraph
+    {
+        @include responsive(desktop)
         {
-            @include responsive(desktop) 
-            { 
-                order: -1; 
-            }
+            flex: 0 1 $paragraph-width-desktop;
+        }
+    }
+
+    .number
+    {
+        @include responsive(desktop)
+        {
+            order: -1;
+            align-self: flex-start;
         }
     }
 }
 
 
 
-/* section 4 - expérience */
-.section--experience 
-{ 
-    display: flex; 
-    flex-direction: column; 
-
+/* section 4 - experience */
+.section--experience
+{
+    display: flex;
+    flex-direction: column;
 
     .section__top
     {
         background: $color-bg-surface;
         border-bottom: 1px solid $color-border-gold;
-
-        @include responsive(desktop) 
-        { 
-            border-bottom: none; 
-        }
-    }
-
-
-    .section__inner
-    {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-        padding: clamp(48px, 8vw, 96px) clamp(16px, 6vw, 96px);
-
-        @include responsive(tablet) 
-        { 
-            gap: 56px; 
-        }
-
-        @include responsive(desktop) 
-        { 
-            gap: 72px; 
-        }
-    }
-
-    .section__head
-    {
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
-
-        @include responsive(desktop)
-        {
-            gap: 24px;
-            padding-left: clamp(72px, 8vw, 120px);
-        }
     }
 
     .section__body
     {
-        display: flex;
-        flex-direction: column;
-        gap: 32px;
-        align-items: flex-end;
-
-        @include responsive(tablet) 
-        { 
-            gap: 40px; 
-        }
+        gap: $space-2;
 
         @include responsive(desktop)
         {
             flex-direction: row;
             align-items: flex-start;
-            gap: 48px;
-            padding-left: clamp(72px, 8vw, 120px);
+            justify-content: flex-end;
+            gap: $space-3;
+        }
+    }
+
+    .paragraph
+    {
+        @include responsive(desktop)
+        {
+            flex: 0 1 $paragraph-width-desktop;
+        }
+    }
+
+    .number
+    {
+        @include responsive(desktop)
+        {
+            align-self: flex-start;
         }
     }
 }
@@ -312,18 +217,14 @@
 .cta__video
 {
     position: relative;
-    height: clamp(327px, 65vw, 964px);
+    width: 100%;
+    min-height: 18rem;
+    max-height: 34rem;
+    aspect-ratio: 16 / 7;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-
-
-    .btn--large 
-    { 
-        position: relative; 
-        z-index: 1; 
-    }
 }
 
 .cta__video-bg
@@ -333,4 +234,10 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.cta__video .btn--large
+{
+    position: relative;
+    z-index: 1;
 }
