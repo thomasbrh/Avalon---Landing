@@ -57,7 +57,7 @@
         <main>
 
             <!-- hero -->
-            <header class="hero" aria-label="Crédits IA">
+            <header class="hero hero--editorial hero--ia" aria-label="Crédits IA">
                 <canvas id="hero-canvas" aria-hidden="true"></canvas>
 
                 <div class="hero__text" data-animate="hero">
@@ -75,9 +75,6 @@
                     <span class="hero__scroll">Défiler</span>
                 </div>
 
-                <div class="hero__note" aria-label="Note sur l'utilisation de l'IA">
-                    <p>L'IA n'a jamais été utilisée à des fins de création. Mais à la recherche et le dépassement des acquis.</p>
-                </div>
             </header>
 
 
@@ -105,98 +102,128 @@
             </div>
 
 
-            <!-- section 1 - gemini -->
-            <section class="section section--ia-gemini" id="gemini">
-                <div class="section__inner">
-
-                    <div class="section__head">
-                        <p class="subtitle__tag">Utilisation IA</p>
-                        <h2 class="title-h2">Gemini Pro</h2>
+            <!-- positionnement -->
+            <section class="section ia-statement" id="demarche">
+                <div class="ia-statement__inner">
+                    <div class="ia-section__meta">
+                        <span>00 - 02</span>
+                        <span>Démarche</span>
+                        <span>Transparence</span>
                     </div>
 
-                    <div class="section__body section__body--prompts" data-animate="cards">
+                    <header class="ia-statement__heading">
+                        <p class="subtitle__tag">Une aide bénéfique</p>
+                        <h2 class="ia-statement__title">
+                            <span>Assister,</span>
+                            <span class="text-accent">sans créer.</span>
+                        </h2>
+                    </header>
 
-                        <article class="card">
+                    <p class="lead ia-statement__copy">L'IA n'a jamais été utilisée à des fins de création. Mais à la recherche et le dépassement des acquis.</p>
+                </div>
+            </section>
+
+
+            <!-- section 1 - gemini -->
+            <section class="section ia-section ia-section--gemini" id="gemini">
+                <div class="ia-section__inner">
+                    <div class="ia-section__meta">
+                        <span>01 - 02</span>
+                        <span>Gemini Pro</span>
+                        <span>04 échanges</span>
+                    </div>
+
+                    <header class="ia-section__heading">
+                        <p class="subtitle__tag">Utilisation IA</p>
+                        <h2 class="ia-section__title">
+                            <span>Gemini</span>
+                            <span class="text-accent">Pro</span>
+                        </h2>
+                    </header>
+
+                    <div class="ia-prompts" data-animate="cards">
+                        <article class="card ia-prompt">
+                            <span class="ia-prompt__index" aria-hidden="true">01</span>
                             <div class="card__model">
                                 <p class="card__name">Gemini 3.1 Pro</p>
                                 <p class="card__role">Audio</p>
                             </div>
-
                             <p class="card__prompt">J'ai décidé de déplacer ce qui concerne la gestion de l'audio dans audioManager et ce qui est de l'initialisation dans experience (qui n'a pas bougé) mais j'ai des bugs, du coup tu sais m'aider à résoudre toutes les erreurs ?</p>
                         </article>
 
-                        <article class="card">
+                        <article class="card ia-prompt">
+                            <span class="ia-prompt__index" aria-hidden="true">02</span>
                             <div class="card__model">
                                 <p class="card__name">Gemini 3.1 Pro</p>
                                 <p class="card__role">Audio</p>
                             </div>
-
                             <p class="card__prompt">Qu'est-ce qui me manque pour synchroniser le texte et les dialogues sans casser mon système de skip déjà établi ?</p>
                         </article>
 
-                        <article class="card">
+                        <article class="card ia-prompt">
+                            <span class="ia-prompt__index" aria-hidden="true">03</span>
                             <div class="card__model">
                                 <p class="card__name">Gemini 3.1 Pro</p>
                                 <p class="card__role">Audio</p>
                             </div>
-
                             <p class="card__prompt">Que me conseilles-tu pour résoudre mon problème de synchronisation audio/texte ?</p>
                         </article>
 
-                        <article class="card">
+                        <article class="card ia-prompt">
+                            <span class="ia-prompt__index" aria-hidden="true">04</span>
                             <div class="card__model">
                                 <p class="card__name">Gemini 3.1 Pro</p>
                                 <p class="card__role">HTML</p>
                             </div>
-
                             <p class="card__prompt">Est-ce que c'est possible de vérifier si une page est déjà ouverte dans un navigateur en HTML pour éviter d'ouvrir un onglet à chaque clic ?</p>
                         </article>
-
                     </div>
-
                 </div>
             </section>
 
-            <!-- section 2 - chatGPT -->
-            <section class="section section--ia-chatgpt" id="chatgpt">
-                <div class="section__inner">
 
-                    <div class="section__head">
-                        <p class="subtitle__tag">Utilisation IA</p>
-                        <h2 class="title-h2">ChatGPT</h2>
+            <!-- section 2 - chatGPT -->
+            <section class="section ia-section ia-section--chatgpt" id="chatgpt">
+                <div class="ia-section__inner">
+                    <div class="ia-section__meta">
+                        <span>02 - 02</span>
+                        <span>ChatGPT</span>
+                        <span>03 échanges</span>
                     </div>
 
-                    <div class="section__body section__body--prompts" data-animate="cards">
+                    <header class="ia-section__heading ia-section__heading--end">
+                        <p class="subtitle__tag">Utilisation IA</p>
+                        <h2 class="ia-section__title">ChatGPT</h2>
+                    </header>
 
-                        <article class="card">
+                    <div class="ia-prompts ia-prompts--chatgpt" data-animate="cards">
+                        <article class="card ia-prompt">
+                            <span class="ia-prompt__index" aria-hidden="true">01</span>
                             <div class="card__model">
                                 <p class="card__name">ChatGPT 4.5</p>
                                 <p class="card__role">Shaders GLSL</p>
                             </div>
-
                             <p class="card__prompt">Modifie mon fragments.glsl pour que le centre soit transparent et en forme de bulle avec une variable scale pour mon état hover.</p>
                         </article>
 
-                        <article class="card">
+                        <article class="card ia-prompt">
+                            <span class="ia-prompt__index" aria-hidden="true">02</span>
                             <div class="card__model">
                                 <p class="card__name">ChatGPT 4.5</p>
                                 <p class="card__role">Shaders GLSL</p>
                             </div>
-
                             <p class="card__prompt">Modifie mon fragment.glsl pour te concentrer sur une seule orbe et ajoute une variable aléatoire pour que je puisse randomiser un déplacement.</p>
                         </article>
 
-                        <article class="card">
+                        <article class="card ia-prompt">
+                            <span class="ia-prompt__index" aria-hidden="true">03</span>
                             <div class="card__model">
                                 <p class="card__name">ChatGPT 5.5</p>
                                 <p class="card__role">Blender</p>
                             </div>
-
                             <p class="card__prompt">Comment est-ce que je devrais m'y prendre si je voulais récupérer des empties enregistrées dans un glb ?</p>
                         </article>
-
                     </div>
-
                 </div>
             </section>
 
