@@ -1,5 +1,5 @@
-@use '../utils/variables' as *;
-@use '../utils/responsive' as *;
+@use '../commun/variables' as *;
+@use '../commun/responsive' as *;
 
 
 
@@ -102,7 +102,7 @@
     {
         @include responsive(desktop)
         {
-            flex: 0 1 $paragraph-width-desktop;
+            flex: 0 1 $paragraph-width;
         }
     }
 

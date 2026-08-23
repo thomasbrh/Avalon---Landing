@@ -1,105 +1,102 @@
-// utils
 @use "modern-normalize" as *;
-@use "utils/variables" as *;
-@use "utils/responsive" as *;
 
-// layout
-@use "layout/grids" as *;
+// pour la landing et l'expérience
+@use "commun/variables" as *;
+@use "commun/responsive" as *;
+@use "commun/grid" as *;
+@use "commun/typography" as *;
+@use "commun/button" as *;
+@use "commun/header" as *;
+
+// composition propre à la landing
 @use "layout/hero";
-@use "layout/header";
+@use "layout/landing";
 @use "layout/footer";
 @use "layout/cards";
-
-// pages
-@use "layout/landing";
 @use "layout/credits";
 @use "layout/ia";
 
-// composants
-@use "components/typography";
-@use "components/button";
-
-
-// base
 *,
 *::before,
 *::after
 {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html
 {
-  font-size: 100%;
-  background: $color-bg-deep;
+    font-size: 16px;
+    background: $color-bg-deep;
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+}
 
-  @include responsive(tablet)
-  {
-    font-size: 112.5%;
-  }
-
-  @include responsive(desktop)
-  {
-    font-size: 131.25%;
-  }
+html.menu-open
+{
+    overflow: hidden;
 }
 
 body
 {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  background: $color-bg-deep;
+    min-width: 0;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    background: $color-bg-deep;
+    color: $color-text-title;
+    font-family: $font-secondary;
+}
+
+main
+{
+    overflow: clip;
 }
 
 img,
 video,
 canvas
 {
-  display: block;
-  max-width: 100%;
+    display: block;
+    max-width: 100%;
 }
 
-a:focus-visible
+button,
+a
 {
-  outline: 2px solid $color-accent-gold;
-  outline-offset: 4px;
+    -webkit-tap-highlight-color: transparent;
 }
 
+a:focus-visible,
+button:focus-visible
+{
+    outline: 2px solid $color-accent-gold;
+    outline-offset: 4px;
+}
 
+::selection
+{
+    background: $color-accent-gold;
+    color: $color-bg-deep;
+}
 
-/* section */
-.section 
-{ 
-    width: 100%; 
+.section
+{
     position: relative;
+    width: 100%;
     isolation: isolate;
     overflow: clip;
 }
 
 .section__inner
 {
-    display: flex;
-    flex-direction: column;
-    gap: $space-3;
     position: relative;
     z-index: 1;
-    width: 100%;
-    max-width: 72rem;
-    margin: 0 auto;
-    padding: $space-3 $space-1;
-
-    @include responsive(tablet)
-    {
-        gap: $space-3;
-        padding: $space-4 $space-2;
-    }
-
-    @include responsive(desktop)
-    {
-        gap: $space-4;
-        padding: $space-4 $space-3;
-    }
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2.25rem, 5vw, 4.5rem);
+    width: min(100%, $container-max);
+    margin-inline: auto;
+    padding: clamp(3rem, 8vw, 7.5rem) clamp(1rem, 4vw, 4rem);
 }
 
 .section__inner > *,
@@ -110,29 +107,54 @@ a:focus-visible
     min-width: 0;
 }
 
+.section__head,
+.section__content,
+.section__body
+{
+    display: flex;
+    flex-direction: column;
+    gap: $space-2;
+}
 
-
-/* number */
 .number
 {
+    margin: 0;
+    color: rgba($color-accent-gold, 0.25);
     font-family: $font-primary;
-    color: $color-accent-gold;
-    opacity: $opacity-low;
-    line-height: $line-height-base;
+    font-size: $font-display;
+    line-height: 0.9;
     pointer-events: none;
     user-select: none;
-    font-size: $font-number-mobile;
+}
 
-    @include responsive(tablet) 
-    { 
-        font-size: $font-number-tablet;
-        line-height: 0.95; 
-    }
+.br-mobile
+{
+    display: inline;
 
-    @include responsive(desktop)
+    @include responsive(tablet)
     {
-        font-size: $font-number-desktop;
+        display: none;
     }
 }
 
+.visually-hidden
+{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
 
+@media (prefers-reduced-motion: reduce)
+{
+    html
+    {
+        scroll-behavior: auto;
+    }
+
+}

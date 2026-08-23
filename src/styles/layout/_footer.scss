@@ -1,95 +1,96 @@
-@use '../utils/variables' as *;
-@use '../utils/responsive' as *;
+@use '../commun/variables' as *;
+@use '../commun/responsive' as *;
 
-
-
-/* footer */
 .footer
 {
-    background: $color-bg-surface;
     overflow: hidden;
-
-    @include responsive(desktop)
-    {
-        border-top: 2px solid $color-border-gold;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding-bottom: $space-1;
-    }
+    border-top: 1px solid $color-border-gold;
+    background: $color-bg-surface;
 }
-
 
 .footer__inner
 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
+    width: min(100%, $container-max);
+    margin-inline: auto;
     gap: $space-2;
-    padding: $space-2 $space-1;
-    border-bottom: 1px solid $color-border-gold;
+    padding: $space-4 clamp(1rem, 4vw, 4rem);
 
     @include responsive(tablet)
     {
         grid-template-columns: 1fr auto 1fr;
-        padding: $space-3 $space-2;
+        padding-block: $space-5;
     }
 
     @include responsive(desktop)
     {
-        gap: $space-3;
-        padding: $space-3;
-        border-bottom: none;
+        gap: $space-4;
     }
 }
 
-
-
-/* nav + social*/
 .footer__social,
 .footer__nav
 {
     display: flex;
     flex-direction: column;
+    gap: 0.15rem;
     text-transform: uppercase;
+}
 
-    a
+.footer__social a,
+.footer__nav a
+{
+    display: inline-flex;
+    align-items: center;
+    min-height: 2rem;
+    color: rgba($color-text-title, 0.75);
+    font-family: $font-secondary;
+    font-size: $font-tag;
+    line-height: 1.85;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+@media (hover: hover)
+{
+    .footer__social a:hover,
+    .footer__nav a:hover
     {
-        font-family: $font-secondary;
-        font-size: $font-tag-mobile;
-        line-height: $line-height-paragraph;
-        letter-spacing: $letter-spacing-low;
-        color: $color-text-muted;
-        text-decoration: none;
-        opacity: $opacity-high;
+        color: $color-accent-gold;
+    }
 
+    .footer__social a:hover
+    {
+        transform: translateX(0.25rem);
+    }
 
-        &:hover
-        {
-            text-decoration: underline;
-        }
-
-        @include responsive(desktop)
-        {
-            font-size: $font-tag-desktop;
-        }
+    .footer__nav a:hover
+    {
+        transform: translateX(-0.25rem);
     }
 }
-.footer__nav 
-{ 
-    align-items: flex-end; 
+
+.footer__nav a[aria-current='page']
+{
+    color: $color-accent-gold;
 }
 
+.footer__nav
+{
+    align-items: flex-end;
+    text-align: right;
+}
 
-
-/* middle */
 .footer__middle
 {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     grid-column: 1 / -1;
     order: -1;
+    flex-direction: column;
+    align-items: center;
 
     @include responsive(tablet)
     {
@@ -100,38 +101,23 @@
 
 .footer__logo
 {
-    font-family: $font-primary;
-    font-size: $font-card-mobile;
-    letter-spacing: $letter-spacing-low;
-    text-transform: uppercase;
     color: $color-accent-gold;
+    font-family: $font-primary;
+    font-size: clamp(1.5rem, 1.2rem + 1vw, 2.25rem);
+    letter-spacing: $tracking-label;
     text-decoration: none;
-
-    &:hover
-    {
-        opacity: $opacity-medium;
-    }
-
-    @include responsive(desktop)
-    {
-        font-size: $font-caption-desktop;
-    }
+    text-transform: uppercase;
 }
-
 
 .footer__copy
 {
-    font-family: $font-secondary;
-    font-size: $font-tag-mobile;
-    line-height: $line-height-paragraph;
-    color: $color-text-muted;
-    opacity: $opacity-high;
-    text-align: center;
     margin: 0;
-    padding: $space-1;
+    padding: 1rem clamp(1rem, 4vw, 4rem);
+    border-top: 1px solid $color-border-gold;
+    color: rgba($color-text-title, 0.75);
+    font-family: $font-secondary;
+    font-size: $font-tag;
+    line-height: 1.85;
+    text-align: center;
 
-    @include responsive(desktop) 
-    { 
-        padding: 0; 
-    }
 }

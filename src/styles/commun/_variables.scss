@@ -1,0 +1,42 @@
+/* typographies */
+$font-primary: 'Uncial Antiqua', serif;
+$font-secondary: 'Faculty Glyphic', sans-serif;
+
+/* palette */
+$color-bg-deep: #3D2A47;
+$color-bg-surface: #2D1E35;
+$color-accent-gold: #FAB56F;
+$color-accent-rose: #D4A0C0;
+$color-text-title: #E8E0D4;
+$color-text-paragraph: #E1C4F4;
+$color-text-white: #FFFFFF;
+$color-border-gold: rgba($color-accent-gold, 0.25);
+
+/* ratio typographique 1.5 */
+$font-tag: clamp(0.6875rem, 0.65rem + 0.16vw, 0.8125rem);
+$font-body: clamp(1rem, 0.96rem + 0.18vw, 1.125rem);
+$font-lead: clamp(1.5rem, 1.38rem + 0.52vw, 1.875rem);
+$font-h3: clamp(2.25rem, 2.02rem + 1vw, 2.8125rem);
+$font-h2: clamp(2.1rem, 1.25rem + 3.5vw, 4.4rem);
+$font-h1: clamp(2.25rem, 0.95rem + 5.33vw, 5.75rem);
+$font-display: clamp(4rem, 2.5rem + 6vw, 8rem);
+
+/* ratio spatial */
+$space-half: 0.375rem;
+$space-1: 0.75rem;
+$space-2: 1.5rem;
+$space-3: 2.25rem;
+$space-4: 3rem;
+$space-5: 3.75rem;
+$space-6: 4.5rem;
+$space-8: 6rem;
+$space-10: 7.5rem;
+
+/* composition */
+$container-max: 80rem;
+$paragraph-width: 36rem;
+$tracking-label: 0.12em;
+$tracking-copy: 0.025em;
+$radius-control: 0.25rem;
+$radius-panel: 0.375rem;
+$radius-media: 0.75rem;

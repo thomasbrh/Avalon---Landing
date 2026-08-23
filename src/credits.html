@@ -36,9 +36,21 @@
 
         <!-- navigation -->
         <nav class="header" aria-label="Navigation principale">
-            <a href="https://www.thomasbruch.be/portfolio/" class="header__credit" target="_blank" rel="noopener noreferrer">Thomas Bruch - TFE 2025-2026</a>
-            <a href="/" class="header__logo">Crédits</a>
-            <a href="https://avalon-gules.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn--small">Entrer</a>
+            <button class="chapter-menu__toggle" type="button" aria-label="Ouvrir le menu" aria-controls="chapter-menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <a href="/" class="header__logo">Avalon</a>
+            <div class="chapter-menu" id="chapter-menu">
+                <div class="chapter-menu__panel">
+                    <p class="chapter-menu__eyebrow">Crédits</p>
+                    <a class="chapter-menu__landing" href="https://avalon-gules.vercel.app" target="_blank" rel="noopener noreferrer">Retour expérience</a>
+                    <a class="chapter-menu__landing" href="/">Retour à la landing</a>
+                    <a class="chapter-menu__item is-active" href="credits.html" aria-current="page">Crédits</a>
+                    <a class="chapter-menu__item" href="ia.html">Utilisation de l'IA</a>
+                    <a href="https://www.thomasbruch.be/portfolio/" class="chapter-menu__credit" target="_blank" rel="noopener noreferrer">Thomas Bruch - TFE 2025-2026</a>
+                </div>
+            </div>
+            <a href="https://avalon-gules.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn--small header__action">Entrer</a>
         </nav>
 
         <!-- main -->
@@ -224,7 +236,7 @@
 
                 <nav class="footer__nav" aria-label="Navigation footer">
                     <a href="https://thomasbruch.be" target="_blank" rel="noopener noreferrer">Portfolio</a>
-                    <a href="credits.html">Crédits</a>
+                    <a href="credits.html" aria-current="page">Crédits</a>
                     <a href="ia.html">IA</a>
                 </nav>
 

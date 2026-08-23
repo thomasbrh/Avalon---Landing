@@ -1,9 +1,14 @@
-@use '../utils/variables' as *;
-@use '../utils/responsive' as *;
+@use '../commun/variables' as *;
+@use '../commun/responsive' as *;
 
+#contexte,
+#refuge,
+#vision,
+#experience
+{
+    scroll-margin-top: 5rem;
+}
 
-
-/* sections communes */
 .section--contexte,
 .section--env,
 .section--vision,
@@ -15,7 +20,7 @@
     {
         display: flex;
         flex-direction: column;
-        gap: $space-1;
+        gap: $space-2;
     }
 
     .number
@@ -24,45 +29,40 @@
     }
 }
 
-
-
-/* section 1 - contexte */
 .section--contexte
 {
     background: $color-bg-deep;
 
     .section__content
     {
-        gap: $space-2;
+        gap: $space-3;
+    }
 
-        @include responsive(desktop)
+    @include responsive(tablet)
+    {
+        .section__content
+        {
+            width: min(100%, 44rem);
+            margin-left: auto;
+        }
+    }
+
+    @include responsive(desktop)
+    {
+        .section__content
         {
             display: grid;
-            grid-template-columns: minmax(0, $paragraph-width-desktop) auto;
-            justify-content: end;
+            grid-template-columns: minmax(0, $paragraph-width) minmax(5rem, 8rem);
             align-items: end;
-            gap: $space-3;
+            width: auto;
+            gap: $space-4;
         }
     }
 }
 
-
-
-/* section 2 - environnement */
 .section--env
 {
     background: $color-bg-surface;
-
-    .section__inner
-    {
-        @include responsive(desktop)
-        {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.9fr);
-            align-items: center;
-            gap: $space-4;
-        }
-    }
 
     .section__content
     {
@@ -72,19 +72,8 @@
     .section__img
     {
         display: grid;
-        grid-template-columns: 1fr;
-        gap: $space-1;
-
-        @include responsive(tablet)
-        {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: $space-2;
-        }
-
-        @include responsive(desktop)
-        {
-            grid-template-columns: 1fr;
-        }
+        grid-template-columns: minmax(0, 1fr);
+        gap: $space-2;
     }
 
     .section__img-frame
@@ -92,18 +81,8 @@
         margin: 0;
         aspect-ratio: 3 / 2;
         overflow: hidden;
-        border-radius: $space-1;
-        border: 2px solid $color-border-rose;
-
-        @include responsive(desktop)
-        {
-            border-radius: $space-2;
-        }
-
-        &:hover img
-        {
-            transform: scale(1.08);
-        }
+        border: 1px solid rgba($color-accent-rose, 0.3);
+        border-radius: $radius-media;
     }
 
     img
@@ -111,65 +90,97 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.8s ease;
         transform-origin: center;
+        transition: transform 0.8s ease;
         will-change: transform;
     }
 
-    @media (prefers-reduced-motion: reduce)
+    @include responsive(tablet)
     {
-        img
+        .section__content
         {
-            transition: none;
+            width: min(100%, 44rem);
         }
 
-        .section__img-frame:hover img
+        .section__img
         {
-            transform: none;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    @include responsive(desktop)
+    {
+        .section__inner
+        {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.9fr);
+            align-items: center;
+            gap: $space-6;
+        }
+
+        .section__content
+        {
+            width: auto;
+        }
+
+        .section__img
+        {
+            grid-template-columns: minmax(0, 1fr);
         }
     }
 }
 
+@media (hover: hover)
+{
+    .section--env .section__img-frame:hover img
+    {
+        transform: scale(1.08);
+    }
+}
 
-
-/* section 3 - vision */
 .section--vision
 {
     background: $color-bg-deep;
 
     .section__body
     {
-        gap: $space-2;
+        gap: $space-3;
+    }
 
-        @include responsive(desktop)
+    @include responsive(tablet)
+    {
+        .section__body
         {
-            flex-direction: row;
-            align-items: flex-start;
-            gap: $space-3;
+            width: min(100%, 44rem);
+            margin-left: auto;
         }
     }
 
-    .paragraph
+    @include responsive(desktop)
     {
-        @include responsive(desktop)
+        .section__body
         {
-            flex: 0 1 $paragraph-width-desktop;
+            display: grid;
+            grid-template-columns: minmax(5rem, 8rem) minmax(0, $paragraph-width);
+            align-items: start;
+            width: auto;
+            gap: $space-4;
         }
-    }
 
-    .number
-    {
-        @include responsive(desktop)
+        .number
         {
-            order: -1;
-            align-self: flex-start;
+            grid-column: 1;
+            grid-row: 1;
+            align-self: start;
+        }
+
+        .paragraph
+        {
+            grid-column: 2;
         }
     }
 }
 
-
-
-/* section 4 - experience */
 .section--experience
 {
     display: flex;
@@ -177,54 +188,55 @@
 
     .section__top
     {
-        background: $color-bg-surface;
         border-bottom: 1px solid $color-border-gold;
+        background: $color-bg-surface;
     }
 
     .section__body
     {
-        gap: $space-2;
+        gap: $space-3;
+    }
 
-        @include responsive(desktop)
+    @include responsive(tablet)
+    {
+        .section__body
         {
-            flex-direction: row;
-            align-items: flex-start;
-            justify-content: flex-end;
-            gap: $space-3;
+            width: min(100%, 44rem);
+            margin-left: auto;
         }
     }
 
-    .paragraph
+    @include responsive(desktop)
     {
-        @include responsive(desktop)
+        .section__body
         {
-            flex: 0 1 $paragraph-width-desktop;
-        }
-    }
-
-    .number
-    {
-        @include responsive(desktop)
-        {
-            align-self: flex-start;
+            display: grid;
+            grid-template-columns: minmax(0, $paragraph-width) minmax(5rem, 8rem);
+            align-items: start;
+            width: auto;
+            gap: $space-4;
         }
     }
 }
 
-
-
-/* cta */
 .cta__video
 {
     position: relative;
-    width: 100%;
-    min-height: 18rem;
-    max-height: 34rem;
-    aspect-ratio: 16 / 7;
-    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    height: clamp(18rem, 45vw, 34rem);
+    overflow: hidden;
+}
+
+.cta__video::after
+{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba($color-bg-deep, 0.18);
+    pointer-events: none;
 }
 
 .cta__video-bg
@@ -240,4 +252,17 @@
 {
     position: relative;
     z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce)
+{
+    .section--env img
+    {
+        transition: none;
+    }
+
+    .section--env .section__img-frame:hover img
+    {
+        transform: none;
+    }
 }

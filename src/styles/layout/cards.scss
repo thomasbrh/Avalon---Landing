@@ -1,10 +1,6 @@
-@use '../utils/variables' as *;
-@use '../utils/responsive' as *;
-@use './grids' as *;
+@use '../commun/variables' as *;
+@use '../commun/responsive' as *;
 
-
-
-/* cartes */
 .credits-collabs
 {
     display: grid;
@@ -23,96 +19,56 @@
     }
 }
 
-.card
-{
-    display: flex;
-    flex-direction: column;
-    gap: $space-1;
-    min-width: 0;
-}
-
+.card,
 .card__identity,
-.card__model
-{
-    display: flex;
-    flex-direction: column;
-    gap: $space-1;
-}
-
-.card__name
-{
-    text-transform: uppercase;
-    padding-bottom: $space-half;
-    font-family: $font-secondary;
-    font-size: $font-card-mobile;
-    color: $color-text-title;
-    margin: 0;
-    overflow-wrap: break-word;
-
-    @include responsive(tablet)
-    {
-        font-size: $font-card-tablet;
-    }
-
-    @include responsive(desktop)
-    {
-        font-size: $font-card-desktop;
-    }
-}
-
-.card__role
-{
-    font-family: $font-secondary;
-    font-size: $font-tag-mobile;
-    text-transform: uppercase;
-    letter-spacing: $letter-spacing-muted;
-    color: $color-text-muted;
-    margin: 0;
-
-    @include responsive(tablet)
-    {
-        font-size: $font-tag-tablet;
-    }
-
-    @include responsive(desktop)
-    {
-        font-size: $font-tag-desktop;
-    }
-}
-
-.card__prompt, .card__description
-{
-    font-family: $font-secondary;
-    font-size: $font-text-mobile;
-    line-height: 1.65;
-    color: $color-text-paragraph;
-    margin: 0;
-    overflow-wrap: break-word;
-
-    @include responsive(tablet)
-    {
-        font-size: $font-text-tablet;
-    }
-
-    @include responsive(desktop)
-    {
-        font-size: $font-text-desktop;
-    }
-}
-
-
-
-/* voix */
-.credits-voix
-{
-    display: flex;
-    flex-direction: column;
-    gap: $space-2;
-}
-
+.card__model,
+.credits-voix,
 .card--voix
 {
     display: flex;
     flex-direction: column;
+    min-width: 0;
     gap: $space-1;
+}
+
+.credits-voix
+{
+    gap: $space-2;
+}
+
+.card
+{
+    padding-top: $space-2;
+    border-top: 1px solid $color-border-gold;
+}
+
+.card__name
+{
+    margin: 0;
+    color: $color-text-title;
+    font-family: $font-secondary;
+    font-size: $font-lead;
+    overflow-wrap: break-word;
+    text-transform: uppercase;
+}
+
+.card__role
+{
+    margin: 0;
+    color: $color-accent-rose;
+    font-family: $font-secondary;
+    font-size: $font-tag;
+    letter-spacing: $tracking-label;
+    text-transform: uppercase;
+}
+
+.card__prompt,
+.card__description
+{
+    margin: 0;
+    color: $color-text-paragraph;
+    font-family: $font-secondary;
+    font-size: $font-body;
+    line-height: 1.65;
+    overflow-wrap: break-word;
 }

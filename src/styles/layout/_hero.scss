@@ -1,51 +1,46 @@
-@use '../utils/variables' as *;
-@use '../utils/responsive' as *;
+@use '../commun/variables' as *;
+@use '../commun/responsive' as *;
 
-
-
-/* hero */
 .hero
 {
-    display: grid;
-    min-height: calc(100svh - #{$bandeau-height});
     position: relative;
-    background: $color-bg-deep;
+    display: grid;
+    min-height: calc(100svh - 3rem);
     overflow: clip;
+    background: $color-bg-deep;
 }
 
-/* canvas */
 #hero-canvas
 {
-    display: block;
     position: absolute;
+    z-index: 0;
+    inset: 0;
+    display: block;
     width: 100%;
     height: 100%;
-    inset: 0;
-    z-index: 0;
     background: transparent;
 }
 
 .hero__text
 {
     position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    text-align: center;
+    justify-content: center;
     min-height: inherit;
-    box-sizing: border-box;
-    padding: $space-5 $space-1 $space-4;
-    z-index: 1;
+    padding: 7rem 1rem 4.5rem;
+    text-align: center;
 
     @include responsive(tablet)
     {
-        padding: $space-5 $space-2 $space-4;
+        padding-inline: 2rem;
     }
 
     @include responsive(desktop)
     {
-        padding: $space-6 $space-3 $space-5;
+        padding: 8rem 3rem 5rem;
     }
 }
 
@@ -54,153 +49,101 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
     width: 100%;
-    gap: $space-half;
-
-    @include responsive(tablet) 
-    { 
-        gap: $space-1; 
-    }
-
-    @include responsive(desktop) 
-    { 
-        gap: $space-2; 
-    }
-
-
-    .hero__caption
-    {
-        margin-top: $space-1;
-    }
+    gap: clamp(0.5rem, 1.6vw, 1.5rem);
 }
-
 
 .hero__h1
-{ 
-    display: block; 
-    color: $color-text-title; 
+{
+    display: block;
     max-width: 100%;
+    color: $color-text-title;
     white-space: normal;
 }
-.hero__h1--accent 
-{ 
-    color: $color-accent-gold; 
-}
 
+.hero__h1--accent
+{
+    color: $color-accent-gold;
+}
 
 .hero__caption
 {
+    margin: clamp(0.5rem, 1.4vw, 1rem) 0 0;
+    color: $color-text-title;
     font-family: $font-secondary;
-    font-size: $font-caption-mobile;
-    line-height: $line-height-base;
-    letter-spacing: $letter-spacing-low;
+    font-size: clamp(1.125rem, 1rem + 0.55vw, 1.55rem);
+    line-height: 1.15;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: $color-text-muted;
-    margin: 0;
-
-    @include responsive(tablet)
-    {
-        font-size: $font-caption-tablet;
-    }
-
-    @include responsive(desktop)
-    {
-        font-size: $font-caption-desktop;
-    }
 }
-
 
 .hero__scroll
 {
     position: absolute;
-    bottom: $space-2;
+    bottom: 1.5rem;
+    color: $color-text-title;
     font-family: $font-secondary;
-    font-size: $font-tag-mobile;
-    letter-spacing: $letter-spacing-muted;
+    font-size: $font-tag;
+    letter-spacing: $tracking-label;
     text-transform: uppercase;
-    color: $color-text-muted;
 
     @include responsive(desktop)
     {
-        bottom: $space-3;
+        bottom: 2.25rem;
     }
 }
-
 
 .hero__note
 {
     display: none;
 
-    p
-    {
-        font-family: $font-secondary;
-        font-size: $font-text-mobile;
-        color: $color-text-paragraph;
-        line-height: $line-height-paragraph;
-        margin: 0;
-    }
-
     @include responsive(desktop)
     {
-        display: block;
         position: absolute;
-        bottom: $space-3;
-        right: $space-3;
-        width: min(24rem, calc(100% - #{$space-6}));
+        right: 3rem;
+        bottom: 3rem;
+        display: block;
+        width: min(24rem, calc(100% - 6rem));
     }
 }
 
+.hero__note p
+{
+    margin: 0;
+    color: $color-text-paragraph;
+    font-size: $font-body;
+    line-height: 1.75;
+}
 
-
-/* bandeau */
 .bandeau
 {
+    position: relative;
     display: flex;
     align-items: center;
-    flex-shrink: 0;
-    position: relative;
-    height: $bandeau-height;
+    height: 3rem;
     overflow: hidden;
-    overflow-x: clip;
     contain: layout paint;
-    padding: 0;
-
+    border-top: 1px solid rgba($color-text-title, 0.25);
+    border-bottom: 1px solid rgba($color-text-title, 0.25);
     background: $color-bg-surface;
-    border-top: 2px solid rgba($color-text-muted, $opacity-low);
-    border-bottom: 2px solid rgba($color-text-muted, $opacity-low);
 }
 
 .bandeau__list
 {
-    display: flex;
     position: absolute;
     top: 50%;
     left: 0;
+    display: flex;
     width: max-content;
-    flex: 0 0 auto;
+    color: rgba($color-text-title, 0.55);
     font-family: $font-primary;
-    font-size: $font-tag-mobile;
-    letter-spacing: $letter-spacing-low;
+    font-size: $font-tag;
     line-height: 1;
-    white-space: nowrap;
-    color: $color-text-muted;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-
-    opacity: $opacity-medium;
+    white-space: nowrap;
     animation: bandeau-scroll 35s linear infinite;
     will-change: transform;
-
-    @include responsive(tablet) 
-    { 
-        font-size: $font-tag-tablet;
-    }
-
-    @include responsive(desktop)
-    {
-        font-size: $font-tag-desktop;
-        letter-spacing: $letter-spacing-muted;
-    }
 }
 
 .bandeau__track
@@ -208,31 +151,25 @@
     display: flex;
     align-items: center;
     flex: 0 0 auto;
-    gap: $space-1;
-    padding-right: $space-1;
-
-    @include responsive(tablet) 
-    { 
-        gap: $space-2;
-        padding-right: $space-2;
-    }
-
-    @include responsive(desktop)
-    {
-        gap: $space-2;
-        padding-right: $space-2;
-    }
+    gap: $space-2;
+    padding-right: $space-2;
 }
 
 @keyframes bandeau-scroll
 {
-    from 
-    { 
-        transform: translate3d(0, -50%, 0);
+    from { transform: translate3d(0, -50%, 0); }
+    to { transform: translate3d(-50%, -50%, 0); }
+}
+
+@media (max-height: 560px) and (orientation: landscape)
+{
+    .hero__text
+    {
+        padding-block: 5.5rem 3.5rem;
     }
 
-    to 
-    { 
-        transform: translate3d(-50%, -50%, 0);
+    .hero__scroll
+    {
+        bottom: 0.75rem;
     }
 }

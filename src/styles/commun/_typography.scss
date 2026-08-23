@@ -1,0 +1,76 @@
+@use './variables' as *;
+
+.title-h1,
+.title-h2,
+.title-h3
+{
+    max-width: 100%;
+    margin: 0;
+    font-family: $font-primary;
+    font-weight: 400;
+    overflow-wrap: break-word;
+}
+
+.title-h1
+{
+    color: $color-text-title;
+    font-size: $font-h1;
+    line-height: 0.9;
+    letter-spacing: 0.035em;
+}
+
+.title-h2
+{
+    color: $color-accent-gold;
+    font-size: $font-h2;
+    line-height: 1.1;
+    letter-spacing: 0.04em;
+}
+
+.title-h3
+{
+    color: $color-text-title;
+    font-size: $font-h3;
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+}
+
+.subtitle__tag,
+.eyebrow
+{
+    margin: 0;
+    color: $color-accent-rose;
+    font-family: $font-secondary;
+    font-size: $font-tag;
+    line-height: 1.2;
+    letter-spacing: $tracking-label;
+    text-transform: uppercase;
+}
+
+.paragraph
+{
+    width: 100%;
+    max-width: $paragraph-width;
+    margin: 0;
+    color: $color-text-paragraph;
+    font-family: $font-secondary;
+    font-size: $font-body;
+    line-height: 1.75;
+    letter-spacing: $tracking-copy;
+}
+
+.lead
+{
+    max-width: 30ch;
+    margin: 0;
+    color: $color-text-title;
+    font-family: $font-secondary;
+    font-size: $font-lead;
+    line-height: 1.35;
+    letter-spacing: $tracking-copy;
+}
+
+.text-accent
+{
+    color: $color-accent-gold;
+}

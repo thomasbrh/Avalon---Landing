@@ -3,21 +3,18 @@
     <head>
         <title>La dernière quête - Accueil</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
         <meta name="description" content="Une expérience interactive et narrative sur le mythe d'Avalon.">
         <meta name="author" content="Thomas Bruch">
 
-        <!-- SEO -->
         <meta name="robots" content="index, follow">
         <link rel="canonical" href="https://avalon-landing-zeta.vercel.app/">
 
-        <!-- favicon -->
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
         <link rel="manifest" href="/favicon_io/site.webmanifest">
 
-        <!-- meta partage -->
         <meta property="og:site_name" content="La dernière quête">
         <meta property="og:title" content="La dernière quête - Accueil">
         <meta property="og:description" content="Une expérience interactive et narrative sur le mythe d'Avalon.">
@@ -27,28 +24,39 @@
         <meta property="og:image:width" content="1920">
         <meta property="og:image:height" content="945">
 
-        <!-- typographies -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&family=Uncial+Antiqua&display=swap" rel="stylesheet">
 
-        <!-- styles -->
         <link rel="stylesheet" href="styles/style.scss">
     </head>
 
     <body>
-
-        <!-- navigation -->
         <nav class="header" aria-label="Navigation principale">
-            <a href="https://www.thomasbruch.be/portfolio/" class="header__credit" target="_blank" rel="noopener noreferrer">Thomas Bruch - TFE 2025-2026</a>
-            <a href="/" class="header__logo">Accueil</a>
-            <a href="https://avalon-gules.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn--small">Entrer</a>
+            <button class="chapter-menu__toggle" type="button" aria-label="Ouvrir le menu" aria-controls="chapter-menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <a href="#top" class="header__logo" aria-label="Retour en haut">Avalon</a>
+
+            <div class="chapter-menu" id="chapter-menu">
+                <div class="chapter-menu__panel">
+                    <p class="chapter-menu__eyebrow">Landing</p>
+                    <a class="chapter-menu__landing" href="https://avalon-gules.vercel.app" target="_blank" rel="noopener noreferrer">Retour expérience</a>
+                    <a class="chapter-menu__item" href="#contexte">Chapitre 01 - Contexte</a>
+                    <a class="chapter-menu__item" href="#refuge">Chapitre 02 - Environnement</a>
+                    <a class="chapter-menu__item" href="#vision">Chapitre 03 - Vision</a>
+                    <a class="chapter-menu__item" href="#experience">Chapitre 04 - L'expérience</a>
+                    <a href="https://www.thomasbruch.be/portfolio/" class="chapter-menu__credit" target="_blank" rel="noopener noreferrer">Thomas Bruch - TFE 2025-2026</a>
+                </div>
+            </div>
+
+            <a href="https://avalon-gules.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn--small header__action">Entrer</a>
         </nav>
 
-        <!-- main -->
-        <main>
-
-            <!-- hero -->
+        <main id="top">
             <header class="hero" aria-label="Introduction">
                 <canvas id="hero-canvas" aria-hidden="true"></canvas>
 
@@ -68,8 +76,6 @@
                 </div>
             </header>
 
-
-            <!-- bandeau -->
             <div class="bandeau" aria-hidden="true">
                 <div class="bandeau__list">
                     <span>Avalon</span><span>-</span>
@@ -92,11 +98,8 @@
                 </div>
             </div>
 
-
-            <!-- section 1 - contexte -->
             <section class="section section--contexte" id="contexte">
                 <div class="section__inner">
-
                     <div class="section__head">
                         <p class="subtitle__tag">Contexte</p>
                         <h2 class="title-h2">Qu'est-ce<br>qu'Avalon ?</h2>
@@ -106,19 +109,15 @@
                         <p class="paragraph">Dans la légende arthurienne, Avalon représente le chapitre final. Après avoir été mortellement blessé pendant l'ultime bataille, le Roi Arthur est emmené sur l'île d'Avalon. La fée Morgane est une des gardiennes de cette île. Elle est chargée de soigner Arthur, son demi-frère. C'est cette phase précise, ce moment de suspension entre la vie, la mort et l'oubli, qui sert de décor à mon histoire.</p>
                         <span class="number" aria-hidden="true">01</span>
                     </div>
-
                 </div>
             </section>
 
-
-            <!-- section 2 - environnement -->
             <section class="section section--env" id="refuge">
                 <div class="section__inner">
-
                     <div class="section__content">
                         <p class="subtitle__tag">Environnement</p>
                         <h2 class="title-h2">Un<br>dernier<br>refuge</h2>
-                        
+
                         <p class="paragraph">Dissimulé dans la brume, l'île d'Avalon est un sanctuaire magique et paisible où la nature règne. On y trouve ni villages, ni humains. L'île vit un printemps infini, peuplée d'animaux tranquilles et de pommiers merveilleux. Les seules habitantes sont la fée Morgane et ses sœurs. Elles veillent sur cette terre secrète pour y soigner et protéger les grands héros, comme le roi Arthur, qui y dort en attendant que le monde ait à nouveau besoin de lui.</p>
                         <span class="number" aria-hidden="true">02</span>
                     </div>
@@ -131,15 +130,11 @@
                             <img src="/img/environnement-2.webp" alt="L'île d'Avalon - vue 2" loading="lazy">
                         </figure>
                     </div>
-
                 </div>
             </section>
 
-
-            <!-- section 3 - vision -->
             <section class="section section--vision" id="vision">
                 <div class="section__inner">
-
                     <div class="section__head">
                         <p class="subtitle__tag">Vision</p>
                         <h2 class="title-h2">Le mythe s'efface,<br>ma vérité émerge.</h2>
@@ -149,17 +144,12 @@
                         <p class="paragraph">Il existe énormément de versions de ce mythe, et beaucoup de suppositions sur ce qui s'est passé. Mon but avec ce projet, c'est simplement de mettre en forme ma propre vision des choses. C'est mon interprétation de cette phase précise de la légende, livrée telle que je l'imagine. Arthur est prisonnier des brumes d'Avalon, l'esprit du roi erre en quête de son passé.</p>
                         <span class="number" aria-hidden="true">03</span>
                     </div>
-
                 </div>
             </section>
 
-
-            <!-- section 4 - expérience -->
             <section class="section section--experience" id="experience">
-
                 <div class="section__top">
                     <div class="section__inner">
-
                         <div class="section__head">
                             <p class="subtitle__tag">L'expérience</p>
                             <h2 class="title-h2">Objectif<br>expérimental</h2>
@@ -169,26 +159,20 @@
                             <p class="paragraph">Plongez dans une expérience narrative à la recherche des souvenirs perdus d'Arthur. Le roi ne se souvient de rien. La fée Morgane va donc le confronter à certaines grandes étapes de sa vie afin qu'il se rappelle qui il est et de la vie qu'il a vécue.</p>
                             <span class="number" aria-hidden="true">04</span>
                         </div>
-
                     </div>
                 </div>
-                <!-- CTA vidéo -->
+
                 <div class="cta__video" data-animate="cta">
                     <video class="cta__video-bg" autoplay muted loop playsinline aria-hidden="true">
                         <source src="/video/video-cta.mp4" type="video/mp4">
                     </video>
                     <a href="https://avalon-gules.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn--large">Entrer</a>
                 </div>
-
             </section>
-
         </main>
 
-
-        <!-- footer -->
         <footer class="footer">
             <div class="footer__inner">
-
                 <nav class="footer__social" aria-label="Réseaux sociaux">
                     <a href="mailto:bruchthomas@outlook.fr">Mail</a>
                     <a href="https://www.linkedin.com/in/thomas-bruch-a21055357/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
@@ -204,14 +188,11 @@
                     <a href="credits.html">Crédits</a>
                     <a href="ia.html">IA</a>
                 </nav>
-
             </div>
 
             <p class="footer__copy">Thomas Bruch © 2025-2026 | Travail de Fin d'Études</p>
         </footer>
 
-
-        <!-- script -->
         <script type="module" src="/main.js"></script>
     </body>
 </html>

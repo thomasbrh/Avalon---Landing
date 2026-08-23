@@ -1,0 +1,74 @@
+@use './variables' as *;
+
+.btn
+{
+    display: inline-flex;
+    position: relative;
+    isolation: isolate;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    border: 1px solid $color-border-gold;
+    border-radius: 0;
+    background: $color-bg-deep;
+    color: $color-text-title;
+
+    font-family: $font-primary;
+    font-size: $font-tag;
+    line-height: 1;
+    letter-spacing: $tracking-label;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    user-select: none;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    transition: color 0.3s ease;
+}
+
+.btn::before
+{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: $color-accent-gold;
+    transform: translateX(-101%);
+    transition: transform 0.4s cubic-bezier(0.5, 0.75, 0.25, 1);
+}
+
+@media (hover: hover)
+{
+    .btn:hover
+    {
+        color: $color-bg-deep;
+    }
+
+    .btn:hover::before
+    {
+        transform: translateX(0);
+    }
+}
+
+.btn:focus-visible
+{
+    outline: 2px solid $color-accent-gold;
+    outline-offset: 4px;
+}
+
+.btn--small
+{
+    padding: 0.55rem 0.85rem;
+}
+
+.btn--large
+{
+    min-height: 52px;
+    padding: 0.875rem clamp(1rem, 4vw, 3rem);
+    font-size: clamp(1rem, 0.9rem + 0.45vw, 1.35rem);
+}
