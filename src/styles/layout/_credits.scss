@@ -1,149 +1,287 @@
 @use '../commun/variables' as *;
 @use '../commun/responsive' as *;
 
-
-
-/* sections credits */
-.section--credits-art,
-.section--credits-sound,
-.section--credits-dev,
-.section--credits-merci
-{
-    .section__head,
-    .section__content,
-    .section__body
-    {
-        display: flex;
-        flex-direction: column;
-        gap: $space-1;
-    }
-
-    .section__body
-    {
-        gap: $space-2;
-    }
-
-    .number
-    {
-        align-self: flex-end;
-    }
-}
-
-.section--credits-art,
-.section--credits-dev
+.credits-section
 {
     background: $color-bg-deep;
 }
 
-.section--credits-sound,
-.section--credits-merci
+.credits-section--sound,
+.credits-section--thanks
 {
     background: $color-bg-surface;
 }
 
-
-
-/* section 1 - art 3d */
-.section--credits-art
+.credits-section__inner
 {
-    .section__body
-    {
-        @include responsive(desktop)
-        {
-            display: grid;
-            grid-template-columns: auto minmax(0, 1fr);
-            align-items: start;
-            gap: $space-3;
-        }
-    }
-
-    .number
-    {
-        @include responsive(desktop)
-        {
-            align-self: start;
-        }
-    }
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-content: space-between;
+    width: min(100%, 100rem);
+    min-height: min(68rem, 110svh);
+    margin-inline: auto;
+    gap: clamp(3.75rem, 10vw, 8rem) $space-1;
+    padding: clamp(5rem, 10vw, 9rem) clamp(1rem, 4vw, 4rem);
 }
 
-
-
-/* section 2 - sound design */
-.section--credits-sound
+.credits-section__meta
 {
-    .section__inner
-    {
-        @include responsive(desktop)
-        {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.8fr);
-            align-items: start;
-            gap: $space-4;
-        }
-    }
+    display: flex;
+    grid-column: 1 / -1;
+    justify-content: space-between;
+    gap: $space-1;
+    padding-bottom: $space-1;
+    border-bottom: 1px solid rgba($color-accent-rose, 0.25);
+    color: $color-accent-rose;
+    font-size: $font-tag;
+    line-height: 1.2;
+    letter-spacing: $tracking-label;
+    text-transform: uppercase;
 }
 
-
-
-/* section 3 - developpement */
-.section--credits-dev
+.credits-section__meta span:nth-child(2)
 {
-    .section__body
-    {
-        @include responsive(desktop)
-        {
-            flex-direction: row;
-            align-items: flex-start;
-            gap: $space-3;
-        }
-    }
-
-    .paragraph
-    {
-        @include responsive(desktop)
-        {
-            flex: 0 1 $paragraph-width;
-        }
-    }
-
-    .number
-    {
-        @include responsive(desktop)
-        {
-            order: -1;
-            align-self: flex-start;
-        }
-    }
+    text-align: center;
 }
 
-
-
-/* section 4 - remerciements */
-.section--credits-merci
+.credits-section__meta span:last-child
 {
-    .section__body
-    {
-        @include responsive(desktop)
-        {
-            flex-direction: row;
-            align-items: flex-start;
-            justify-content: flex-end;
-            gap: $space-3;
-        }
-    }
-
-    .number
-    {
-        @include responsive(desktop)
-        {
-            align-self: flex-start;
-        }
-    }
+    text-align: right;
 }
 
-.credits-names
+.credits-section__heading
+{
+    display: flex;
+    grid-column: 1 / -1;
+    flex-direction: column;
+    min-width: 0;
+    gap: $space-2;
+}
+
+.credits-section__title
+{
+    max-width: 100%;
+    margin: 0;
+    color: $color-text-title;
+    font-family: $font-primary;
+    font-size: clamp(2.5rem, 10vw, 10rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.055em;
+    overflow-wrap: break-word;
+}
+
+.credits-section__heading--split .credits-section__title
 {
     display: flex;
     flex-direction: column;
-    gap: $space-half;
+}
+
+.credits-section__heading--split .credits-section__title span:last-child
+{
+    align-self: flex-end;
+    padding-right: clamp(0rem, 7vw, 7rem);
+}
+
+.credits-section__copy
+{
+    grid-column: 1 / -1;
+}
+
+.credits-people
+{
+    display: grid;
+    grid-column: 1 / -1;
+    min-width: 0;
+}
+
+.credits-people > .subtitle__tag
+{
+    margin-bottom: $space-2;
+}
+
+.credits-person
+{
+    display: grid;
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    min-width: 0;
+    gap: $space-1;
+    padding: $space-3 0;
+    border-top: 1px solid $color-border-gold;
+}
+
+.credits-person:last-child
+{
+    border-bottom: 1px solid $color-border-gold;
+}
+
+.credits-person__index
+{
+    grid-column: 1;
+    color: $color-accent-rose;
+    font-size: $font-tag;
+    line-height: 1.2;
+    letter-spacing: $tracking-label;
+}
+
+.credits-person .card__identity,
+.credits-person > .card__name
+{
+    grid-column: 2;
+}
+
+.credits-person .card__description,
+.credits-person > .card__role
+{
+    grid-column: 2;
+}
+
+.credits-person .card__name
+{
+    font-family: $font-primary;
+    font-size: clamp(1.75rem, 5vw, 3.75rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    text-transform: none;
+}
+
+.credits-person .card__description
+{
+    max-width: 42rem;
+}
+
+.credits-person--voice
+{
+    align-items: baseline;
+}
+
+.credits-thanks
+{
+    display: flex;
+    grid-column: 1 / -1;
+    flex-direction: column;
+}
+
+.credits-thanks__name
+{
+    margin: 0;
+    padding-block: clamp(1.25rem, 3vw, 2.25rem);
+    border-top: 1px solid $color-border-gold;
+    color: $color-text-title;
+    font-family: $font-primary;
+    font-size: clamp(2rem, 7vw, 6.5rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+
+.credits-thanks__name:nth-child(even)
+{
+    align-self: flex-end;
+    color: $color-accent-gold;
+    text-align: right;
+}
+
+.credits-thanks__name:last-child
+{
+    border-bottom: 1px solid $color-border-gold;
+}
+
+.credits-thanks__copy
+{
+    grid-column: 1 / 4;
+}
+
+@include responsive(tablet)
+{
+    .credits-person
+    {
+        grid-template-columns: 3rem minmax(13rem, 0.85fr) minmax(0, 1fr);
+        column-gap: $space-2;
+    }
+
+    .credits-person .card__identity,
+    .credits-person > .card__name
+    {
+        grid-column: 2;
+    }
+
+    .credits-person .card__description,
+    .credits-person > .card__role
+    {
+        grid-column: 3;
+    }
+
+    .credits-person--voice
+    {
+        grid-template-columns: 3rem minmax(0, 1fr) auto;
+    }
+
+    .credits-section__copy
+    {
+        grid-column: 2 / 5;
+        margin-left: auto;
+    }
+
+    .credits-thanks__copy
+    {
+        grid-column: 3 / 5;
+        margin-left: auto;
+    }
+}
+
+@include responsive(desktop)
+{
+    .credits-section__inner
+    {
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        column-gap: $space-2;
+    }
+
+    .credits-section__heading
+    {
+        grid-column: 1 / -1;
+    }
+
+    .credits-section__heading--end
+    {
+        grid-column: 2 / 13;
+        text-align: right;
+    }
+
+    .credits-people--art
+    {
+        grid-column: 3 / 13;
+    }
+
+    .credits-section--sound .credits-section__copy
+    {
+        grid-column: 1 / 5;
+        align-self: end;
+        margin-left: 0;
+    }
+
+    .credits-people--voices
+    {
+        grid-column: 6 / 13;
+    }
+
+    .credits-section__copy--dev
+    {
+        grid-column: 8 / 13;
+        margin-left: 0;
+    }
+
+    .credits-thanks
+    {
+        grid-column: 2 / 13;
+    }
+
+    .credits-thanks__copy
+    {
+        grid-column: 8 / 13;
+        margin-left: 0;
+    }
 }

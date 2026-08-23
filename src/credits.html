@@ -57,7 +57,7 @@
         <main>
 
             <!-- hero -->
-            <header class="hero" aria-label="Crédits de réalisation">
+            <header class="hero hero--editorial hero--credits" aria-label="Crédits de réalisation">
                 <canvas id="hero-canvas" aria-hidden="true"></canvas>
 
                 <div class="hero__text" data-animate="hero">
@@ -102,118 +102,130 @@
 
 
             <!-- section 1 - art 3D -->
-            <section class="section section--credits-art" id="art-3d">
-                <div class="section__inner">
+            <section class="section credits-section credits-section--art" id="art-3d">
+                <div class="credits-section__inner">
+                    <div class="credits-section__meta">
+                        <span>01 - 04</span>
+                        <span>3D Art</span>
+                        <span>Environnement</span>
+                    </div>
 
-                    <div class="section__head">
+                    <header class="credits-section__heading">
                         <p class="subtitle__tag">3D Art</p>
-                        <h2 class="title-h2">Environnement</h2>
+                        <h2 class="credits-section__title">Environnement</h2>
+                    </header>
+
+                    <div class="credits-people credits-people--art" data-animate="cards">
+                        <article class="card credits-person">
+                            <span class="credits-person__index" aria-hidden="true">01</span>
+                            <div class="card__identity">
+                                <p class="card__name">Nathan Candela</p>
+                                <p class="card__role">Level Building &amp; Animation</p>
+                            </div>
+                            <p class="card__description">Blockings de modélisation, assemblage de l'île et son océan, création des animations et texturing de la version alpha.</p>
+                        </article>
+
+                        <article class="card credits-person">
+                            <span class="credits-person__index" aria-hidden="true">02</span>
+                            <div class="card__identity">
+                                <p class="card__name">Louis Jennes</p>
+                                <p class="card__role">Environment Art &amp; Texturing</p>
+                            </div>
+                            <p class="card__description">Modélisation de toutes les zones du projet et texturing pour la version finale.</p>
+                        </article>
                     </div>
-
-                    <div class="section__body">
-                        <span class="number" aria-hidden="true">3d</span>
-
-                        <div class="credits-collabs" data-animate="cards">
-                            <article class="card">
-                                <div class="card__identity">
-                                    <p class="card__name">Nathan Candela</p>
-                                    <p class="card__role">Level Building &amp; Animation</p>
-                                </div>
-
-                                <p class="card__description">Blockings de modélisation, assemblage de l'île et son océan, création des animations et texturing de la version alpha.</p>
-                            </article>
-
-                            <article class="card">
-                                <div class="card__identity">
-                                    <p class="card__name">Louis Jennes</p>
-                                    <p class="card__role">Environment Art &amp; Texturing</p>
-                                </div>
-
-                                <p class="card__description">Modélisation de toutes les zones du projet et texturing pour la version finale.</p>
-                            </article>
-                        </div>
-                    </div>
-
                 </div>
             </section>
 
 
             <!-- section 2 - sound Design -->
-            <section class="section section--credits-sound" id="son">
-                <div class="section__inner">
+            <section class="section credits-section credits-section--sound" id="son">
+                <div class="credits-section__inner">
+                    <div class="credits-section__meta">
+                        <span>02 - 04</span>
+                        <span>Sound Design</span>
+                        <span>Son &amp; voix</span>
+                    </div>
 
-                    <div class="section__content">
+                    <header class="credits-section__heading credits-section__heading--split">
                         <p class="subtitle__tag">Sound Design</p>
-                        <h2 class="title-h2">Sound<br>Design</h2>
+                        <h2 class="credits-section__title">
+                            <span>Sound</span>
+                            <span class="text-accent">Design</span>
+                        </h2>
+                    </header>
 
+                    <div class="credits-section__copy">
                         <p class="paragraph">La musique et les ambiances sonores proviennent de la plateforme Envato.</p>
                     </div>
 
-                    <div class="section__body">
-                        <div class="credits-voix" data-animate="cards">
-                            <p class="subtitle__tag">Voix</p>
+                    <div class="credits-people credits-people--voices" data-animate="cards">
+                        <p class="subtitle__tag">Voix</p>
 
-                            <article class="card card--voix">
-                                <p class="card__name">Thomas Bruch</p>
-                                <p class="card__role">Arthur</p>
-                            </article>
+                        <article class="card credits-person credits-person--voice">
+                            <span class="credits-person__index" aria-hidden="true">01</span>
+                            <p class="card__name">Thomas Bruch</p>
+                            <p class="card__role">Arthur</p>
+                        </article>
 
-                            <article class="card card--voix">
-                                <p class="card__name">Julie Meessen</p>
-                                <p class="card__role">Morganne</p>
-                            </article>
+                        <article class="card credits-person credits-person--voice">
+                            <span class="credits-person__index" aria-hidden="true">02</span>
+                            <p class="card__name">Julie Meessen</p>
+                            <p class="card__role">Morganne</p>
+                        </article>
 
-                            <article class="card card--voix">
-                                <p class="card__name">Léa Guissard</p>
-                                <p class="card__role">Dame du Lac</p>
-                            </article>
-                        </div>
-
-                        <span class="number" aria-hidden="true">02</span>
+                        <article class="card credits-person credits-person--voice">
+                            <span class="credits-person__index" aria-hidden="true">03</span>
+                            <p class="card__name">Nadine Gerard</p>
+                            <p class="card__role">Dame du Lac</p>
+                        </article>
                     </div>
-
                 </div>
             </section>
 
 
             <!-- section 3 - developpement -->
-            <section class="section section--credits-dev" id="dev">
-                <div class="section__inner">
-
-                    <div class="section__head">
-                        <p class="subtitle__tag">Développement web</p>
-                        <h2 class="title-h2">Développement</h2>
+            <section class="section credits-section credits-section--dev" id="dev">
+                <div class="credits-section__inner">
+                    <div class="credits-section__meta">
+                        <span>03 - 04</span>
+                        <span>Développement web</span>
+                        <span>Three.js</span>
                     </div>
 
-                    <div class="section__body">
-                        <span class="number" aria-hidden="true">03</span>
+                    <header class="credits-section__heading credits-section__heading--end">
+                        <p class="subtitle__tag">Développement web</p>
+                        <h2 class="credits-section__title">Développement</h2>
+                    </header>
+
+                    <div class="credits-section__copy credits-section__copy--dev">
                         <p class="paragraph">J'ai mené le développement en solo, en utilisant le framework de Bruno Simon comme base technique. J'ai également intégré et adapté certains shaders appris lors de sa formation Three.js Journey.</p>
                     </div>
-
                 </div>
             </section>
 
 
             <!-- section 4 - remerciements -->
-            <section class="section section--credits-merci" id="merci">
-                <div class="section__inner">
+            <section class="section credits-section credits-section--thanks" id="merci">
+                <div class="credits-section__inner">
+                    <div class="credits-section__meta">
+                        <span>04 - 04</span>
+                        <span>Un merci particulier</span>
+                        <span>Crédits</span>
+                    </div>
 
-                    <div class="section__head">
+                    <header class="credits-section__heading">
                         <p class="subtitle__tag">Un merci particulier</p>
-                        <h2 class="title-h2">Remerciements</h2>
+                        <h2 class="credits-section__title">Remerciements</h2>
+                    </header>
+
+                    <div class="credits-thanks">
+                        <p class="credits-thanks__name">Nathan Candela</p>
+                        <p class="credits-thanks__name">Louis Jennes</p>
+                        <p class="credits-thanks__name">Julie Meessen</p>
                     </div>
 
-                    <div class="section__body">
-                        <div class="credits-names">
-                            <p class="card__name">Nathan Candela</p>
-                            <p class="card__name">Louis Jennes</p>
-                            <p class="card__name">Julie Meessen</p>
-                            <p class="paragraph">Merci à toutes ces personnes pour leurs temps et leurs talents.</p>
-                        </div>
-
-                        <span class="number" aria-hidden="true">04</span>
-                    </div>
-
+                    <p class="paragraph credits-thanks__copy">Merci à toutes ces personnes pour leurs temps et leurs talents.</p>
                 </div>
             </section>
 
