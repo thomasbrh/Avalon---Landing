@@ -45,10 +45,10 @@
                 <div class="chapter-menu__panel">
                     <p class="chapter-menu__eyebrow">Landing</p>
                     <a class="chapter-menu__landing" href="https://avalon-gules.vercel.app" target="_blank" rel="noopener noreferrer">Retour expérience</a>
-                    <a class="chapter-menu__item" href="#contexte">Chapitre 01 - Contexte</a>
-                    <a class="chapter-menu__item" href="#refuge">Chapitre 02 - Environnement</a>
-                    <a class="chapter-menu__item" href="#vision">Chapitre 03 - Vision</a>
-                    <a class="chapter-menu__item" href="#experience">Chapitre 04 - L'expérience</a>
+                    <a class="chapter-menu__item" href="#contexte">Chapitre 1 - Contexte</a>
+                    <a class="chapter-menu__item" href="#refuge">Chapitre 2 - Environnement</a>
+                    <a class="chapter-menu__item" href="#vision">Chapitre 3 - Vision</a>
+                    <a class="chapter-menu__item" href="#experience">Chapitre 4 - L'expérience</a>
                     <a href="https://www.thomasbruch.be/portfolio/" class="chapter-menu__credit" target="_blank" rel="noopener noreferrer">Thomas Bruch - TFE 2025-2026</a>
                 </div>
             </div>
@@ -57,7 +57,7 @@
         </nav>
 
         <main id="top">
-            <header class="hero" aria-label="Introduction">
+            <header class="hero hero--landing" aria-label="Introduction">
                 <canvas id="hero-canvas" aria-hidden="true"></canvas>
 
                 <div class="hero__text" data-animate="hero">
@@ -100,34 +100,65 @@
 
             <section class="section section--contexte" id="contexte">
                 <div class="section__inner">
+                    <div class="context__meta" aria-hidden="true">
+                        <span>Chapitre 01</span>
+                        <span>Le dernier voyage</span>
+                    </div>
+
                     <div class="section__head">
                         <p class="subtitle__tag">Contexte</p>
-                        <h2 class="title-h2">Qu'est-ce<br>qu'Avalon ?</h2>
+                        <h2 class="title-h2 context__title">
+                            <span class="context__title-question">Qu'est-ce que</span>
+                            <span class="context__title-name">Avalon ?</span>
+                        </h2>
                     </div>
 
                     <div class="section__content">
-                        <p class="paragraph">Dans la légende arthurienne, Avalon représente le chapitre final. Après avoir été mortellement blessé pendant l'ultime bataille, le Roi Arthur est emmené sur l'île d'Avalon. La fée Morgane est une des gardiennes de cette île. Elle est chargée de soigner Arthur, son demi-frère. C'est cette phase précise, ce moment de suspension entre la vie, la mort et l'oubli, qui sert de décor à mon histoire.</p>
-                        <span class="number" aria-hidden="true">01</span>
+                        <p class="context__lead">Dans la légende arthurienne, Avalon représente le chapitre final.</p>
+                        <p class="paragraph">Après avoir été mortellement blessé pendant l'ultime bataille, le Roi Arthur est emmené sur l'île d'Avalon. La fée Morgane est une des gardiennes de cette île. Elle est chargée de soigner Arthur, son demi-frère. C'est cette phase précise, ce moment de suspension entre la vie, la mort et l'oubli, qui sert de décor à mon histoire.</p>
                     </div>
+
+                    <p class="context__aside">Un seuil entre la vie, la mort et l'oubli.</p>
+                    <span class="number" aria-hidden="true">01</span>
                 </div>
             </section>
 
-            <section class="section section--env" id="refuge">
-                <div class="section__inner">
-                    <div class="section__content">
-                        <p class="subtitle__tag">Environnement</p>
-                        <h2 class="title-h2">Un<br>dernier<br>refuge</h2>
+            <section class="section section--env" id="refuge" data-horizontal-section>
+                <div class="environment__viewport">
+                    <div class="environment__rail" data-horizontal-track>
+                        <article class="environment__panel environment__intro">
+                            <div class="environment__meta" aria-hidden="true">
+                                <span>Chapitre 02</span>
+                                <span>Territoire secret</span>
+                            </div>
 
-                        <p class="paragraph">Dissimulé dans la brume, l'île d'Avalon est un sanctuaire magique et paisible où la nature règne. On y trouve ni villages, ni humains. L'île vit un printemps infini, peuplée d'animaux tranquilles et de pommiers merveilleux. Les seules habitantes sont la fée Morgane et ses sœurs. Elles veillent sur cette terre secrète pour y soigner et protéger les grands héros, comme le roi Arthur, qui y dort en attendant que le monde ait à nouveau besoin de lui.</p>
-                        <span class="number" aria-hidden="true">02</span>
-                    </div>
+                            <div class="section__content">
+                                <p class="subtitle__tag">Environnement</p>
+                                <h2 class="title-h2 environment__title">
+                                    <span>Un dernier</span>
+                                    <span>refuge</span>
+                                </h2>
 
-                    <div class="section__img" data-animate="image">
-                        <figure class="section__img-frame">
-                            <img src="/img/environnement-1.webp" alt="L'île d'Avalon - vue 1" loading="lazy">
+                                <p class="environment__lead">Dissimulée dans la brume, Avalon est un sanctuaire magique où la nature règne.</p>
+                                <p class="paragraph">On n'y trouve ni villages, ni humains. L'île vit un printemps infini, peuplée d'animaux tranquilles et de pommiers merveilleux. Morgane et ses sœurs veillent sur cette terre secrète pour y soigner et protéger les grands héros, comme le roi Arthur, qui y dort en attendant que le monde ait à nouveau besoin de lui.</p>
+                            </div>
+
+                            <span class="number" aria-hidden="true">02</span>
+                        </article>
+
+                        <figure class="environment__panel environment__figure">
+                            <img src="/img/environnement-1.webp" alt="Vue générale du territoire d'Avalon" loading="lazy">
+                            <figcaption><span>01</span><span>Territoire d'Avalon</span></figcaption>
                         </figure>
-                        <figure class="section__img-frame">
-                            <img src="/img/environnement-2.webp" alt="L'île d'Avalon - vue 2" loading="lazy">
+
+                        <figure class="environment__panel environment__figure environment__figure--portrait">
+                            <img src="/img/environnement-2.webp" alt="Sanctuaire de pierre sur l'île d'Avalon" loading="lazy">
+                            <figcaption><span>02</span><span>Le sanctuaire</span></figcaption>
+                        </figure>
+
+                        <figure class="environment__panel environment__figure environment__figure--detail" data-replaceable-image>
+                            <img src="/img/environnement-1.webp" alt="Étude de paysage de l'île d'Avalon" loading="lazy">
+                            <figcaption><span>03</span><span>Étude de paysage</span></figcaption>
                         </figure>
                     </div>
                 </div>
@@ -135,37 +166,77 @@
 
             <section class="section section--vision" id="vision">
                 <div class="section__inner">
+                    <div class="vision__meta" aria-hidden="true">
+                        <span>Chapitre 03</span>
+                        <span>Interprétation personnelle</span>
+                    </div>
+
                     <div class="section__head">
                         <p class="subtitle__tag">Vision</p>
-                        <h2 class="title-h2">Le mythe s'efface,<br>ma vérité émerge.</h2>
+                        <h2 class="title-h2 vision__title">
+                            <span>Le mythe</span>
+                            <span>s'efface,</span>
+                            <span>ma vérité</span>
+                            <span>émerge.</span>
+                        </h2>
                     </div>
 
                     <div class="section__body">
-                        <p class="paragraph">Il existe énormément de versions de ce mythe, et beaucoup de suppositions sur ce qui s'est passé. Mon but avec ce projet, c'est simplement de mettre en forme ma propre vision des choses. C'est mon interprétation de cette phase précise de la légende, livrée telle que je l'imagine. Arthur est prisonnier des brumes d'Avalon, l'esprit du roi erre en quête de son passé.</p>
-                        <span class="number" aria-hidden="true">03</span>
+                        <p class="vision__lead">Il existe énormément de versions de ce mythe, et beaucoup de suppositions sur ce qui s'est passé.</p>
+                        <p class="paragraph">Mon but avec ce projet, c'est simplement de mettre en forme ma propre vision des choses. C'est mon interprétation de cette phase précise de la légende, livrée telle que je l'imagine. Arthur est prisonnier des brumes d'Avalon, l'esprit du roi erre en quête de son passé.</p>
                     </div>
+
+                    <p class="vision__aside">Une légende transmise.<br>Une mémoire fragmentée.</p>
+                    <span class="number" aria-hidden="true">03</span>
                 </div>
             </section>
 
             <section class="section section--experience" id="experience">
-                <div class="section__top">
-                    <div class="section__inner">
-                        <div class="section__head">
-                            <p class="subtitle__tag">L'expérience</p>
-                            <h2 class="title-h2">Objectif<br>expérimental</h2>
-                        </div>
+                <div class="experience__zoom" data-experience-zoom>
+                    <div class="experience__stage">
+                        <video class="experience__media" autoplay muted loop playsinline aria-hidden="true" data-experience-media>
+                            <source src="/video/video-cta.mp4" type="video/mp4">
+                        </video>
 
-                        <div class="section__body">
-                            <p class="paragraph">Plongez dans une expérience narrative à la recherche des souvenirs perdus d'Arthur. Le roi ne se souvient de rien. La fée Morgane va donc le confronter à certaines grandes étapes de sa vie afin qu'il se rappelle qui il est et de la vie qu'il a vécue.</p>
+                        <div class="experience__grid">
+                            <div class="experience__meta" aria-hidden="true">
+                                <span>Chapitre 04</span>
+                                <span>Expérience narrative</span>
+                            </div>
+
+                            <div class="section__head">
+                                <p class="subtitle__tag">L'expérience</p>
+                                <h2 class="title-h2 experience__title">
+                                    <span>Objectif</span>
+                                    <span>expérimental</span>
+                                </h2>
+                            </div>
+
+                            <div class="section__body">
+                                <p class="paragraph">Plongez dans une expérience narrative à la recherche des souvenirs perdus d'Arthur. Le roi ne se souvient de rien. La fée Morgane va donc le confronter à certaines grandes étapes de sa vie afin qu'il se rappelle qui il est et de la vie qu'il a vécue.</p>
+                            </div>
+
                             <span class="number" aria-hidden="true">04</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="cta__video" data-animate="cta">
-                    <video class="cta__video-bg" autoplay muted loop playsinline aria-hidden="true">
-                        <source src="/video/video-cta.mp4" type="video/mp4">
-                    </video>
+                <div class="cta">
+                    <div class="cta__meta" aria-hidden="true">
+                        <span>La dernière quête</span>
+                        <span>Avalon - 2026</span>
+                    </div>
+
+                    <div class="cta__content">
+                        <p class="subtitle__tag">La quête commence ici</p>
+                        <h2 class="cta__title">
+                            <span>Entrez dans</span>
+                            <span>la légende.</span>
+                        </h2>
+                    </div>
+
+                    <p class="cta__note">Traversez la brume.<br>Retrouvez les souvenirs d'Arthur.</p>
+
                     <a href="https://avalon-gules.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn--large">Entrer</a>
                 </div>
             </section>

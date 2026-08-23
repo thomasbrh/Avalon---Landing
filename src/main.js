@@ -97,7 +97,11 @@ window.addEventListener('keydown', (event) =>
 
 if(lenis)
 {
-    lenis.on('scroll', ({ scroll }) => updateHeader(scroll))
+    lenis.on('scroll', ({ scroll }) =>
+    {
+        updateHeader(scroll)
+        ScrollTrigger.update()
+    })
 }
 else
 {
@@ -105,6 +109,78 @@ else
 }
 
 updateHeader()
+
+const horizontalSection = document.querySelector('[data-horizontal-section]')
+const horizontalTrack = horizontalSection?.querySelector('[data-horizontal-track]')
+
+if(horizontalSection && horizontalTrack)
+{
+    const horizontalMotion = gsap.matchMedia()
+
+    horizontalMotion.add('(min-width: 1280px)', () =>
+    {
+        const travel = () => Math.max(0, horizontalTrack.scrollWidth - window.innerWidth)
+
+        const timeline = gsap.timeline(
+        {
+            defaults: { ease: 'none' },
+            scrollTrigger:
+            {
+                trigger: horizontalSection,
+                start: 'top top',
+                end: () => `+=${Math.max(window.innerWidth, travel())}`,
+                pin: true,
+                scrub: 1,
+                anticipatePin: 1,
+                invalidateOnRefresh: true
+            }
+        })
+
+        timeline.to(horizontalTrack, { x: () => -travel() }, 0)
+
+        return () =>
+        {
+            gsap.set(horizontalTrack, { clearProps: 'transform' })
+        }
+    })
+}
+
+const experienceZoom = document.querySelector('[data-experience-zoom]')
+const experienceStage = experienceZoom?.querySelector('.experience__stage')
+const experienceMedia = experienceZoom?.querySelector('[data-experience-media]')
+
+if(experienceZoom && experienceStage && experienceMedia)
+{
+    const experienceMotion = gsap.matchMedia()
+
+    experienceMotion.add('(min-width: 1280px)', () =>
+    {
+        const timeline = gsap.timeline(
+        {
+            defaults: { ease: 'none' },
+            scrollTrigger:
+            {
+                trigger: experienceZoom,
+                start: 'top top',
+                end: '+=80%',
+                pin: true,
+                scrub: 1,
+                anticipatePin: 1
+            }
+        })
+
+        timeline.to(experienceStage, { clipPath: 'inset(0%)' }, 0)
+        timeline.to(experienceMedia, { scale: 1 }, 0)
+
+        return () =>
+        {
+            gsap.set(experienceStage, { clearProps: 'clipPath' })
+            gsap.set(experienceMedia, { clearProps: 'transform' })
+        }
+    })
+}
+
+window.addEventListener('load', () => ScrollTrigger.refresh(), { once: true })
 
 if(!prefersReducedMotion)
 {
@@ -127,8 +203,31 @@ if(!prefersReducedMotion)
         clearProps: 'transform,opacity'
     })
 
+    const visionTitleLines = document.querySelectorAll('.vision__title span')
+
+    if(visionTitleLines.length)
+    {
+        gsap.from(visionTitleLines,
+        {
+            y: 32,
+            opacity: 0,
+            duration: 0.75,
+            stagger: 0.1,
+            ease: 'power2.out',
+            clearProps: 'transform,opacity',
+            scrollTrigger:
+            {
+                trigger: '.section--vision',
+                start: 'top 72%',
+                once: true
+            }
+        })
+    }
+
     gsap.utils.toArray('.section__head, .section__content').forEach((element) =>
     {
+        if(element.closest('#contexte, #refuge, #vision, #experience')) return
+
         gsap.from(element,
         {
             y: 30,
@@ -147,6 +246,7 @@ if(!prefersReducedMotion)
 
     gsap.utils.toArray('.section__body').forEach((element) =>
     {
+        if(element.closest('#vision, #experience')) return
         if(element.querySelector('.card')) return
 
         gsap.from(element,
