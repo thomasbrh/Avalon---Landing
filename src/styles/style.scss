@@ -28,7 +28,11 @@ html
     font-size: 16px;
     background: $color-bg-deep;
     scroll-behavior: smooth;
-    scrollbar-gutter: stable;
+
+    @include responsive(tablet)
+    {
+        scrollbar-gutter: stable;
+    }
 }
 
 html.menu-open
@@ -40,6 +44,7 @@ body
 {
     min-width: 0;
     min-height: 100vh;
+    min-height: 100dvh;
     margin: 0;
     overflow-x: hidden;
     background: $color-bg-deep;
@@ -93,10 +98,22 @@ button:focus-visible
     z-index: 1;
     display: flex;
     flex-direction: column;
-    gap: clamp(2.25rem, 5vw, 4.5rem);
+    gap: 2.25rem;
     width: min(100%, $container-max);
     margin-inline: auto;
-    padding: clamp(3rem, 8vw, 7.5rem) clamp(1rem, 4vw, 4rem);
+    padding: 4.5rem var(--content-gutter-end) 4.5rem var(--content-gutter-start);
+
+    @include responsive(tablet)
+    {
+        gap: 3rem;
+        padding-block: 6rem;
+    }
+
+    @include responsive(desktop)
+    {
+        gap: 4.5rem;
+        padding-block: 7.5rem;
+    }
 }
 
 .section__inner > *,
@@ -125,6 +142,16 @@ button:focus-visible
     line-height: 1;
     pointer-events: none;
     user-select: none;
+
+    @include responsive(tablet)
+    {
+        font-size: 5rem;
+    }
+
+    @include responsive(desktop)
+    {
+        font-size: 8rem;
+    }
 }
 
 .br-mobile

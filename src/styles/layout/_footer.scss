@@ -16,7 +16,7 @@
     width: min(100%, $container-max);
     margin-inline: auto;
     gap: $space-2;
-    padding: $space-4 clamp(1rem, 4vw, 4rem);
+    padding: $space-4 var(--content-gutter-end) $space-4 var(--content-gutter-start);
 
     @include responsive(tablet)
     {
@@ -103,16 +103,26 @@
 {
     color: $color-accent-gold;
     font-family: $font-primary;
-    font-size: clamp(1.5rem, 1.2rem + 1vw, 2.25rem);
+    font-size: 1.5rem;
     letter-spacing: $tracking-label;
     text-decoration: none;
     text-transform: uppercase;
+
+    @include responsive(tablet)
+    {
+        font-size: 1.875rem;
+    }
+
+    @include responsive(desktop)
+    {
+        font-size: 2.25rem;
+    }
 }
 
 .footer__copy
 {
     margin: 0;
-    padding: 1rem clamp(1rem, 4vw, 4rem);
+    padding: 1rem var(--content-gutter-end) 1rem var(--content-gutter-start);
     border-top: 1px solid $color-border-gold;
     color: rgba($color-text-title, 0.75);
     font-family: $font-secondary;

@@ -6,6 +6,9 @@ import Lenis from 'lenis'
 window.name = '_blank__landing'
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+const responsiveStyles = getComputedStyle(document.documentElement)
+const desktopBreakpoint = responsiveStyles.getPropertyValue('--breakpoint-desktop').trim() || '80rem'
+const desktopQuery = `(min-width: ${desktopBreakpoint})`
 
 if(document.getElementById('hero-canvas'))
 {
@@ -117,7 +120,7 @@ if(horizontalSection && horizontalTrack)
 {
     const horizontalMotion = gsap.matchMedia()
 
-    horizontalMotion.add('(min-width: 1280px)', () =>
+    horizontalMotion.add(desktopQuery, () =>
     {
         const travel = () => Math.max(0, horizontalTrack.scrollWidth - window.innerWidth)
 
@@ -153,7 +156,7 @@ if(experienceZoom && experienceStage && experienceMedia)
 {
     const experienceMotion = gsap.matchMedia()
 
-    experienceMotion.add('(min-width: 1280px)', () =>
+    experienceMotion.add(desktopQuery, () =>
     {
         const timeline = gsap.timeline(
         {

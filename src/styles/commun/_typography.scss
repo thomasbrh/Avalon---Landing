@@ -1,4 +1,5 @@
 @use './variables' as *;
+@use './responsive' as *;
 
 .title-h1,
 .title-h2,
@@ -17,6 +18,16 @@
     font-size: $font-h1;
     line-height: 1;
     letter-spacing: 0.035em;
+
+    @include responsive(tablet)
+    {
+        font-size: 4rem;
+    }
+
+    @include responsive(desktop)
+    {
+        font-size: 5.75rem;
+    }
 }
 
 .title-h2
@@ -25,6 +36,16 @@
     font-size: $font-h2;
     line-height: 1.1;
     letter-spacing: 0.04em;
+
+    @include responsive(tablet)
+    {
+        font-size: 3rem;
+    }
+
+    @include responsive(desktop)
+    {
+        font-size: 4.4rem;
+    }
 }
 
 .title-h3
@@ -33,6 +54,16 @@
     font-size: $font-h3;
     line-height: 1.05;
     letter-spacing: 0.02em;
+
+    @include responsive(tablet)
+    {
+        font-size: 2.25rem;
+    }
+
+    @include responsive(desktop)
+    {
+        font-size: 2.8125rem;
+    }
 }
 
 .subtitle__tag,
@@ -41,10 +72,20 @@
     margin: 0;
     color: $color-accent-rose;
     font-family: $font-secondary;
-    font-size: $font-tag;
+    font-size: 0.625rem;
     line-height: 1.2;
     letter-spacing: $tracking-label;
     text-transform: uppercase;
+
+    @include responsive(tablet)
+    {
+        font-size: 0.75rem;
+    }
+
+    @include responsive(desktop)
+    {
+        font-size: 0.8125rem;
+    }
 }
 
 .paragraph
@@ -55,8 +96,20 @@
     color: $color-text-paragraph;
     font-family: $font-secondary;
     font-size: $font-body;
-    line-height: 1.75;
+    line-height: 1.65;
     letter-spacing: $tracking-copy;
+
+    @include responsive(tablet)
+    {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    @include responsive(desktop)
+    {
+        font-size: 1.125rem;
+        line-height: 1.75;
+    }
 }
 
 .lead
@@ -68,6 +121,16 @@
     font-size: $font-lead;
     line-height: 1.35;
     letter-spacing: $tracking-copy;
+
+    @include responsive(tablet)
+    {
+        font-size: 1.5rem;
+    }
+
+    @include responsive(desktop)
+    {
+        font-size: 1.875rem;
+    }
 }
 
 .text-accent

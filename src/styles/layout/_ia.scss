@@ -1,5 +1,6 @@
 @use '../commun/variables' as *;
 @use '../commun/responsive' as *;
+@use '../commun/grid' as grid;
 
 .ia-statement,
 .ia-section--chatgpt
@@ -18,28 +19,59 @@
     position: relative;
     z-index: 1;
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    @include grid.editorial-columns;
     align-content: space-between;
     width: min(100%, 100rem);
-    min-height: min(68rem, 110svh);
+    min-height: auto;
     margin-inline: auto;
-    gap: clamp(3.75rem, 10vw, 8rem) $space-1;
-    padding: clamp(5rem, 10vw, 9rem) clamp(1rem, 4vw, 4rem);
+    gap: 3rem $space-1;
+    padding: 4.5rem var(--content-gutter-end) 4.5rem var(--content-gutter-start);
+
+    @include responsive(tablet)
+    {
+        min-height: min(60rem, 105svh);
+        gap: 5rem $space-1;
+        padding-block: 6rem;
+    }
+
+    @include responsive(desktop)
+    {
+        min-height: min(68rem, 110svh);
+        gap: 8rem $space-2;
+        padding-block: 9rem;
+    }
 }
 
 .ia-section__meta
 {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-column: 1 / -1;
     justify-content: space-between;
     gap: $space-1;
     padding-bottom: $space-1;
     border-bottom: 1px solid rgba($color-accent-rose, 0.25);
     color: $color-accent-rose;
-    font-size: $font-tag;
+    font-size: 0.625rem;
     line-height: 1.2;
     letter-spacing: $tracking-label;
     text-transform: uppercase;
+
+    @include responsive(tablet)
+    {
+        font-size: 0.75rem;
+    }
+
+    @include responsive(desktop)
+    {
+        font-size: 0.8125rem;
+    }
+}
+
+.ia-section__meta span
+{
+    min-width: 0;
+    overflow-wrap: anywhere;
 }
 
 .ia-section__meta span:nth-child(2)
@@ -62,6 +94,23 @@
     gap: $space-2;
 }
 
+.ia-statement__heading
+{
+    @include responsive(desktop)
+    {
+        grid-column: 2 / 13;
+    }
+}
+
+.ia-section__heading--end
+{
+    @include responsive(desktop)
+    {
+        grid-column: 2 / 13;
+        text-align: right;
+    }
+}
+
 .ia-statement__title,
 .ia-section__title
 {
@@ -69,11 +118,21 @@
     margin: 0;
     color: $color-text-title;
     font-family: $font-primary;
-    font-size: clamp(2.75rem, 11vw, 10rem);
+    font-size: clamp(2.25rem, 11vw, 3.5rem);
     font-weight: 400;
     line-height: 1;
     letter-spacing: -0.055em;
     overflow-wrap: break-word;
+
+    @include responsive(tablet)
+    {
+        font-size: clamp(4.5rem, 9vw, 6.5rem);
+    }
+
+    @include responsive(desktop)
+    {
+        font-size: clamp(7rem, 8vw, 10rem);
+    }
 }
 
 .ia-statement__title,
@@ -87,13 +146,35 @@
 .ia-section--gemini .ia-section__title span:last-child
 {
     align-self: flex-end;
-    padding-right: clamp(0rem, 7vw, 7rem);
+    padding-right: 0;
+
+    @include responsive(tablet)
+    {
+        padding-right: 3rem;
+    }
+
+    @include responsive(desktop)
+    {
+        padding-right: 7rem;
+    }
 }
 
 .ia-statement__copy
 {
     grid-column: 1 / -1;
     max-width: 31ch;
+
+    @include responsive(tablet)
+    {
+        grid-column: 3 / 9;
+        margin-left: auto;
+    }
+
+    @include responsive(desktop)
+    {
+        grid-column: 8 / 13;
+        margin-left: 0;
+    }
 }
 
 .ia-prompts
@@ -103,14 +184,37 @@
     min-width: 0;
 }
 
+.ia-section--gemini .ia-prompts
+{
+    @include responsive(desktop)
+    {
+        grid-column: 3 / 13;
+    }
+}
+
+.ia-prompts--chatgpt
+{
+    @include responsive(desktop)
+    {
+        grid-column: 1 / 11;
+    }
+}
+
 .ia-prompt
 {
     display: grid;
-    grid-template-columns: 2.25rem minmax(0, 1fr);
+    grid-template-columns: 2rem minmax(0, 1fr);
     min-width: 0;
     gap: $space-1;
-    padding: $space-3 0;
+    padding: $space-2 0;
     border-top: 1px solid $color-border-gold;
+
+    @include responsive(tablet)
+    {
+        grid-template-columns: 3rem minmax(13rem, 0.8fr) minmax(0, 1fr);
+        column-gap: $space-2;
+        padding-block: $space-3;
+    }
 }
 
 .ia-prompt:last-child
@@ -122,9 +226,19 @@
 {
     grid-column: 1;
     color: $color-accent-rose;
-    font-size: $font-tag;
+    font-size: 0.625rem;
     line-height: 1.2;
     letter-spacing: $tracking-label;
+
+    @include responsive(tablet)
+    {
+        font-size: 0.75rem;
+    }
+
+    @include responsive(desktop)
+    {
+        font-size: 0.8125rem;
+    }
 }
 
 .ia-prompt .card__model,
@@ -133,85 +247,32 @@
     grid-column: 2;
 }
 
-.ia-prompt .card__name
-{
-    font-family: $font-primary;
-    font-size: clamp(1.75rem, 5vw, 3.75rem);
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: -0.025em;
-    text-transform: none;
-}
-
 .ia-prompt .card__prompt
 {
     max-width: 46rem;
-}
 
-@include responsive(tablet)
-{
-    .ia-statement__copy
-    {
-        grid-column: 2 / 5;
-        margin-left: auto;
-    }
-
-    .ia-prompt
-    {
-        grid-template-columns: 3rem minmax(13rem, 0.8fr) minmax(0, 1fr);
-        column-gap: $space-2;
-    }
-
-    .ia-prompt .card__model
-    {
-        grid-column: 2;
-    }
-
-    .ia-prompt .card__prompt
+    @include responsive(tablet)
     {
         grid-column: 3;
     }
 }
 
-@include responsive(desktop)
+.ia-prompt .card__name
 {
-    .ia-statement__inner,
-    .ia-section__inner
+    font-family: $font-primary;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    text-transform: none;
+
+    @include responsive(tablet)
     {
-        grid-template-columns: repeat(12, minmax(0, 1fr));
-        column-gap: $space-2;
+        font-size: 2.25rem;
     }
 
-    .ia-statement__heading,
-    .ia-section__heading
+    @include responsive(desktop)
     {
-        grid-column: 1 / -1;
-    }
-
-    .ia-statement__heading
-    {
-        grid-column: 2 / 13;
-    }
-
-    .ia-statement__copy
-    {
-        grid-column: 8 / 13;
-        margin-left: 0;
-    }
-
-    .ia-section__heading--end
-    {
-        grid-column: 2 / 13;
-        text-align: right;
-    }
-
-    .ia-section--gemini .ia-prompts
-    {
-        grid-column: 3 / 13;
-    }
-
-    .ia-prompts--chatgpt
-    {
-        grid-column: 1 / 11;
+        font-size: 3.75rem;
     }
 }

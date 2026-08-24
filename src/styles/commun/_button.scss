@@ -1,4 +1,5 @@
 @use './variables' as *;
+@use './responsive' as *;
 
 .btn
 {
@@ -7,7 +8,8 @@
     isolation: isolate;
     align-items: center;
     justify-content: center;
-    min-height: 44px;
+    min-height: clamp(2.125rem, 8vw, 2.5rem);
+    max-width: 100%;
     box-sizing: border-box;
     overflow: hidden;
 
@@ -17,18 +19,31 @@
     color: $color-text-title;
 
     font-family: $font-primary;
-    font-size: $font-tag;
+    font-size: 0.6875rem;
     line-height: 1;
     letter-spacing: $tracking-label;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
+    white-space: nowrap;
 
     cursor: pointer;
     user-select: none;
     -webkit-backdrop-filter: blur(6px);
     backdrop-filter: blur(6px);
     transition: color 0.3s ease;
+
+    @include responsive(tablet)
+    {
+        min-height: 42px;
+        font-size: 0.8125rem;
+    }
+
+    @include responsive(desktop)
+    {
+        min-height: 48px;
+        font-size: 1rem;
+    }
 }
 
 .btn::before
@@ -63,12 +78,36 @@
 
 .btn--small
 {
-    padding: 0.55rem 0.85rem;
+    padding: 0.45rem 0.65rem;
+
+    @include responsive(tablet)
+    {
+        padding: 0.6rem 0.9rem;
+    }
+
+    @include responsive(desktop)
+    {
+        padding: 0.7rem 1.1rem;
+    }
 }
 
 .btn--large
 {
-    min-height: 52px;
-    padding: 0.875rem clamp(1rem, 4vw, 3rem);
-    font-size: clamp(1rem, 0.9rem + 0.45vw, 1.35rem);
+    min-height: 42px;
+    padding: 0.7rem 1.1rem;
+    font-size: 0.875rem;
+
+    @include responsive(tablet)
+    {
+        min-height: 48px;
+        padding: 0.9rem 1.6rem;
+        font-size: 1.0625rem;
+    }
+
+    @include responsive(desktop)
+    {
+        min-height: 54px;
+        padding: 1rem 2.25rem;
+        font-size: 1.2rem;
+    }
 }

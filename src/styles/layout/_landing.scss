@@ -1,5 +1,6 @@
 @use '../commun/variables' as *;
 @use '../commun/responsive' as *;
+@use '../commun/grid' as grid;
 
 #contexte,
 #refuge,
@@ -29,6 +30,26 @@
     }
 }
 
+.context__meta > span,
+.environment__meta > span,
+.vision__meta > span,
+.experience__meta > span,
+.cta__meta > span
+{
+    flex: 1 1 0;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.context__meta > span:last-child,
+.environment__meta > span:last-child,
+.vision__meta > span:last-child,
+.experience__meta > span:last-child,
+.cta__meta > span:last-child
+{
+    text-align: right;
+}
+
 .section--contexte
 {
     background: $color-bg-deep;
@@ -36,22 +57,39 @@
     .section__inner
     {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        @include grid.editorial-columns;
         align-content: space-between;
-        min-height: min(64rem, 105svh);
-        gap: clamp(3rem, 8vw, 7rem) $space-1;
-        padding-block: clamp(4.5rem, 9vw, 8rem);
+        min-height: auto;
+        gap: 3rem $space-1;
+        padding-block: 4.5rem;
+
+        @include responsive(tablet)
+        {
+            min-height: min(64rem, 105svh);
+            gap: 5rem $space-1;
+            padding-block: 6rem;
+        }
+
+        @include responsive(desktop)
+        {
+            gap: 7rem $space-2;
+            padding-block: 8rem;
+            column-gap: $space-2;
+        }
     }
 
     .context__meta
     {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         grid-column: 1 / -1;
         justify-content: space-between;
+        gap: $space-1;
         padding-bottom: $space-1;
         border-bottom: 1px solid rgba($color-accent-rose, 0.2);
         color: $color-accent-rose;
         font-size: $font-tag;
+        line-height: 1.35;
         letter-spacing: $tracking-label;
         text-transform: uppercase;
     }
@@ -60,6 +98,11 @@
     {
         grid-column: 1 / -1;
         gap: $space-3;
+
+        @include responsive(desktop)
+        {
+            grid-column: 2 / 12;
+        }
     }
 
     .context__title
@@ -74,8 +117,18 @@
     {
         color: $color-text-title;
         font-family: $font-secondary;
-        font-size: clamp(2.5rem, 9vw, 7.5rem);
+        font-size: 2rem;
         letter-spacing: -0.055em;
+
+        @include responsive(tablet)
+        {
+            font-size: 4.5rem;
+        }
+
+        @include responsive(desktop)
+        {
+            font-size: 7.5rem;
+        }
     }
 
     .context__title-name
@@ -83,14 +136,38 @@
         align-self: flex-end;
         color: $color-accent-gold;
         font-family: $font-primary;
-        font-size: clamp(4rem, 16vw, 12rem);
+        font-size: 3rem;
         letter-spacing: 0.01em;
+
+        @include responsive(tablet)
+        {
+            font-size: 7rem;
+        }
+
+        @include responsive(desktop)
+        {
+            font-size: 12rem;
+        }
     }
 
     .section__content
     {
         grid-column: 1 / -1;
         gap: $space-3;
+
+        @include responsive(tablet)
+        {
+            grid-column: 5 / 9;
+            width: auto;
+            margin-left: auto;
+        }
+
+        @include responsive(desktop)
+        {
+            grid-column: 8 / 13;
+            align-self: end;
+            margin-left: 0;
+        }
     }
 
     .context__lead
@@ -112,6 +189,17 @@
         line-height: 1.4;
         letter-spacing: $tracking-label;
         text-transform: uppercase;
+
+        @include responsive(tablet)
+        {
+            grid-column: 1 / 5;
+            align-self: end;
+        }
+
+        @include responsive(desktop)
+        {
+            grid-column: 1 / 4;
+        }
     }
 
     .number
@@ -119,58 +207,24 @@
         grid-column: 4;
         margin: 0;
         color: rgba($color-accent-gold, 0.18);
-        font-size: clamp(6rem, 24vw, 14rem);
+        font-size: 4.5rem;
         line-height: 1;
-    }
 
-    @include responsive(tablet)
-    {
-        .section__content
+        @include responsive(tablet)
         {
-            grid-column: 3 / 5;
-            width: auto;
-            margin-left: auto;
+            grid-column: 8;
+            font-size: 8rem;
         }
 
-        .context__aside
-        {
-            grid-column: 1 / 3;
-            align-self: end;
-        }
-    }
-
-    @include responsive(desktop)
-    {
-        .section__inner
-        {
-            grid-template-columns: repeat(12, minmax(0, 1fr));
-            column-gap: $space-2;
-        }
-
-        .section__head
-        {
-            grid-column: 2 / 12;
-        }
-
-        .section__content
-        {
-            grid-column: 8 / 13;
-            align-self: end;
-            margin-left: 0;
-        }
-
-        .context__aside
-        {
-            grid-column: 1 / 4;
-        }
-
-        .number
+        @include responsive(desktop)
         {
             position: absolute;
             bottom: clamp(4.5rem, 9vw, 8rem);
             left: clamp(1rem, 4vw, 4rem);
+            font-size: 14rem;
         }
     }
+
 }
 
 .section--env
@@ -178,45 +232,98 @@
     overflow: hidden;
     background: $color-bg-surface;
 
+    @include responsive(desktop)
+    {
+        min-height: 100svh;
+    }
+
     .environment__viewport
     {
         width: 100%;
         overflow: hidden;
+
+        @include responsive(desktop)
+        {
+            height: 100svh;
+        }
     }
 
     .environment__rail
     {
         display: flex;
         flex-direction: column;
-        gap: clamp(4rem, 10vw, 7rem);
-        padding: clamp(4.5rem, 9vw, 8rem) clamp(1rem, 4vw, 4rem);
+        gap: 4rem;
+        padding:
+            4.5rem
+            var(--content-gutter-end)
+            4.5rem
+            var(--content-gutter-start);
+
+        @include responsive(tablet)
+        {
+            gap: 5rem;
+            padding-block: 6rem;
+        }
+
+        @include responsive(desktop)
+        {
+            flex-direction: row;
+            width: max-content;
+            height: 100%;
+            gap: clamp(3rem, 6vw, 6rem);
+            padding: 0 clamp(4rem, 8vw, 8rem);
+            will-change: transform;
+        }
     }
 
     .environment__panel
     {
         margin: 0;
         min-width: 0;
+
+        @include responsive(desktop)
+        {
+            flex: 0 0 auto;
+            height: 100svh;
+        }
     }
 
     .environment__intro
     {
         position: relative;
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        min-height: 44rem;
+        @include grid.editorial-columns;
+        min-height: auto;
         gap: $space-3 $space-1;
         padding-bottom: $space-4;
         border-bottom: 1px solid $color-border-gold;
+
+        @include responsive(tablet)
+        {
+            min-height: min(52rem, 100svh);
+        }
+
+        @include responsive(desktop)
+        {
+            align-content: space-between;
+            width: calc(100vw - clamp(8rem, 16vw, 16rem));
+            min-height: 0;
+            padding-block: clamp(5rem, 9vw, 8rem);
+            border-bottom: 0;
+        }
     }
 
     .environment__meta
     {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         grid-column: 1 / -1;
         align-self: start;
         justify-content: space-between;
+        gap: $space-1;
         color: $color-accent-rose;
         font-size: $font-tag;
+        line-height: 1.35;
         letter-spacing: $tracking-label;
         text-transform: uppercase;
     }
@@ -226,6 +333,16 @@
         grid-column: 1 / -1;
         align-self: center;
         gap: $space-2;
+
+        @include responsive(tablet)
+        {
+            grid-column: 1 / 7;
+        }
+
+        @include responsive(desktop)
+        {
+            grid-column: 1 / 9;
+        }
     }
 
     .environment__title
@@ -241,8 +358,18 @@
     {
         color: $color-text-title;
         font-family: $font-secondary;
-        font-size: clamp(3.25rem, 12vw, 9rem);
+        font-size: 2.5rem;
         letter-spacing: -0.055em;
+
+        @include responsive(tablet)
+        {
+            font-size: 5rem;
+        }
+
+        @include responsive(desktop)
+        {
+            font-size: 9rem;
+        }
     }
 
     .environment__title span:last-child
@@ -250,8 +377,18 @@
         align-self: flex-end;
         color: $color-accent-gold;
         font-family: $font-primary;
-        font-size: clamp(4rem, 15vw, 11rem);
+        font-size: 3rem;
         letter-spacing: 0.01em;
+
+        @include responsive(tablet)
+        {
+            font-size: 6.5rem;
+        }
+
+        @include responsive(desktop)
+        {
+            font-size: 11rem;
+        }
     }
 
     .environment__lead
@@ -261,16 +398,36 @@
         color: $color-text-title;
         font-size: $font-lead;
         line-height: 1.3;
+
+        @include responsive(desktop)
+        {
+            margin-left: auto;
+        }
     }
 
     .number
     {
-        position: absolute;
-        right: 0;
-        bottom: $space-4;
+        position: static;
+        grid-column: 4;
+        justify-self: end;
+        align-self: end;
         color: rgba($color-accent-gold, 0.14);
-        font-size: clamp(6rem, 24vw, 14rem);
+        font-size: 4.5rem;
         line-height: 1;
+
+        @include responsive(tablet)
+        {
+            grid-column: 8;
+            font-size: 8rem;
+        }
+
+        @include responsive(desktop)
+        {
+            position: absolute;
+            right: 0;
+            bottom: $space-4;
+            font-size: 14rem;
+        }
     }
 
     .environment__figure
@@ -278,6 +435,17 @@
         display: grid;
         gap: $space-1;
         overflow: hidden;
+
+        @include responsive(tablet)
+        {
+            width: min(88%, 48rem);
+        }
+
+        @include responsive(desktop)
+        {
+            align-content: center;
+            width: min(54vw, 56rem);
+        }
     }
 
     .environment__figure img
@@ -288,104 +456,48 @@
         object-fit: contain;
     }
 
+    .environment__figure:nth-child(even)
+    {
+        @include responsive(tablet)
+        {
+            margin-left: auto;
+        }
+    }
+
+    .environment__figure--portrait
+    {
+        @include responsive(desktop)
+        {
+            width: min(38vw, 40rem);
+        }
+    }
+
     figcaption
     {
         display: flex;
+        align-items: flex-start;
         justify-content: space-between;
+        gap: $space-1;
         color: $color-text-paragraph;
         font-size: $font-tag;
         line-height: 1.2;
         letter-spacing: $tracking-label;
         text-transform: uppercase;
+
+        span:last-child
+        {
+            text-align: right;
+        }
     }
 
-    @include responsive(tablet)
+    .paragraph
     {
-        .environment__intro
-        {
-            min-height: 52rem;
-        }
-
-        .section__content
-        {
-            grid-column: 1 / 4;
-        }
-
-        .environment__figure
-        {
-            width: min(88%, 48rem);
-        }
-
-        .environment__figure:nth-child(even)
+        @include responsive(desktop)
         {
             margin-left: auto;
         }
     }
 
-    @include responsive(desktop)
-    {
-        min-height: 100svh;
-
-        .environment__viewport
-        {
-            height: 100svh;
-        }
-
-        .environment__rail
-        {
-            flex-direction: row;
-            width: max-content;
-            height: 100%;
-            gap: clamp(3rem, 6vw, 6rem);
-            padding: 0 clamp(4rem, 8vw, 8rem);
-            will-change: transform;
-        }
-
-        .environment__panel
-        {
-            flex: 0 0 auto;
-            height: 100svh;
-        }
-
-        .environment__intro
-        {
-            grid-template-columns: repeat(12, minmax(0, 1fr));
-            align-content: space-between;
-            width: calc(100vw - clamp(8rem, 16vw, 16rem));
-            min-height: 0;
-            padding-block: clamp(5rem, 9vw, 8rem);
-            border-bottom: 0;
-        }
-
-        .environment__meta
-        {
-            grid-column: 1 / -1;
-        }
-
-        .section__content
-        {
-            grid-column: 1 / 9;
-            align-self: center;
-        }
-
-        .environment__lead,
-        .paragraph
-        {
-            margin-left: auto;
-        }
-
-        .environment__figure
-        {
-            align-content: center;
-            width: min(54vw, 56rem);
-        }
-
-        .environment__figure--portrait
-        {
-            width: min(38vw, 40rem);
-        }
-
-    }
 }
 
 .section--vision
@@ -396,22 +508,39 @@
     .section__inner
     {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        @include grid.editorial-columns;
         align-content: space-between;
-        min-height: min(72rem, 115svh);
-        gap: clamp(3rem, 9vw, 8rem) $space-1;
-        padding-block: clamp(5rem, 10vw, 9rem);
+        min-height: auto;
+        gap: 3rem $space-1;
+        padding-block: 5rem;
+
+        @include responsive(tablet)
+        {
+            min-height: min(72rem, 115svh);
+            gap: 5rem $space-1;
+            padding-block: 7rem;
+        }
+
+        @include responsive(desktop)
+        {
+            gap: 8rem $space-2;
+            padding-block: 9rem;
+            column-gap: $space-2;
+        }
     }
 
     .vision__meta
     {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         grid-column: 1 / -1;
         justify-content: space-between;
+        gap: $space-1;
         padding-bottom: $space-1;
         border-bottom: 1px solid rgba($color-accent-rose, 0.2);
         color: $color-accent-rose;
         font-size: $font-tag;
+        line-height: 1.35;
         letter-spacing: $tracking-label;
         text-transform: uppercase;
     }
@@ -429,9 +558,19 @@
         max-width: none;
         color: $color-text-title;
         font-family: $font-secondary;
-        font-size: clamp(3.5rem, 13vw, 11rem);
+        font-size: 2.75rem;
         line-height: 1;
         letter-spacing: -0.065em;
+
+        @include responsive(tablet)
+        {
+            font-size: 6rem;
+        }
+
+        @include responsive(desktop)
+        {
+            font-size: 11rem;
+        }
     }
 
     .vision__title span
@@ -445,7 +584,7 @@
     .vision__title span:nth-child(2)
     {
         position: relative;
-        inset-inline-start: clamp(1.5rem, 5vw, 6rem);
+        inset-inline-start: clamp(1rem, 5vw, 6rem);
         align-self: center;
     }
 
@@ -468,6 +607,19 @@
     {
         grid-column: 1 / -1;
         gap: $space-3;
+
+        @include responsive(tablet)
+        {
+            grid-column: 5 / 9;
+            width: auto;
+            margin-left: auto;
+        }
+
+        @include responsive(desktop)
+        {
+            grid-column: 8 / 13;
+            margin-left: 0;
+        }
     }
 
     .vision__lead
@@ -488,59 +640,41 @@
         line-height: 1.45;
         letter-spacing: $tracking-label;
         text-transform: uppercase;
+
+        @include responsive(tablet)
+        {
+            grid-column: 1 / 5;
+        }
+
+        @include responsive(desktop)
+        {
+            grid-column: 1 / 4;
+            align-self: end;
+        }
     }
 
     .number
     {
         grid-column: 4;
         color: rgba($color-accent-gold, 0.14);
-        font-size: clamp(6rem, 24vw, 14rem);
+        font-size: 4.5rem;
         line-height: 1;
-    }
 
-    @include responsive(tablet)
-    {
-        .section__body
+        @include responsive(tablet)
         {
-            grid-column: 3 / 5;
-            width: auto;
-            margin-left: auto;
-        }
-    }
-
-    @include responsive(desktop)
-    {
-        .section__inner
-        {
-            grid-template-columns: repeat(12, minmax(0, 1fr));
-            column-gap: $space-2;
+            grid-column: 8;
+            font-size: 8rem;
         }
 
-        .section__head
-        {
-            grid-column: 1 / -1;
-        }
-
-        .section__body
-        {
-            grid-column: 8 / 13;
-            width: auto;
-            margin-left: 0;
-        }
-
-        .vision__aside
-        {
-            grid-column: 1 / 4;
-            align-self: end;
-        }
-
-        .number
+        @include responsive(desktop)
         {
             position: absolute;
             right: clamp(1rem, 4vw, 4rem);
             bottom: clamp(5rem, 10vw, 9rem);
+            font-size: 14rem;
         }
     }
+
 }
 
 .section--experience
@@ -554,18 +688,39 @@
     {
         position: relative;
         width: 100%;
-        min-height: 52rem;
+        min-height: auto;
+
+        @include responsive(tablet)
+        {
+            min-height: min(52rem, 100svh);
+        }
+
+        @include responsive(desktop)
+        {
+            min-height: 100svh;
+        }
     }
 
     .experience__stage
     {
         position: relative;
         width: 100%;
-        min-height: 52rem;
+        min-height: auto;
         overflow: hidden;
         background: $color-bg-deep;
         clip-path: inset(0);
         will-change: clip-path;
+
+        @include responsive(tablet)
+        {
+            min-height: min(52rem, 100svh);
+        }
+
+        @include responsive(desktop)
+        {
+            min-height: 100svh;
+            clip-path: inset(4% 2%);
+        }
     }
 
     .experience__stage::after
@@ -588,9 +743,14 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transform: scale(1.12);
+        transform: scale(1);
         transform-origin: center;
         will-change: transform;
+
+        @include responsive(desktop)
+        {
+            transform: scale(1.12);
+        }
     }
 
     .experience__grid
@@ -598,22 +758,46 @@
         position: relative;
         z-index: 1;
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        @include grid.editorial-columns;
         align-content: space-between;
-        min-height: 52rem;
-        gap: clamp(3rem, 8vw, 7rem) $space-1;
-        padding: clamp(4.5rem, 9vw, 8rem) clamp(1rem, 4vw, 4rem);
+        min-height: auto;
+        gap: 3rem $space-1;
+        padding:
+            4.5rem
+            var(--content-gutter-end)
+            4.5rem
+            var(--content-gutter-start);
         background-image: linear-gradient(to right, transparent calc(100% - 1px), rgba($color-text-title, 0.1) 100%);
         background-size: 25% 100%;
+
+        @include responsive(tablet)
+        {
+            min-height: min(52rem, 100svh);
+            gap: 5rem $space-1;
+            padding-block: 6rem;
+        }
+
+        @include responsive(desktop)
+        {
+            min-height: 100svh;
+            gap: 7rem $space-2;
+            column-gap: $space-2;
+            padding-inline: clamp(6rem, 9vw, 10rem);
+            padding-block: 8rem;
+            background-size: calc(100% / 12) 100%;
+        }
     }
 
     .experience__meta
     {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         grid-column: 1 / -1;
         justify-content: space-between;
+        gap: $space-1;
         color: $color-text-title;
         font-size: $font-tag;
+        line-height: 1.35;
         letter-spacing: $tracking-label;
         text-transform: uppercase;
     }
@@ -623,6 +807,11 @@
         grid-column: 1 / -1;
         align-self: center;
         gap: $space-2;
+
+        @include responsive(desktop)
+        {
+            grid-column: 1 / 12;
+        }
     }
 
     .experience__title
@@ -637,8 +826,18 @@
     {
         color: $color-text-title;
         font-family: $font-secondary;
-        font-size: clamp(3.75rem, 14vw, 11rem);
+        font-size: 2.75rem;
         letter-spacing: -0.06em;
+
+        @include responsive(tablet)
+        {
+            font-size: 6rem;
+        }
+
+        @include responsive(desktop)
+        {
+            font-size: 11rem;
+        }
     }
 
     .experience__title span:last-child
@@ -646,14 +845,36 @@
         align-self: flex-end;
         color: $color-accent-gold;
         font-family: $font-primary;
-        font-size: clamp(3rem, 10vw, 8rem);
+        font-size: 2.25rem;
         letter-spacing: 0.01em;
+
+        @include responsive(tablet)
+        {
+            font-size: 5rem;
+        }
+
+        @include responsive(desktop)
+        {
+            font-size: 8rem;
+        }
     }
 
     .section__body
     {
         grid-column: 1 / -1;
         align-self: end;
+
+        @include responsive(tablet)
+        {
+            grid-column: 3 / 9;
+            margin-left: auto;
+        }
+
+        @include responsive(desktop)
+        {
+            grid-column: 8 / 13;
+            margin-left: 0;
+        }
     }
 
     .section__body .paragraph
@@ -664,86 +885,75 @@
 
     .number
     {
-        position: absolute;
-        right: clamp(1rem, 4vw, 4rem);
-        bottom: clamp(4.5rem, 9vw, 8rem);
+        position: static;
+        grid-column: 4;
+        justify-self: end;
+        align-self: end;
         color: rgba($color-accent-gold, 0.18);
-        font-size: clamp(6rem, 24vw, 14rem);
+        font-size: 4.5rem;
         line-height: 1;
-    }
 
-    @include responsive(tablet)
-    {
-        .section__body
+        @include responsive(tablet)
         {
-            grid-column: 2 / 5;
-            margin-left: auto;
-        }
-    }
-
-    @include responsive(desktop)
-    {
-        .experience__zoom,
-        .experience__stage,
-        .experience__grid
-        {
-            min-height: 100svh;
+            grid-column: 8;
+            font-size: 8rem;
         }
 
-        .experience__stage
+        @include responsive(desktop)
         {
-            clip-path: inset(4% 2%);
-        }
-
-        .experience__grid
-        {
-            grid-template-columns: repeat(12, minmax(0, 1fr));
-            column-gap: $space-2;
-            padding-inline: clamp(6rem, 9vw, 10rem);
-            background-size: calc(100% / 12) 100%;
-        }
-
-        .number
-        {
+            position: absolute;
             right: clamp(6rem, 9vw, 10rem);
-        }
-
-        .section__head
-        {
-            grid-column: 1 / 12;
-        }
-
-        .section__body
-        {
-            grid-column: 8 / 13;
-            margin-left: 0;
+            bottom: clamp(4.5rem, 9vw, 8rem);
+            font-size: 14rem;
         }
     }
+
 }
 
 .cta
 {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    @include grid.editorial-columns;
     align-content: space-between;
-    min-height: min(64rem, 105svh);
-    gap: clamp(3rem, 9vw, 8rem) $space-1;
-    padding: clamp(4.5rem, 9vw, 8rem) clamp(1rem, 4vw, 4rem);
+    min-height: auto;
+    gap: 3rem $space-1;
+    padding:
+        4.5rem
+        var(--content-gutter-end)
+        4.5rem
+        var(--content-gutter-start);
     overflow: hidden;
     border-top: 1px solid $color-border-gold;
     background: $color-bg-deep;
+
+    @include responsive(tablet)
+    {
+        min-height: min(64rem, 105svh);
+        gap: 5rem $space-1;
+        padding-block: 6rem;
+    }
+
+    @include responsive(desktop)
+    {
+        gap: 8rem $space-2;
+        padding-block: 8rem;
+        column-gap: $space-2;
+    }
 }
 
 .cta__meta
 {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-column: 1 / -1;
     justify-content: space-between;
+    gap: $space-1;
     padding-bottom: $space-1;
     border-bottom: 1px solid rgba($color-accent-rose, 0.2);
     color: $color-accent-rose;
     font-size: $font-tag;
+    line-height: 1.35;
     letter-spacing: $tracking-label;
     text-transform: uppercase;
 }
@@ -752,6 +962,11 @@
 {
     grid-column: 1 / -1;
     align-self: center;
+
+    @include responsive(desktop)
+    {
+        grid-column: 1 / 12;
+    }
 }
 
 .cta__title
@@ -767,8 +982,18 @@
 .cta__title span:first-child
 {
     font-family: $font-secondary;
-    font-size: clamp(3.5rem, 13vw, 11rem);
+    font-size: 2.75rem;
     letter-spacing: -0.065em;
+
+    @include responsive(tablet)
+    {
+        font-size: 6rem;
+    }
+
+    @include responsive(desktop)
+    {
+        font-size: 11rem;
+    }
 }
 
 .cta__title span:last-child
@@ -776,8 +1001,18 @@
     align-self: flex-end;
     color: $color-accent-gold;
     font-family: $font-primary;
-    font-size: clamp(3.5rem, 11vw, 9rem);
+    font-size: 2.75rem;
     letter-spacing: 0.01em;
+
+    @include responsive(tablet)
+    {
+        font-size: 5.5rem;
+    }
+
+    @include responsive(desktop)
+    {
+        font-size: 9rem;
+    }
 }
 
 .cta__note
@@ -788,6 +1023,16 @@
     color: $color-text-paragraph;
     font-size: $font-body;
     line-height: 1.5;
+
+    @include responsive(tablet)
+    {
+        grid-column: 1 / 5;
+    }
+
+    @include responsive(desktop)
+    {
+        grid-column: 1 / 4;
+    }
 }
 
 .cta .btn--large
@@ -795,40 +1040,15 @@
     grid-column: 1 / -1;
     justify-self: end;
     align-self: end;
-}
+    width: 100%;
 
-@include responsive(tablet)
-{
-    .cta__note
+    @include responsive(tablet)
     {
-        grid-column: 1 / 3;
+        grid-column: 5 / 9;
+        width: auto;
     }
 
-    .cta .btn--large
-    {
-        grid-column: 3 / 5;
-    }
-}
-
-@include responsive(desktop)
-{
-    .cta
-    {
-        grid-template-columns: repeat(12, minmax(0, 1fr));
-        column-gap: $space-2;
-    }
-
-    .cta__content
-    {
-        grid-column: 1 / 12;
-    }
-
-    .cta__note
-    {
-        grid-column: 1 / 4;
-    }
-
-    .cta .btn--large
+    @include responsive(desktop)
     {
         grid-column: 10 / 13;
     }

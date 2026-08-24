@@ -50,6 +50,16 @@
     font-size: $font-lead;
     overflow-wrap: break-word;
     text-transform: uppercase;
+
+    @include responsive(tablet)
+    {
+        font-size: 1.5rem;
+    }
+
+    @include responsive(desktop)
+    {
+        font-size: 1.875rem;
+    }
 }
 
 .card__role
@@ -60,6 +70,16 @@
     font-size: $font-tag;
     letter-spacing: $tracking-label;
     text-transform: uppercase;
+
+    @include responsive(tablet)
+    {
+        font-size: 0.75rem;
+    }
+
+    @include responsive(desktop)
+    {
+        font-size: 0.8125rem;
+    }
 }
 
 .card__prompt,
@@ -71,4 +91,14 @@
     font-size: $font-body;
     line-height: 1.65;
     overflow-wrap: break-word;
+
+    @include responsive(tablet)
+    {
+        font-size: 1rem;
+    }
+
+    @include responsive(desktop)
+    {
+        font-size: 1.125rem;
+    }
 }
