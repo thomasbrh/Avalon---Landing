@@ -1,4 +1,6 @@
 
+@use 'sass:math';
+
 @mixin responsive($breakpoint)
 {
     @if $breakpoint == phone-small
@@ -21,4 +23,12 @@
     {
         @media (min-width: 1440px) { @content; }
     }
+}
+
+@mixin fluid-font($min-size, $max-size, $min-viewport: 374px, $max-viewport: 1440px)
+{
+    $slope: math.div($max-size - $min-size, $max-viewport - $min-viewport);
+    $intercept: $min-size - ($slope * $min-viewport);
+
+    font-size: clamp($min-size, calc(#{$intercept} + #{($slope * 100)}vw), $max-size);
 }

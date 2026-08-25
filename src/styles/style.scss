@@ -21,6 +21,7 @@
 *::after
 {
     box-sizing: border-box;
+    user-select: text;
 }
 
 html
@@ -28,7 +29,6 @@ html
     font-size: 16px;
     background: $color-bg-deep;
     scroll-behavior: smooth;
-    user-select: text;
 
     @include responsive(tablet)
     {

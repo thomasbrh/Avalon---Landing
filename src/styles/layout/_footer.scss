@@ -119,19 +119,10 @@
 {
     color: $color-accent-gold;
     font-family: $font-primary;
-    font-size: 24px;
+    @include fluid-font(24px, 30px);
     text-decoration: none;
     text-transform: uppercase;
 
-    @include responsive(tablet)
-    {
-        font-size: 27px;
-    }
-
-    @include responsive(desktop)
-    {
-        font-size: 30px;
-    }
 }
 
 .footer__copy

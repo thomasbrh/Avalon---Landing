@@ -53,24 +53,10 @@
     margin: 0;
     color: $color-text-title;
     font-family: $font-secondary;
-    font-size: $font-lead;
+    @include fluid-font(24px, 30px);
     overflow-wrap: break-word;
     text-transform: uppercase;
 
-    @include responsive(tablet)
-    {
-        font-size: 27px;
-    }
-
-    @include responsive(tablet-landscape)
-    {
-        font-size: 27px;
-    }
-
-    @include responsive(desktop)
-    {
-        font-size: 30px;
-    }
 }
 
 .card__role
@@ -78,18 +64,9 @@
     margin: 0;
     color: $color-accent-rose;
     font-family: $font-secondary;
-    font-size: $font-tag;
+    @include fluid-font(11px, 13px);
     text-transform: uppercase;
 
-    @include responsive(tablet)
-    {
-        font-size: 12px;
-    }
-
-    @include responsive(desktop)
-    {
-        font-size: 13px;
-    }
 }
 
 .card__prompt,
@@ -98,17 +75,8 @@
     margin: 0;
     color: $color-text-paragraph;
     font-family: $font-secondary;
-    font-size: $font-body;
+    @include fluid-font(16px, 20px);
     line-height: 1.65;
     overflow-wrap: break-word;
 
-    @include responsive(tablet)
-    {
-        font-size: 18px;
-    }
-
-    @include responsive(desktop)
-    {
-        font-size: 20px;
-    }
 }

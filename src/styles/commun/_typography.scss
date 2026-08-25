@@ -15,82 +15,25 @@
 .title-h1
 {
     color: $color-text-title;
-    font-size: $font-h1;
+    @include fluid-font(54px, 101px);
     line-height: 1;
 
-    @include responsive(phone-small)
-    {
-        font-size: 54px;
-    }
-
-    @include responsive(tablet)
-    {
-        font-size: 91px;
-    }
-
-    @include responsive(tablet-landscape)
-    {
-        font-size: 91px;
-    }
-
-    @include responsive(desktop)
-    {
-        font-size: 101px;
-    }
 }
 
 .title-h2
 {
     color: $color-accent-gold;
-    font-size: $font-h2;
+    @include fluid-font(36px, 68px);
     line-height: 1.1;
 
-    @include responsive(phone-small)
-    {
-        font-size: 36px;
-    }
-
-    @include responsive(tablet)
-    {
-        font-size: 61px;
-    }
-
-    @include responsive(tablet-landscape)
-    {
-        font-size: 61px;
-    }
-
-    @include responsive(desktop)
-    {
-        font-size: 68px;
-    }
 }
 
 .title-h3
 {
     color: $color-text-title;
-    font-size: $font-h3;
+    @include fluid-font(24px, 45px);
     line-height: 1.05;
 
-    @include responsive(phone-small)
-    {
-        font-size: 24px;
-    }
-
-    @include responsive(tablet)
-    {
-        font-size: 41px;
-    }
-
-    @include responsive(tablet-landscape)
-    {
-        font-size: 41px;
-    }
-
-    @include responsive(desktop)
-    {
-        font-size: 45px;
-    }
 }
 
 .subtitle__tag,
@@ -99,42 +42,21 @@
     margin: 0;
     color: $color-accent-rose;
     font-family: $font-secondary;
-    font-size: $font-tag;
+    @include fluid-font(11px, 13px);
     line-height: 1.2;
     text-transform: uppercase;
 
-    @include responsive(tablet)
-    {
-        font-size: 12px;
-    }
-
-    @include responsive(desktop)
-    {
-        font-size: 13px;
-    }
 }
 
 .paragraph
 {
-    width: 55ch;
     max-width: $paragraph-width;
     margin: 0;
     color: $color-text-paragraph;
     font-family: $font-secondary;
-    font-size: $font-body;
+    @include fluid-font(16px, 20px);
     line-height: 1.65;
 
-    @include responsive(tablet)
-    {
-        font-size: 18px;
-        line-height: 1.7;
-    }
-
-    @include responsive(desktop)
-    {
-        font-size: 20px;
-        line-height: 1.75;
-    }
 }
 
 .lead
@@ -143,18 +65,9 @@
     margin: 0;
     color: $color-text-title;
     font-family: $font-secondary;
-    font-size: $font-lead;
+    @include fluid-font(24px, 30px);
     line-height: 1.35;
 
-    @include responsive(tablet)
-    {
-        font-size: 27px;
-    }
-
-    @include responsive(desktop)
-    {
-        font-size: 30px;
-    }
 }
 
 .text-accent

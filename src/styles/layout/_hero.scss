@@ -158,6 +158,13 @@
     align-self: flex-end;
     padding: 0;
 
+    // Entre le mobile et la tablette, la composition sur toute la largeur
+    // éloignait artificiellement les deux lignes du titre.
+    @media (min-width: 480px) and (max-width: 767px)
+    {
+        padding-right: 12%;
+    }
+
     @include responsive(tablet)
     {
         padding: 0 clamp(0px, 5vw, 96px) 0 0;
@@ -192,6 +199,11 @@
     font-size: 16px;
     line-height: 1.2;
     text-align: right;
+
+    @media (min-width: 480px) and (max-width: 767px)
+    {
+        margin-right: 12%;
+    }
 
     @include responsive(tablet)
     {

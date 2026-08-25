@@ -62,19 +62,34 @@
         align-content: space-between;
         min-height: auto;
         gap: 48px $space-1;
-        padding: 72px 0;
+        padding: 72px $space-margin-mobile;
+
+        @include responsive(phone-small)
+        {
+            padding-inline: $space-margin-small;
+        }
 
         @include responsive(tablet)
         {
             min-height: min(1024px, 105svh);
             gap: 78px $space-1;
-            padding: 96px 0;
+            padding: 96px $space-margin-tablet;
+        }
+
+        @include responsive(tablet-landscape)
+        {
+            padding-inline: $space-margin-landscape;
+        }
+
+        @include responsive(laptop)
+        {
+            padding-inline: $space-margin-laptop;
         }
 
         @include responsive(desktop)
         {
             gap: 114px $space-2;
-            padding: 126px 0;
+            padding: 126px $space-margin-desktop;
             column-gap: $space-2;
         }
     }
@@ -103,10 +118,17 @@
     {
         grid-column: 1 / -1;
         gap: $space-3;
+        max-width: 100%;
+
+        @include responsive(tablet)
+        {
+            max-width: 840px;
+        }
 
         @include responsive(desktop)
         {
             grid-column: 2 / 7;
+            max-width: 1120px;
         }
     }
 
@@ -305,7 +327,7 @@
             flex-direction: row;
             width: max-content;
             height: 100%;
-            gap: clamp(48px, 6vw, 96px);
+            gap: $space-8;
             padding: 0 $space-margin-desktop;
             will-change: transform;
         }
@@ -388,9 +410,19 @@
     {
         display: flex;
         flex-direction: column;
-        max-width: none;
+        max-width: 100%;
         margin-bottom: $space-2;
         line-height: 1;
+
+        @include responsive(tablet)
+        {
+            max-width: 840px;
+        }
+
+        @include responsive(desktop)
+        {
+            max-width: 1120px;
+        }
     }
 
     .environment__title span:first-child
@@ -570,19 +602,34 @@
         align-content: space-between;
         min-height: auto;
         gap: 48px $space-1;
-        padding: 78px 0;
+        padding: 78px $space-margin-mobile;
+
+        @include responsive(phone-small)
+        {
+            padding-inline: $space-margin-small;
+        }
 
         @include responsive(tablet)
         {
             min-height: min(1152px, 115svh);
             gap: 78px $space-1;
-            padding: 114px 0;
+            padding: 114px $space-margin-tablet;
+        }
+
+        @include responsive(tablet-landscape)
+        {
+            padding-inline: $space-margin-landscape;
+        }
+
+        @include responsive(laptop)
+        {
+            padding-inline: $space-margin-laptop;
         }
 
         @include responsive(desktop)
         {
             gap: 126px $space-2;
-            padding: 144px 0;
+            padding: 144px $space-margin-desktop;
             column-gap: $space-2;
         }
     }
@@ -611,6 +658,17 @@
     {
         grid-column: 1 / -1;
         gap: $space-3;
+        max-width: 100%;
+
+        @include responsive(tablet)
+        {
+            max-width: 840px;
+        }
+
+        @include responsive(desktop)
+        {
+            max-width: 1120px;
+        }
     }
 
     .vision__title
@@ -1151,6 +1209,11 @@
     }
 }
 
+.cta__title-button
+{
+    display: none;
+}
+
 .cta__note
 {
     grid-column: 1 / 4;
@@ -1171,7 +1234,7 @@
     }
 }
 
-.cta .btn--large
+.cta .cta__action
 {
     grid-column: 1 / -1;
     justify-self: end;
@@ -1187,6 +1250,47 @@
     @include responsive(desktop)
     {
         grid-column: 6 / 8;
+        min-width: clamp(220px, 15vw, 320px);
+        min-height: 80px;
+        padding: 20px 36px;
+        font-size: 26px;
+        letter-spacing: 0.03em;
+    }
+}
+
+@include responsive(laptop)
+{
+    .cta__title-line
+    {
+        display: flex;
+        align-items: center;
+        gap: $space-3;
+    }
+
+    .cta__title-entry,
+    .cta .cta__action
+    {
+        display: none;
+    }
+
+    .cta__title-button
+    {
+        display: inline-flex;
+        flex: 0 0 auto;
+        min-height: 110px;
+        padding: 28px 44px;
+        font-size: 28px;
+        letter-spacing: 0.03em;
+    }
+}
+
+@include responsive(desktop)
+{
+    .cta__title-button
+    {
+        min-height: 152px;
+        padding-inline: 60px;
+        font-size: 34px;
     }
 }
 
