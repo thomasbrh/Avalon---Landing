@@ -1,37 +1,16 @@
-@use './variables' as *;
 @use './responsive' as *;
 
-@mixin editorial-columns
+@mixin columns
 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
 
     @include responsive(tablet)
     {
-        grid-template-columns: repeat(8, minmax(0, 1fr));
+        grid-template-columns: repeat(5, minmax(0, 1fr));
     }
 
     @include responsive(desktop)
     {
-        grid-template-columns: repeat(12, minmax(0, 1fr));
-    }
-}
-
-.container
-{
-    width: min(100%, $container-max);
-    box-sizing: border-box;
-    margin-inline: auto;
-    padding-inline: var(--content-gutter-start) var(--content-gutter-end);
-}
-
-.editorial-grid
-{
-    display: grid;
-    column-gap: $space-1;
-    @include editorial-columns;
-
-    @include responsive(desktop)
-    {
-        column-gap: $space-2;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
     }
 }

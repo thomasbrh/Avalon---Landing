@@ -19,59 +19,76 @@
     position: relative;
     z-index: 1;
     display: grid;
-    @include grid.editorial-columns;
+    @include grid.columns;
     align-content: space-between;
-    width: min(100%, 100rem);
+    width: min(100%, 1600px);
     min-height: auto;
     margin-inline: auto;
-    gap: 3rem $space-1;
-    padding: 4.5rem var(--content-gutter-end) 4.5rem var(--content-gutter-start);
+    gap: 48px $space-1;
+    padding: $space-6 $space-margin-mobile;
+
+    @include responsive(phone-small)
+    {
+        gap: $space-3 $space-1;
+        padding: $space-5 $space-margin-small;
+    }
 
     @include responsive(tablet)
     {
-        min-height: min(60rem, 105svh);
-        gap: 5rem $space-1;
-        padding-block: 6rem;
+        min-height: min(960px, 105svh);
+        gap: 78px $space-1;
+        padding: $space-8 $space-margin-tablet;
+    }
+
+    @include responsive(tablet-landscape)
+    {
+        padding: $space-8 $space-margin-landscape;
+    }
+
+    @include responsive(laptop)
+    {
+        padding: $space-8 $space-margin-laptop;
     }
 
     @include responsive(desktop)
     {
-        min-height: min(68rem, 110svh);
-        gap: 8rem $space-2;
-        padding-block: 9rem;
+        min-height: min(1088px, 110svh);
+        gap: 126px $space-2;
+        padding: 144px $space-margin-desktop;
     }
 }
 
 .ia-section__meta
 {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-column: 1 / -1;
     justify-content: space-between;
     gap: $space-1;
     padding-bottom: $space-1;
     border-bottom: 1px solid rgba($color-accent-rose, 0.25);
     color: $color-accent-rose;
-    font-size: 0.625rem;
+    font-size: 11px;
     line-height: 1.2;
-    letter-spacing: $tracking-label;
     text-transform: uppercase;
 
     @include responsive(tablet)
     {
-        font-size: 0.75rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        font-size: 12px;
     }
 
     @include responsive(desktop)
     {
-        font-size: 0.8125rem;
+        font-size: 13px;
     }
 }
 
 .ia-section__meta span
 {
     min-width: 0;
-    overflow-wrap: anywhere;
+    overflow-wrap: normal;
+    word-break: normal;
 }
 
 .ia-section__meta span:nth-child(2)
@@ -98,7 +115,7 @@
 {
     @include responsive(desktop)
     {
-        grid-column: 2 / 13;
+        grid-column: 2 / 8;
     }
 }
 
@@ -106,7 +123,7 @@
 {
     @include responsive(desktop)
     {
-        grid-column: 2 / 13;
+        grid-column: 2 / 8;
         text-align: right;
     }
 }
@@ -118,20 +135,24 @@
     margin: 0;
     color: $color-text-title;
     font-family: $font-primary;
-    font-size: clamp(2.25rem, 11vw, 3.5rem);
+    font-size: clamp(36px, 11vw, 54px);
     font-weight: 400;
     line-height: 1;
-    letter-spacing: -0.055em;
     overflow-wrap: break-word;
 
     @include responsive(tablet)
     {
-        font-size: clamp(4.5rem, 9vw, 6.5rem);
+        font-size: clamp(61px, 9vw, 91px);
+    }
+
+    @include responsive(tablet-landscape)
+    {
+        font-size: clamp(61px, 8vw, 91px);
     }
 
     @include responsive(desktop)
     {
-        font-size: clamp(7rem, 8vw, 10rem);
+        font-size: clamp(101px, 8vw, 152px);
     }
 }
 
@@ -146,16 +167,16 @@
 .ia-section--gemini .ia-section__title span:last-child
 {
     align-self: flex-end;
-    padding-right: 0;
+    padding: 0;
 
     @include responsive(tablet)
     {
-        padding-right: 3rem;
+        padding: 0 48px 0 0;
     }
 
     @include responsive(desktop)
     {
-        padding-right: 7rem;
+        padding: 0 114px 0 0;
     }
 }
 
@@ -166,13 +187,13 @@
 
     @include responsive(tablet)
     {
-        grid-column: 3 / 9;
+        grid-column: 3 / 6;
         margin-left: auto;
     }
 
     @include responsive(desktop)
     {
-        grid-column: 8 / 13;
+        grid-column: 5 / 8;
         margin-left: 0;
     }
 }
@@ -188,7 +209,7 @@
 {
     @include responsive(desktop)
     {
-        grid-column: 3 / 13;
+        grid-column: 2 / 8;
     }
 }
 
@@ -196,14 +217,14 @@
 {
     @include responsive(desktop)
     {
-        grid-column: 1 / 11;
+        grid-column: 1 / 7;
     }
 }
 
 .ia-prompt
 {
     display: grid;
-    grid-template-columns: 2rem minmax(0, 1fr);
+    grid-template-columns: 32px minmax(0, 1fr);
     min-width: 0;
     gap: $space-1;
     padding: $space-2 0;
@@ -211,9 +232,9 @@
 
     @include responsive(tablet)
     {
-        grid-template-columns: 3rem minmax(13rem, 0.8fr) minmax(0, 1fr);
+        grid-template-columns: 48px minmax(208px, 0.8fr) minmax(0, 1fr);
         column-gap: $space-2;
-        padding-block: $space-3;
+        padding: $space-3 0;
     }
 }
 
@@ -226,18 +247,17 @@
 {
     grid-column: 1;
     color: $color-accent-rose;
-    font-size: 0.625rem;
+    font-size: 11px;
     line-height: 1.2;
-    letter-spacing: $tracking-label;
 
     @include responsive(tablet)
     {
-        font-size: 0.75rem;
+        font-size: 12px;
     }
 
     @include responsive(desktop)
     {
-        font-size: 0.8125rem;
+        font-size: 13px;
     }
 }
 
@@ -249,7 +269,7 @@
 
 .ia-prompt .card__prompt
 {
-    max-width: 46rem;
+    max-width: 736px;
 
     @include responsive(tablet)
     {
@@ -260,19 +280,23 @@
 .ia-prompt .card__name
 {
     font-family: $font-primary;
-    font-size: 1.5rem;
+    font-size: 24px;
     font-weight: 400;
     line-height: 1;
-    letter-spacing: -0.025em;
     text-transform: none;
 
     @include responsive(tablet)
     {
-        font-size: 2.25rem;
+        font-size: 41px;
+    }
+
+    @include responsive(tablet-landscape)
+    {
+        font-size: 41px;
     }
 
     @include responsive(desktop)
     {
-        font-size: 3.75rem;
+        font-size: 68px;
     }
 }

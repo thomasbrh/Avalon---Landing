@@ -7,7 +7,7 @@
 #vision,
 #experience
 {
-    scroll-margin-top: 5rem;
+    scroll-margin-top: 78px;
 }
 
 .section--contexte,
@@ -38,7 +38,8 @@
 {
     flex: 1 1 0;
     min-width: 0;
-    overflow-wrap: anywhere;
+    overflow-wrap: normal;
+    word-break: normal;
 }
 
 .context__meta > span:last-child,
@@ -57,23 +58,23 @@
     .section__inner
     {
         display: grid;
-        @include grid.editorial-columns;
+        @include grid.columns;
         align-content: space-between;
         min-height: auto;
-        gap: 3rem $space-1;
-        padding-block: 4.5rem;
+        gap: 48px $space-1;
+        padding: 72px 0;
 
         @include responsive(tablet)
         {
-            min-height: min(64rem, 105svh);
-            gap: 5rem $space-1;
-            padding-block: 6rem;
+            min-height: min(1024px, 105svh);
+            gap: 78px $space-1;
+            padding: 96px 0;
         }
 
         @include responsive(desktop)
         {
-            gap: 7rem $space-2;
-            padding-block: 8rem;
+            gap: 114px $space-2;
+            padding: 126px 0;
             column-gap: $space-2;
         }
     }
@@ -81,7 +82,7 @@
     .context__meta
     {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         grid-column: 1 / -1;
         justify-content: space-between;
         gap: $space-1;
@@ -90,8 +91,12 @@
         color: $color-accent-rose;
         font-size: $font-tag;
         line-height: 1.35;
-        letter-spacing: $tracking-label;
         text-transform: uppercase;
+
+        @include responsive(tablet)
+        {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
     }
 
     .section__head
@@ -101,7 +106,7 @@
 
         @include responsive(desktop)
         {
-            grid-column: 2 / 12;
+            grid-column: 2 / 7;
         }
     }
 
@@ -117,17 +122,26 @@
     {
         color: $color-text-title;
         font-family: $font-secondary;
-        font-size: 2rem;
-        letter-spacing: -0.055em;
+        font-size: 36px;
+
+        @include responsive(phone-small)
+        {
+            font-size: 24px;
+        }
 
         @include responsive(tablet)
         {
-            font-size: 4.5rem;
+            font-size: 61px;
+        }
+
+        @include responsive(tablet-landscape)
+        {
+            font-size: 61px;
         }
 
         @include responsive(desktop)
         {
-            font-size: 7.5rem;
+            font-size: 101px;
         }
     }
 
@@ -136,17 +150,27 @@
         align-self: flex-end;
         color: $color-accent-gold;
         font-family: $font-primary;
-        font-size: 3rem;
-        letter-spacing: 0.01em;
+        font-size: 54px;
+        white-space: nowrap;
+
+        @include responsive(phone-small)
+        {
+            font-size: 36px;
+        }
 
         @include responsive(tablet)
         {
-            font-size: 7rem;
+            font-size: 91px;
+        }
+
+        @include responsive(tablet-landscape)
+        {
+            font-size: 91px;
         }
 
         @include responsive(desktop)
         {
-            font-size: 12rem;
+            font-size: 152px;
         }
     }
 
@@ -157,14 +181,14 @@
 
         @include responsive(tablet)
         {
-            grid-column: 5 / 9;
+            grid-column: 3 / 6;
             width: auto;
             margin-left: auto;
         }
 
         @include responsive(desktop)
         {
-            grid-column: 8 / 13;
+            grid-column: 5 / 8;
             align-self: end;
             margin-left: 0;
         }
@@ -187,7 +211,6 @@
         color: $color-accent-rose;
         font-size: $font-tag;
         line-height: 1.4;
-        letter-spacing: $tracking-label;
         text-transform: uppercase;
 
         @include responsive(tablet)
@@ -198,30 +221,30 @@
 
         @include responsive(desktop)
         {
-            grid-column: 1 / 4;
+            grid-column: 1 / 3;
         }
     }
 
     .number
     {
-        grid-column: 4;
+        grid-column: 3;
         margin: 0;
         color: rgba($color-accent-gold, 0.18);
-        font-size: 4.5rem;
+        font-size: 81px;
         line-height: 1;
 
         @include responsive(tablet)
         {
-            grid-column: 8;
-            font-size: 8rem;
+            grid-column: 5;
+            font-size: 137px;
         }
 
         @include responsive(desktop)
         {
             position: absolute;
-            bottom: clamp(4.5rem, 9vw, 8rem);
-            left: clamp(1rem, 4vw, 4rem);
-            font-size: 14rem;
+            bottom: clamp(72px, 9vw, 128px);
+            left: clamp(16px, 4vw, 64px);
+            font-size: 228px;
         }
     }
 
@@ -252,17 +275,29 @@
     {
         display: flex;
         flex-direction: column;
-        gap: 4rem;
-        padding:
-            4.5rem
-            var(--content-gutter-end)
-            4.5rem
-            var(--content-gutter-start);
+        gap: 66px;
+        padding: $space-6 $space-margin-mobile;
+
+        @include responsive(phone-small)
+        {
+            gap: $space-4;
+            padding: $space-5 $space-margin-small;
+        }
 
         @include responsive(tablet)
         {
-            gap: 5rem;
-            padding-block: 6rem;
+            gap: 78px;
+            padding: $space-8 $space-margin-tablet;
+        }
+
+        @include responsive(tablet-landscape)
+        {
+            padding: $space-8 $space-margin-landscape;
+        }
+
+        @include responsive(laptop)
+        {
+            padding: $space-8 $space-margin-laptop;
         }
 
         @include responsive(desktop)
@@ -270,8 +305,8 @@
             flex-direction: row;
             width: max-content;
             height: 100%;
-            gap: clamp(3rem, 6vw, 6rem);
-            padding: 0 clamp(4rem, 8vw, 8rem);
+            gap: clamp(48px, 6vw, 96px);
+            padding: 0 $space-margin-desktop;
             will-change: transform;
         }
     }
@@ -292,7 +327,7 @@
     {
         position: relative;
         display: grid;
-        @include grid.editorial-columns;
+        @include grid.columns;
         min-height: auto;
         gap: $space-3 $space-1;
         padding-bottom: $space-4;
@@ -300,15 +335,15 @@
 
         @include responsive(tablet)
         {
-            min-height: min(52rem, 100svh);
+            min-height: min(832px, 100svh);
         }
 
         @include responsive(desktop)
         {
             align-content: space-between;
-            width: calc(100vw - clamp(8rem, 16vw, 16rem));
+            width: calc(100vw - clamp(128px, 16vw, 256px));
             min-height: 0;
-            padding-block: clamp(5rem, 9vw, 8rem);
+            padding: clamp(78px, 9vw, 126px) 0;
             border-bottom: 0;
         }
     }
@@ -316,7 +351,7 @@
     .environment__meta
     {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         grid-column: 1 / -1;
         align-self: start;
         justify-content: space-between;
@@ -324,8 +359,12 @@
         color: $color-accent-rose;
         font-size: $font-tag;
         line-height: 1.35;
-        letter-spacing: $tracking-label;
         text-transform: uppercase;
+
+        @include responsive(tablet)
+        {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
     }
 
     .section__content
@@ -336,12 +375,12 @@
 
         @include responsive(tablet)
         {
-            grid-column: 1 / 7;
+            grid-column: 1 / 6;
         }
 
         @include responsive(desktop)
         {
-            grid-column: 1 / 9;
+            grid-column: 1 / 6;
         }
     }
 
@@ -358,17 +397,26 @@
     {
         color: $color-text-title;
         font-family: $font-secondary;
-        font-size: 2.5rem;
-        letter-spacing: -0.055em;
+        font-size: 36px;
+
+        @include responsive(phone-small)
+        {
+            font-size: 36px;
+        }
 
         @include responsive(tablet)
         {
-            font-size: 5rem;
+            font-size: 91px;
+        }
+
+        @include responsive(tablet-landscape)
+        {
+            font-size: 91px;
         }
 
         @include responsive(desktop)
         {
-            font-size: 9rem;
+            font-size: 152px;
         }
     }
 
@@ -377,17 +425,26 @@
         align-self: flex-end;
         color: $color-accent-gold;
         font-family: $font-primary;
-        font-size: 3rem;
-        letter-spacing: 0.01em;
+        font-size: 54px;
+
+        @include responsive(phone-small)
+        {
+            font-size: 36px;
+        }
 
         @include responsive(tablet)
         {
-            font-size: 6.5rem;
+            font-size: 91px;
+        }
+
+        @include responsive(tablet-landscape)
+        {
+            font-size: 91px;
         }
 
         @include responsive(desktop)
         {
-            font-size: 11rem;
+            font-size: 152px;
         }
     }
 
@@ -408,17 +465,17 @@
     .number
     {
         position: static;
-        grid-column: 4;
+        grid-column: 3;
         justify-self: end;
         align-self: end;
         color: rgba($color-accent-gold, 0.14);
-        font-size: 4.5rem;
+        font-size: 81px;
         line-height: 1;
 
         @include responsive(tablet)
         {
-            grid-column: 8;
-            font-size: 8rem;
+            grid-column: 5;
+            font-size: 137px;
         }
 
         @include responsive(desktop)
@@ -426,7 +483,7 @@
             position: absolute;
             right: 0;
             bottom: $space-4;
-            font-size: 14rem;
+            font-size: 228px;
         }
     }
 
@@ -438,13 +495,13 @@
 
         @include responsive(tablet)
         {
-            width: min(88%, 48rem);
+            width: min(88%, 768px);
         }
 
         @include responsive(desktop)
         {
             align-content: center;
-            width: min(54vw, 56rem);
+            width: min(54vw, 896px);
         }
     }
 
@@ -468,7 +525,7 @@
     {
         @include responsive(desktop)
         {
-            width: min(38vw, 40rem);
+            width: min(38vw, 640px);
         }
     }
 
@@ -481,7 +538,6 @@
         color: $color-text-paragraph;
         font-size: $font-tag;
         line-height: 1.2;
-        letter-spacing: $tracking-label;
         text-transform: uppercase;
 
         span:last-child
@@ -492,6 +548,8 @@
 
     .paragraph
     {
+        max-width: 48ch;
+
         @include responsive(desktop)
         {
             margin-left: auto;
@@ -508,23 +566,23 @@
     .section__inner
     {
         display: grid;
-        @include grid.editorial-columns;
+        @include grid.columns;
         align-content: space-between;
         min-height: auto;
-        gap: 3rem $space-1;
-        padding-block: 5rem;
+        gap: 48px $space-1;
+        padding: 78px 0;
 
         @include responsive(tablet)
         {
-            min-height: min(72rem, 115svh);
-            gap: 5rem $space-1;
-            padding-block: 7rem;
+            min-height: min(1152px, 115svh);
+            gap: 78px $space-1;
+            padding: 114px 0;
         }
 
         @include responsive(desktop)
         {
-            gap: 8rem $space-2;
-            padding-block: 9rem;
+            gap: 126px $space-2;
+            padding: 144px 0;
             column-gap: $space-2;
         }
     }
@@ -532,7 +590,7 @@
     .vision__meta
     {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         grid-column: 1 / -1;
         justify-content: space-between;
         gap: $space-1;
@@ -541,8 +599,12 @@
         color: $color-accent-rose;
         font-size: $font-tag;
         line-height: 1.35;
-        letter-spacing: $tracking-label;
         text-transform: uppercase;
+
+        @include responsive(tablet)
+        {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
     }
 
     .section__head
@@ -558,18 +620,27 @@
         max-width: none;
         color: $color-text-title;
         font-family: $font-secondary;
-        font-size: 2.75rem;
+        font-size: 36px;
         line-height: 1;
-        letter-spacing: -0.065em;
+
+        @include responsive(phone-small)
+        {
+            font-size: 36px;
+        }
 
         @include responsive(tablet)
         {
-            font-size: 6rem;
+            font-size: 91px;
+        }
+
+        @include responsive(tablet-landscape)
+        {
+            font-size: 91px;
         }
 
         @include responsive(desktop)
         {
-            font-size: 11rem;
+            font-size: 152px;
         }
     }
 
@@ -584,7 +655,7 @@
     .vision__title span:nth-child(2)
     {
         position: relative;
-        inset-inline-start: clamp(1rem, 5vw, 6rem);
+        inset-inline-start: clamp(16px, 5vw, 96px);
         align-self: center;
     }
 
@@ -595,7 +666,6 @@
         font-family: $font-primary;
         font-size: 0.72em;
         line-height: 1.08;
-        letter-spacing: 0.015em;
     }
 
     .vision__title span:nth-child(4)
@@ -610,14 +680,14 @@
 
         @include responsive(tablet)
         {
-            grid-column: 5 / 9;
+            grid-column: 3 / 6;
             width: auto;
             margin-left: auto;
         }
 
         @include responsive(desktop)
         {
-            grid-column: 8 / 13;
+            grid-column: 5 / 8;
             margin-left: 0;
         }
     }
@@ -638,7 +708,6 @@
         color: $color-accent-rose;
         font-size: $font-tag;
         line-height: 1.45;
-        letter-spacing: $tracking-label;
         text-transform: uppercase;
 
         @include responsive(tablet)
@@ -648,30 +717,30 @@
 
         @include responsive(desktop)
         {
-            grid-column: 1 / 4;
+            grid-column: 1 / 3;
             align-self: end;
         }
     }
 
     .number
     {
-        grid-column: 4;
+        grid-column: 3;
         color: rgba($color-accent-gold, 0.14);
-        font-size: 4.5rem;
+        font-size: 81px;
         line-height: 1;
 
         @include responsive(tablet)
         {
-            grid-column: 8;
-            font-size: 8rem;
+            grid-column: 5;
+            font-size: 137px;
         }
 
         @include responsive(desktop)
         {
             position: absolute;
-            right: clamp(1rem, 4vw, 4rem);
-            bottom: clamp(5rem, 10vw, 9rem);
-            font-size: 14rem;
+            right: clamp(16px, 4vw, 64px);
+            bottom: clamp(80px, 10vw, 144px);
+            font-size: 228px;
         }
     }
 
@@ -692,7 +761,7 @@
 
         @include responsive(tablet)
         {
-            min-height: min(52rem, 100svh);
+            min-height: min(832px, 100svh);
         }
 
         @include responsive(desktop)
@@ -713,7 +782,7 @@
 
         @include responsive(tablet)
         {
-            min-height: min(52rem, 100svh);
+            min-height: min(832px, 100svh);
         }
 
         @include responsive(desktop)
@@ -758,48 +827,63 @@
         position: relative;
         z-index: 1;
         display: grid;
-        @include grid.editorial-columns;
+        @include grid.columns;
         align-content: space-between;
         min-height: auto;
-        gap: 3rem $space-1;
-        padding:
-            4.5rem
-            var(--content-gutter-end)
-            4.5rem
-            var(--content-gutter-start);
+        gap: 48px $space-1;
+        padding: $space-6 $space-margin-mobile;
         background-image: linear-gradient(to right, transparent calc(100% - 1px), rgba($color-text-title, 0.1) 100%);
         background-size: 25% 100%;
 
+        @include responsive(phone-small)
+        {
+            gap: $space-3 $space-1;
+            padding: $space-5 $space-margin-small;
+        }
+
         @include responsive(tablet)
         {
-            min-height: min(52rem, 100svh);
-            gap: 5rem $space-1;
-            padding-block: 6rem;
+            min-height: min(832px, 100svh);
+            gap: 78px $space-1;
+            padding: $space-8 $space-margin-tablet;
+        }
+
+        @include responsive(tablet-landscape)
+        {
+            padding: $space-8 $space-margin-landscape;
+        }
+
+        @include responsive(laptop)
+        {
+            padding: $space-8 $space-margin-laptop;
         }
 
         @include responsive(desktop)
         {
             min-height: 100svh;
-            gap: 7rem $space-2;
+            gap: 114px $space-2;
             column-gap: $space-2;
-            padding-inline: clamp(6rem, 9vw, 10rem);
-            padding-block: 8rem;
-            background-size: calc(100% / 12) 100%;
+            padding: 126px $space-margin-desktop;
+            background-size: calc(100% / 7) 100%;
         }
     }
 
     .experience__meta
     {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         grid-column: 1 / -1;
         justify-content: space-between;
         gap: $space-1;
         color: $color-text-title;
         font-size: $font-tag;
         line-height: 1.35;
-        letter-spacing: $tracking-label;
         text-transform: uppercase;
+
+        @include responsive(tablet)
+        {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
     }
 
     .section__head
@@ -810,7 +894,7 @@
 
         @include responsive(desktop)
         {
-            grid-column: 1 / 12;
+            grid-column: 1 / 7;
         }
     }
 
@@ -826,17 +910,26 @@
     {
         color: $color-text-title;
         font-family: $font-secondary;
-        font-size: 2.75rem;
-        letter-spacing: -0.06em;
+        font-size: 36px;
+
+        @include responsive(phone-small)
+        {
+            font-size: 36px;
+        }
 
         @include responsive(tablet)
         {
-            font-size: 6rem;
+            font-size: 91px;
+        }
+
+        @include responsive(tablet-landscape)
+        {
+            font-size: 91px;
         }
 
         @include responsive(desktop)
         {
-            font-size: 11rem;
+            font-size: 152px;
         }
     }
 
@@ -845,17 +938,26 @@
         align-self: flex-end;
         color: $color-accent-gold;
         font-family: $font-primary;
-        font-size: 2.25rem;
-        letter-spacing: 0.01em;
+        font-size: 36px;
+
+        @include responsive(phone-small)
+        {
+            font-size: 36px;
+        }
 
         @include responsive(tablet)
         {
-            font-size: 5rem;
+            font-size: 91px;
+        }
+
+        @include responsive(tablet-landscape)
+        {
+            font-size: 91px;
         }
 
         @include responsive(desktop)
         {
-            font-size: 8rem;
+            font-size: 152px;
         }
     }
 
@@ -866,13 +968,13 @@
 
         @include responsive(tablet)
         {
-            grid-column: 3 / 9;
+            grid-column: 3 / 6;
             margin-left: auto;
         }
 
         @include responsive(desktop)
         {
-            grid-column: 8 / 13;
+            grid-column: 5 / 8;
             margin-left: 0;
         }
     }
@@ -886,25 +988,25 @@
     .number
     {
         position: static;
-        grid-column: 4;
+        grid-column: 3;
         justify-self: end;
         align-self: end;
         color: rgba($color-accent-gold, 0.18);
-        font-size: 4.5rem;
+        font-size: 81px;
         line-height: 1;
 
         @include responsive(tablet)
         {
-            grid-column: 8;
-            font-size: 8rem;
+            grid-column: 5;
+            font-size: 137px;
         }
 
         @include responsive(desktop)
         {
             position: absolute;
-            right: clamp(6rem, 9vw, 10rem);
-            bottom: clamp(4.5rem, 9vw, 8rem);
-            font-size: 14rem;
+            right: clamp(96px, 9vw, 160px);
+            bottom: clamp(72px, 9vw, 128px);
+            font-size: 228px;
         }
     }
 
@@ -914,30 +1016,42 @@
 {
     position: relative;
     display: grid;
-    @include grid.editorial-columns;
+    @include grid.columns;
     align-content: space-between;
     min-height: auto;
-    gap: 3rem $space-1;
-    padding:
-        4.5rem
-        var(--content-gutter-end)
-        4.5rem
-        var(--content-gutter-start);
+    gap: 48px $space-1;
+    padding: $space-6 $space-margin-mobile;
     overflow: hidden;
     border-top: 1px solid $color-border-gold;
     background: $color-bg-deep;
 
+    @include responsive(phone-small)
+    {
+        gap: $space-3 $space-1;
+        padding: $space-5 $space-margin-small;
+    }
+
     @include responsive(tablet)
     {
-        min-height: min(64rem, 105svh);
-        gap: 5rem $space-1;
-        padding-block: 6rem;
+        min-height: min(1024px, 105svh);
+        gap: 78px $space-1;
+        padding: $space-8 $space-margin-tablet;
+    }
+
+    @include responsive(tablet-landscape)
+    {
+        padding: $space-8 $space-margin-landscape;
+    }
+
+    @include responsive(laptop)
+    {
+        padding: $space-8 $space-margin-laptop;
     }
 
     @include responsive(desktop)
     {
-        gap: 8rem $space-2;
-        padding-block: 8rem;
+        gap: 126px $space-2;
+        padding: 126px $space-margin-desktop;
         column-gap: $space-2;
     }
 }
@@ -945,7 +1059,7 @@
 .cta__meta
 {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-column: 1 / -1;
     justify-content: space-between;
     gap: $space-1;
@@ -954,8 +1068,12 @@
     color: $color-accent-rose;
     font-size: $font-tag;
     line-height: 1.35;
-    letter-spacing: $tracking-label;
     text-transform: uppercase;
+
+    @include responsive(tablet)
+    {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 }
 
 .cta__content
@@ -965,7 +1083,7 @@
 
     @include responsive(desktop)
     {
-        grid-column: 1 / 12;
+        grid-column: 1 / 7;
     }
 }
 
@@ -982,17 +1100,26 @@
 .cta__title span:first-child
 {
     font-family: $font-secondary;
-    font-size: 2.75rem;
-    letter-spacing: -0.065em;
+    font-size: 36px;
+
+    @include responsive(phone-small)
+    {
+        font-size: 36px;
+    }
 
     @include responsive(tablet)
     {
-        font-size: 6rem;
+        font-size: 91px;
+    }
+
+    @include responsive(tablet-landscape)
+    {
+        font-size: 91px;
     }
 
     @include responsive(desktop)
     {
-        font-size: 11rem;
+        font-size: 152px;
     }
 }
 
@@ -1001,17 +1128,26 @@
     align-self: flex-end;
     color: $color-accent-gold;
     font-family: $font-primary;
-    font-size: 2.75rem;
-    letter-spacing: 0.01em;
+    font-size: 36px;
+
+    @include responsive(phone-small)
+    {
+        font-size: 36px;
+    }
 
     @include responsive(tablet)
     {
-        font-size: 5.5rem;
+        font-size: 91px;
+    }
+
+    @include responsive(tablet-landscape)
+    {
+        font-size: 91px;
     }
 
     @include responsive(desktop)
     {
-        font-size: 9rem;
+        font-size: 152px;
     }
 }
 
@@ -1031,7 +1167,7 @@
 
     @include responsive(desktop)
     {
-        grid-column: 1 / 4;
+        grid-column: 1 / 3;
     }
 }
 
@@ -1044,13 +1180,13 @@
 
     @include responsive(tablet)
     {
-        grid-column: 5 / 9;
+        grid-column: 3 / 6;
         width: auto;
     }
 
     @include responsive(desktop)
     {
-        grid-column: 10 / 13;
+        grid-column: 6 / 8;
     }
 }
 

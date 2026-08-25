@@ -10,46 +10,49 @@
     left: 0;
     display: grid;
     grid-template-columns: 36px minmax(0, 1fr) auto;
-    column-gap: 0.375rem;
+    column-gap: 6px;
     align-items: center;
     min-height: 44px;
-    padding:
-        max(0.375rem, env(safe-area-inset-top))
-        max(0.5rem, env(safe-area-inset-right))
-        0.375rem
-        max(0.5rem, env(safe-area-inset-left));
+    padding: $space-half $space-margin-mobile;
     box-sizing: border-box;
     pointer-events: none;
     transition: background-color 0.3s ease, border-color 0.3s ease;
+
+    @include responsive(phone-small)
+    {
+        padding: $space-half $space-margin-small;
+    }
 
     @include responsive(tablet)
     {
         grid-template-columns: minmax(40px, 1fr) auto minmax(40px, 1fr);
         column-gap: 0;
         min-height: 62px;
-        padding:
-            max(0.625rem, env(safe-area-inset-top))
-            max(1rem, env(safe-area-inset-right))
-            0.625rem
-            max(1rem, env(safe-area-inset-left));
+        padding: 12px $space-margin-tablet;
+    }
+
+    @include responsive(tablet-landscape)
+    {
+        padding: 12px $space-margin-landscape;
+    }
+
+    @include responsive(laptop)
+    {
+        padding: 12px $space-margin-laptop;
     }
 
     @include responsive(desktop)
     {
         grid-template-columns: minmax(48px, 1fr) auto minmax(48px, 1fr);
         min-height: 72px;
-        padding:
-            max(0.75rem, env(safe-area-inset-top))
-            max(1.5rem, env(safe-area-inset-right))
-            0.75rem
-            max(1.5rem, env(safe-area-inset-left));
+        padding: $space-1 $space-margin-desktop;
     }
 }
 
-.header.is-scrolled
+.header.is-scrolled:not(.menu-open)
 {
     border-bottom: 1px solid $color-border-gold;
-    background: rgba($color-bg-deep, 0.78);
+    background: transparent;
 }
 
 .header.menu-open
@@ -76,14 +79,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 4px;
+    gap: 6px;
     width: 36px;
     height: 36px;
     min-height: 36px;
     padding: 0;
     border: 1px solid $color-border-gold;
     border-radius: $radius-control;
-    background: rgba($color-bg-deep, 0.78);
+    background: $color-bg-deep;
     cursor: pointer;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
@@ -93,6 +96,13 @@
         width: 40px;
         height: 40px;
         min-height: 40px;
+    }
+
+    @include responsive(tablet-landscape)
+    {
+        width: 44px;
+        height: 44px;
+        min-height: 44px;
     }
 
     @include responsive(desktop)
@@ -113,6 +123,11 @@
     @include responsive(tablet)
     {
         width: 18px;
+    }
+
+    @include responsive(tablet-landscape)
+    {
+        width: 19px;
     }
 
     @include responsive(desktop)
@@ -144,8 +159,7 @@
     overflow: hidden;
     color: $color-accent-gold;
     font-family: $font-primary;
-    font-size: 0.625rem;
-    letter-spacing: 0.06em;
+    font-size: 11px;
     text-decoration: none;
     text-overflow: ellipsis;
     text-transform: uppercase;
@@ -153,14 +167,17 @@
 
     @include responsive(tablet)
     {
-        font-size: 0.875rem;
-        letter-spacing: 0.08em;
+        font-size: 12px;
+    }
+
+    @include responsive(tablet-landscape)
+    {
+        font-size: 12px;
     }
 
     @include responsive(desktop)
     {
-        font-size: 1.125rem;
-        letter-spacing: $tracking-label;
+        font-size: 13px;
     }
 }
 
@@ -169,22 +186,29 @@
     grid-column: 3;
     justify-self: end;
     min-height: 32px;
-    padding: 0.4rem 0.6rem;
-    font-size: 0.625rem;
+    padding: 6px 12px;
+    font-size: 11px;
     white-space: nowrap;
 
     @include responsive(tablet)
     {
         min-height: 40px;
-        padding: 0.55rem 0.9rem;
-        font-size: 0.8125rem;
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    @include responsive(tablet-landscape)
+    {
+        min-height: 43px;
+        padding: 12px 18px;
+        font-size: 12px;
     }
 
     @include responsive(desktop)
     {
         min-height: 46px;
-        padding: 0.65rem 1.1rem;
-        font-size: 0.9375rem;
+        padding: 12px 18px;
+        font-size: 13px;
     }
 }
 
@@ -222,15 +246,11 @@
 {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
-    width: min(100%, 18rem);
+    gap: 6px;
+    width: min(100%, 288px);
     min-height: 100dvh;
     max-height: 100dvh;
-    padding:
-        calc(3.25rem + env(safe-area-inset-top))
-        max(0.75rem, env(safe-area-inset-right))
-        calc(0.75rem + env(safe-area-inset-bottom))
-        max(0.75rem, env(safe-area-inset-left));
+    padding: 54px $space-1 $space-1;
     box-sizing: border-box;
     overflow-y: auto;
     border-right: 1px solid $color-border-gold;
@@ -242,19 +262,21 @@
 
     @include responsive(tablet)
     {
-        gap: 0.375rem;
-        width: min(22rem, calc(100% - 1rem));
-        padding:
-            calc(4.75rem + env(safe-area-inset-top))
-            max(1.25rem, env(safe-area-inset-right))
-            calc(1rem + env(safe-area-inset-bottom))
-            max(1.25rem, env(safe-area-inset-left));
+        gap: 6px;
+        width: min(352px, calc(100% - 16px));
+        padding: 78px 18px $space-margin-mobile;
+    }
+
+    @include responsive(tablet-landscape)
+    {
+        width: min(368px, calc(100% - 16px));
+        padding: 84px $space-2 $space-margin-mobile;
     }
 
     @include responsive(desktop)
     {
-        width: min(24rem, calc(100% - 1rem));
-        padding-top: calc(5.75rem + env(safe-area-inset-top));
+        width: min(384px, calc(100% - 16px));
+        padding-top: 90px;
     }
 }
 
@@ -265,25 +287,29 @@
 
 .chapter-menu__eyebrow
 {
-    margin: 0 0 0.25rem;
+    margin: 0 0 6px;
     opacity: 0;
     color: $color-accent-rose;
     font-family: $font-secondary;
-    font-size: 0.625rem;
-    letter-spacing: $tracking-label;
+    font-size: 11px;
     text-transform: uppercase;
-    transform: translateX(-0.75rem);
+    transform: translateX(-12px);
     transition: opacity 0.25s ease, transform 0.25s ease;
 
     @include responsive(tablet)
     {
-        margin-bottom: 0.5rem;
-        font-size: 0.75rem;
+        margin-bottom: 6px;
+        font-size: 12px;
+    }
+
+    @include responsive(tablet-landscape)
+    {
+        font-size: 12px;
     }
 
     @include responsive(desktop)
     {
-        font-size: 0.8125rem;
+        font-size: 13px;
     }
 }
 
@@ -293,7 +319,7 @@
 {
     width: 100%;
     min-height: 38px;
-    padding: 0.55rem 0;
+    padding: 6px 0;
     box-sizing: border-box;
     border: 0;
     border-bottom: 1px solid rgba($color-accent-gold, 0.18);
@@ -301,15 +327,14 @@
     background: transparent;
     color: $color-text-title;
     font-family: $font-secondary;
-    font-size: 0.8125rem;
+    font-size: 16px;
     line-height: 1.25;
-    letter-spacing: $tracking-copy;
     text-align: left;
     text-decoration: none;
     cursor: pointer;
     opacity: 0;
-    transform: translateX(-0.75rem);
-    transition-property: opacity, transform, color, padding-left;
+    transform: translateX(-12px);
+    transition-property: opacity, transform, color, padding;
     transition-duration: 0.25s, 0.25s, 0.25s, 0.25s;
     transition-timing-function: ease, ease, ease, ease;
     transition-delay: 0s, 0s, 0s, 0s;
@@ -317,14 +342,20 @@
     @include responsive(tablet)
     {
         min-height: 42px;
-        padding-block: 0.65rem;
-        font-size: 0.9375rem;
+        padding: 12px 0;
+        font-size: 18px;
+    }
+
+    @include responsive(tablet-landscape)
+    {
+        min-height: 43px;
+        font-size: 18px;
     }
 
     @include responsive(desktop)
     {
         min-height: 44px;
-        font-size: 1rem;
+        font-size: 20px;
     }
 }
 
@@ -361,7 +392,7 @@
     .chapter-menu__landing:hover,
     .chapter-menu__credit:hover
     {
-        padding-left: 0.5rem;
+        padding: 12px 0 12px 6px;
         color: $color-accent-gold;
     }
 }
@@ -395,18 +426,17 @@
 {
     margin-top: auto;
     color: rgba($color-text-title, 0.7);
-    font-size: 0.625rem;
-    letter-spacing: $tracking-label;
+    font-size: 11px;
     text-transform: uppercase;
 
     @include responsive(tablet)
     {
-        font-size: 0.75rem;
+        font-size: 12px;
     }
 
     @include responsive(desktop)
     {
-        font-size: 0.8125rem;
+        font-size: 13px;
     }
 }
 

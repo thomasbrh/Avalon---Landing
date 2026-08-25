@@ -12,9 +12,15 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    @include responsive(tablet-landscape)
+    {
+        grid-template-columns: repeat(auto-fit, minmax(224px, 1fr));
+        gap: $space-3;
+    }
+
     @include responsive(desktop)
     {
-        grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
         gap: $space-3;
     }
 }
@@ -53,12 +59,17 @@
 
     @include responsive(tablet)
     {
-        font-size: 1.5rem;
+        font-size: 27px;
+    }
+
+    @include responsive(tablet-landscape)
+    {
+        font-size: 27px;
     }
 
     @include responsive(desktop)
     {
-        font-size: 1.875rem;
+        font-size: 30px;
     }
 }
 
@@ -68,17 +79,16 @@
     color: $color-accent-rose;
     font-family: $font-secondary;
     font-size: $font-tag;
-    letter-spacing: $tracking-label;
     text-transform: uppercase;
 
     @include responsive(tablet)
     {
-        font-size: 0.75rem;
+        font-size: 12px;
     }
 
     @include responsive(desktop)
     {
-        font-size: 0.8125rem;
+        font-size: 13px;
     }
 }
 
@@ -94,11 +104,11 @@
 
     @include responsive(tablet)
     {
-        font-size: 1rem;
+        font-size: 18px;
     }
 
     @include responsive(desktop)
     {
-        font-size: 1.125rem;
+        font-size: 20px;
     }
 }

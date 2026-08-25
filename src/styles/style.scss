@@ -28,6 +28,7 @@ html
     font-size: 16px;
     background: $color-bg-deep;
     scroll-behavior: smooth;
+    user-select: text;
 
     @include responsive(tablet)
     {
@@ -98,21 +99,37 @@ button:focus-visible
     z-index: 1;
     display: flex;
     flex-direction: column;
-    gap: 2.25rem;
-    width: min(100%, $container-max);
+    gap: 36px;
+    width: 100%;
     margin-inline: auto;
-    padding: 4.5rem var(--content-gutter-end) 4.5rem var(--content-gutter-start);
+    padding: $space-6 $space-margin-mobile;
+
+    @include responsive(phone-small)
+    {
+        gap: $space-3;
+        padding: $space-5 $space-margin-small;
+    }
 
     @include responsive(tablet)
     {
-        gap: 3rem;
-        padding-block: 6rem;
+        gap: 48px;
+        padding: $space-8 $space-margin-tablet;
+    }
+
+    @include responsive(tablet-landscape)
+    {
+        padding: $space-8 $space-margin-landscape;
+    }
+
+    @include responsive(laptop)
+    {
+        padding: $space-8 $space-margin-laptop;
     }
 
     @include responsive(desktop)
     {
-        gap: 4.5rem;
-        padding-block: 7.5rem;
+        gap: 72px;
+        padding: $space-10 $space-margin-desktop;
     }
 }
 
@@ -143,14 +160,24 @@ button:focus-visible
     pointer-events: none;
     user-select: none;
 
+    @include responsive(phone-small)
+    {
+        font-size: 36px;
+    }
+
     @include responsive(tablet)
     {
-        font-size: 5rem;
+        font-size: 91px;
+    }
+
+    @include responsive(tablet-landscape)
+    {
+        font-size: 91px;
     }
 
     @include responsive(desktop)
     {
-        font-size: 8rem;
+        font-size: 152px;
     }
 }
 

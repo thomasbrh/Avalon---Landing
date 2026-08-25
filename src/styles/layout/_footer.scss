@@ -13,20 +13,37 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    width: min(100%, $container-max);
+    width: 100%;
     margin-inline: auto;
     gap: $space-2;
-    padding: $space-4 var(--content-gutter-end) $space-4 var(--content-gutter-start);
+    padding: $space-4 $space-margin-mobile;
+
+    @include responsive(phone-small)
+    {
+        gap: $space-1;
+        padding: $space-3 $space-margin-small;
+    }
 
     @include responsive(tablet)
     {
         grid-template-columns: 1fr auto 1fr;
-        padding-block: $space-5;
+        padding: $space-5 $space-margin-tablet;
+    }
+
+    @include responsive(tablet-landscape)
+    {
+        padding: $space-5 $space-margin-landscape;
+    }
+
+    @include responsive(laptop)
+    {
+        padding: $space-5 $space-margin-laptop;
     }
 
     @include responsive(desktop)
     {
         gap: $space-4;
+        padding: $space-5 $space-margin-desktop;
     }
 }
 
@@ -35,7 +52,7 @@
 {
     display: flex;
     flex-direction: column;
-    gap: 0.15rem;
+    gap: 6px;
     text-transform: uppercase;
 }
 
@@ -44,12 +61,11 @@
 {
     display: inline-flex;
     align-items: center;
-    min-height: 2rem;
+    min-height: 32px;
     color: rgba($color-text-title, 0.75);
     font-family: $font-secondary;
     font-size: $font-tag;
     line-height: 1.85;
-    letter-spacing: 0.08em;
     text-decoration: none;
     transition: color 0.25s ease, transform 0.25s ease;
 }
@@ -64,12 +80,12 @@
 
     .footer__social a:hover
     {
-        transform: translateX(0.25rem);
+        transform: translateX(4px);
     }
 
     .footer__nav a:hover
     {
-        transform: translateX(-0.25rem);
+        transform: translateX(-4px);
     }
 }
 
@@ -103,31 +119,55 @@
 {
     color: $color-accent-gold;
     font-family: $font-primary;
-    font-size: 1.5rem;
-    letter-spacing: $tracking-label;
+    font-size: 24px;
     text-decoration: none;
     text-transform: uppercase;
 
     @include responsive(tablet)
     {
-        font-size: 1.875rem;
+        font-size: 27px;
     }
 
     @include responsive(desktop)
     {
-        font-size: 2.25rem;
+        font-size: 30px;
     }
 }
 
 .footer__copy
 {
     margin: 0;
-    padding: 1rem var(--content-gutter-end) 1rem var(--content-gutter-start);
+    padding: 18px $space-margin-mobile;
     border-top: 1px solid $color-border-gold;
     color: rgba($color-text-title, 0.75);
     font-family: $font-secondary;
     font-size: $font-tag;
     line-height: 1.85;
     text-align: center;
+
+    @include responsive(phone-small)
+    {
+        padding: 0 $space-margin-small;
+    }
+
+    @include responsive(tablet)
+    {
+        padding: 0 $space-margin-tablet;
+    }
+
+    @include responsive(tablet-landscape)
+    {
+        padding: 0 $space-margin-landscape;
+    }
+
+    @include responsive(laptop)
+    {
+        padding: 0 $space-margin-laptop;
+    }
+
+    @include responsive(desktop)
+    {
+        padding: 0 $space-margin-desktop;
+    }
 
 }

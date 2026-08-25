@@ -17,16 +17,25 @@
     color: $color-text-title;
     font-size: $font-h1;
     line-height: 1;
-    letter-spacing: 0.035em;
+
+    @include responsive(phone-small)
+    {
+        font-size: 54px;
+    }
 
     @include responsive(tablet)
     {
-        font-size: 4rem;
+        font-size: 91px;
+    }
+
+    @include responsive(tablet-landscape)
+    {
+        font-size: 91px;
     }
 
     @include responsive(desktop)
     {
-        font-size: 5.75rem;
+        font-size: 101px;
     }
 }
 
@@ -35,16 +44,25 @@
     color: $color-accent-gold;
     font-size: $font-h2;
     line-height: 1.1;
-    letter-spacing: 0.04em;
+
+    @include responsive(phone-small)
+    {
+        font-size: 36px;
+    }
 
     @include responsive(tablet)
     {
-        font-size: 3rem;
+        font-size: 61px;
+    }
+
+    @include responsive(tablet-landscape)
+    {
+        font-size: 61px;
     }
 
     @include responsive(desktop)
     {
-        font-size: 4.4rem;
+        font-size: 68px;
     }
 }
 
@@ -53,16 +71,25 @@
     color: $color-text-title;
     font-size: $font-h3;
     line-height: 1.05;
-    letter-spacing: 0.02em;
+
+    @include responsive(phone-small)
+    {
+        font-size: 24px;
+    }
 
     @include responsive(tablet)
     {
-        font-size: 2.25rem;
+        font-size: 41px;
+    }
+
+    @include responsive(tablet-landscape)
+    {
+        font-size: 41px;
     }
 
     @include responsive(desktop)
     {
-        font-size: 2.8125rem;
+        font-size: 45px;
     }
 }
 
@@ -72,42 +99,40 @@
     margin: 0;
     color: $color-accent-rose;
     font-family: $font-secondary;
-    font-size: 0.625rem;
+    font-size: $font-tag;
     line-height: 1.2;
-    letter-spacing: $tracking-label;
     text-transform: uppercase;
 
     @include responsive(tablet)
     {
-        font-size: 0.75rem;
+        font-size: 12px;
     }
 
     @include responsive(desktop)
     {
-        font-size: 0.8125rem;
+        font-size: 13px;
     }
 }
 
 .paragraph
 {
-    width: 100%;
+    width: 55ch;
     max-width: $paragraph-width;
     margin: 0;
     color: $color-text-paragraph;
     font-family: $font-secondary;
     font-size: $font-body;
     line-height: 1.65;
-    letter-spacing: $tracking-copy;
 
     @include responsive(tablet)
     {
-        font-size: 1rem;
+        font-size: 18px;
         line-height: 1.7;
     }
 
     @include responsive(desktop)
     {
-        font-size: 1.125rem;
+        font-size: 20px;
         line-height: 1.75;
     }
 }
@@ -120,16 +145,15 @@
     font-family: $font-secondary;
     font-size: $font-lead;
     line-height: 1.35;
-    letter-spacing: $tracking-copy;
 
     @include responsive(tablet)
     {
-        font-size: 1.5rem;
+        font-size: 27px;
     }
 
     @include responsive(desktop)
     {
-        font-size: 1.875rem;
+        font-size: 30px;
     }
 }
 

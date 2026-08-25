@@ -5,7 +5,7 @@
 {
     position: relative;
     display: grid;
-    min-height: calc(100svh - 2.5rem);
+    min-height: calc(100svh - 40px);
     overflow: clip;
     background: $color-bg-deep;
 }
@@ -30,17 +30,32 @@
     align-items: center;
     justify-content: center;
     min-height: inherit;
-    padding: 5rem var(--content-gutter-end) 3.5rem var(--content-gutter-start);
+    padding: 78px $space-margin-mobile 54px;
     text-align: center;
+
+    @include responsive(phone-small)
+    {
+        padding: 72px $space-margin-small 48px;
+    }
 
     @include responsive(tablet)
     {
-        padding: 6rem var(--content-gutter-end) 4rem var(--content-gutter-start);
+        padding: 96px $space-margin-tablet 66px;
+    }
+
+    @include responsive(tablet-landscape)
+    {
+        padding: 96px $space-margin-landscape 66px;
+    }
+
+    @include responsive(laptop)
+    {
+        padding: 96px $space-margin-laptop 66px;
     }
 
     @include responsive(desktop)
     {
-        padding: 8rem var(--content-gutter-end) 5rem var(--content-gutter-start);
+        padding: 126px $space-margin-desktop 78px;
     }
 
 }
@@ -51,23 +66,23 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    gap: 0.5rem;
+    gap: 6px;
 
     @include responsive(tablet)
     {
-        gap: 1rem;
+        gap: 18px;
     }
 
     @include responsive(desktop)
     {
-        gap: 1.5rem;
+        gap: 24px;
     }
 }
 
 .hero--landing .hero__title
 {
     align-items: stretch;
-    width: min(100%, 100rem);
+    width: min(100%, 1600px);
     gap: 0;
 }
 
@@ -75,17 +90,17 @@
 {
     align-self: flex-start;
     max-width: 24ch;
-    margin-bottom: 1rem;
+    margin-bottom: 18px;
     text-align: left;
 
     @include responsive(tablet)
     {
-        margin-bottom: 2.25rem;
+        margin-bottom: 36px;
     }
 
     @include responsive(desktop)
     {
-        margin-bottom: 4rem;
+        margin-bottom: 66px;
     }
 }
 
@@ -95,18 +110,27 @@
     flex-direction: column;
     width: 100%;
     gap: 0.04em;
-    font-size: clamp(2.25rem, 13vw, 3.5rem);
+    font-size: clamp(36px, 13vw, 54px);
     line-height: 0.95;
-    letter-spacing: -0.055em;
+
+    @include responsive(phone-small)
+    {
+        font-size: clamp(36px, 12.5vw, 36px);
+    }
 
     @include responsive(tablet)
     {
-        font-size: clamp(5rem, 12vw, 8rem);
+        font-size: clamp(91px, 12vw, 137px);
+    }
+
+    @include responsive(tablet-landscape)
+    {
+        font-size: clamp(91px, 11vw, 137px);
     }
 
     @include responsive(desktop)
     {
-        font-size: clamp(9rem, min(14vw, 25vh), 15rem);
+        font-size: clamp(152px, min(14vw, 25vh), 228px);
     }
 
 }
@@ -132,32 +156,31 @@
 .hero--landing .hero__h1--accent
 {
     align-self: flex-end;
-    padding-right: 0;
+    padding: 0;
 
     @include responsive(tablet)
     {
-        padding-right: clamp(0rem, 5vw, 6rem);
+        padding: 0 clamp(0px, 5vw, 96px) 0 0;
     }
 }
 
 .hero__caption
 {
-    margin: clamp(0.5rem, 1.4vw, 1rem) 0 0;
+    margin: clamp(6px, 1.4vw, 18px) 0 0;
     color: $color-text-title;
     font-family: $font-secondary;
-    font-size: 0.875rem;
+    font-size: 16px;
     line-height: 1.15;
-    letter-spacing: 0.08em;
     text-transform: uppercase;
 
     @include responsive(tablet)
     {
-        font-size: 1.25rem;
+        font-size: 18px;
     }
 
     @include responsive(desktop)
     {
-        font-size: 1.55rem;
+        font-size: 20px;
     }
 }
 
@@ -165,28 +188,28 @@
 {
     align-self: flex-end;
     max-width: 20ch;
-    margin-top: 1rem;
-    font-size: 0.875rem;
+    margin-top: 18px;
+    font-size: 16px;
     line-height: 1.2;
     text-align: right;
 
     @include responsive(tablet)
     {
-        margin-top: 1.5rem;
-        font-size: 1.25rem;
+        margin-top: 24px;
+        font-size: 18px;
     }
 
     @include responsive(desktop)
     {
-        margin-top: 2.75rem;
-        font-size: 1.75rem;
+        margin-top: 42px;
+        font-size: 30px;
     }
 }
 
 .hero--editorial .hero__title
 {
     align-items: stretch;
-    width: min(100%, 100rem);
+    width: min(100%, 1600px);
     gap: 0;
 }
 
@@ -194,17 +217,17 @@
 {
     align-self: flex-start;
     max-width: 24ch;
-    margin-bottom: 1rem;
+    margin-bottom: 18px;
     text-align: left;
 
     @include responsive(tablet)
     {
-        margin-bottom: 2.25rem;
+        margin-bottom: 36px;
     }
 
     @include responsive(desktop)
     {
-        margin-bottom: 4rem;
+        margin-bottom: 66px;
     }
 }
 
@@ -214,18 +237,27 @@
     flex-direction: column;
     width: 100%;
     gap: 0.04em;
-    font-size: clamp(2.25rem, 11.5vw, 3.25rem);
+    font-size: clamp(36px, 11.5vw, 54px);
     line-height: 0.95;
-    letter-spacing: -0.055em;
+
+    @include responsive(phone-small)
+    {
+        font-size: clamp(36px, 11vw, 36px);
+    }
 
     @include responsive(tablet)
     {
-        font-size: clamp(4.5rem, 11vw, 7.5rem);
+        font-size: clamp(61px, 11vw, 137px);
+    }
+
+    @include responsive(tablet-landscape)
+    {
+        font-size: clamp(91px, 10vw, 137px);
     }
 
     @include responsive(desktop)
     {
-        font-size: clamp(8rem, min(12vw, 23vh), 13rem);
+        font-size: clamp(152px, min(12vw, 23vh), 228px);
     }
 
 }
@@ -238,47 +270,46 @@
 .hero--editorial .hero__h1--accent
 {
     align-self: flex-end;
-    padding-right: clamp(0rem, 4vw, 5rem);
+    padding: 0 clamp(0px, 4vw, 78px) 0 0;
 }
 
 .hero--editorial .hero__caption
 {
     align-self: flex-end;
     max-width: 22ch;
-    margin-top: 1rem;
+    margin-top: 18px;
     text-align: right;
 
     @include responsive(tablet)
     {
-        margin-top: 1.5rem;
+        margin-top: 24px;
     }
 
     @include responsive(desktop)
     {
-        margin-top: 2.75rem;
+        margin-top: 42px;
     }
 }
 
 .hero__scroll
 {
     position: absolute;
-    bottom: 1rem;
+    bottom: 16px;
     color: $color-text-title;
     font-family: $font-secondary;
-    font-size: 0.625rem;
-    letter-spacing: $tracking-label;
+    font-size: 11px;
     text-transform: uppercase;
 
     @include responsive(tablet)
     {
-        bottom: 1.5rem;
-        font-size: 0.75rem;
+        bottom: 24px;
+        font-size: 12px;
     }
 
     @include responsive(desktop)
     {
-        bottom: 2.25rem;
-        font-size: 0.8125rem;
+        bottom: 36px;
+        font-size: 13px;
     }
 }
 
@@ -289,10 +320,10 @@
     @include responsive(desktop)
     {
         position: absolute;
-        right: 3rem;
-        bottom: 3rem;
+        right: 48px;
+        bottom: 48px;
         display: block;
-        width: min(24rem, calc(100% - 6rem));
+        width: min(384px, calc(100% - 96px));
     }
 }
 
@@ -309,7 +340,7 @@
     position: relative;
     display: flex;
     align-items: center;
-    height: 2.5rem;
+    height: 40px;
     overflow: hidden;
     contain: layout paint;
     border-top: 1px solid rgba($color-text-title, 0.25);
@@ -318,7 +349,7 @@
 
     @include responsive(tablet)
     {
-        height: 3rem;
+        height: 48px;
     }
 }
 
@@ -333,7 +364,6 @@
     font-family: $font-primary;
     font-size: $font-tag;
     line-height: 1;
-    letter-spacing: 0.08em;
     text-transform: uppercase;
     white-space: nowrap;
     animation: bandeau-scroll 35s linear infinite;
@@ -346,7 +376,7 @@
     align-items: center;
     flex: 0 0 auto;
     gap: $space-2;
-    padding-right: $space-2;
+    padding: 0 $space-2 0 0;
 }
 
 @keyframes bandeau-scroll
