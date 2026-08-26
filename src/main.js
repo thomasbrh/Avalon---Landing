@@ -3,12 +3,11 @@ import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import Lenis from 'lenis'
 
-window.name = '_blank__landing'
+window.name = 'Avalon - landing'
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-const responsiveStyles = getComputedStyle(document.documentElement)
-const desktopBreakpoint = responsiveStyles.getPropertyValue('--breakpoint-desktop').trim() || '80rem'
-const desktopQuery = `(min-width: ${desktopBreakpoint})`
+const canUseSmoothScroll = window.matchMedia('(min-width: 48rem) and (pointer: fine)').matches
+const desktopQuery = '(min-width: 90rem)'
 
 if(document.getElementById('hero-canvas'))
 {
@@ -31,7 +30,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 let lenis = null
 
-if(!prefersReducedMotion)
+if(!prefersReducedMotion && canUseSmoothScroll)
 {
     lenis = new Lenis()
     gsap.ticker.add((time) => lenis.raf(time * 1000))
@@ -113,8 +112,8 @@ else
 
 updateHeader()
 
-const horizontalSection = document.querySelector('[data-horizontal-section]')
-const horizontalTrack = horizontalSection?.querySelector('[data-horizontal-track]')
+const horizontalSection = document.querySelector('[data-horizontal-section], .section--env')
+const horizontalTrack = horizontalSection?.querySelector('[data-horizontal-track], .environment__rail')
 
 if(horizontalSection && horizontalTrack)
 {
@@ -133,7 +132,7 @@ if(horizontalSection && horizontalTrack)
                 start: 'top top',
                 end: () => `+=${Math.max(window.innerWidth, travel())}`,
                 pin: true,
-                scrub: 1,
+                scrub: prefersReducedMotion ? true : 1,
                 anticipatePin: 1,
                 invalidateOnRefresh: true
             }
@@ -148,197 +147,197 @@ if(horizontalSection && horizontalTrack)
     })
 }
 
-const experienceZoom = document.querySelector('[data-experience-zoom]')
-const experienceStage = experienceZoom?.querySelector('.experience__stage')
-const experienceMedia = experienceZoom?.querySelector('[data-experience-media]')
-
-if(experienceZoom && experienceStage && experienceMedia)
-{
-    const experienceMotion = gsap.matchMedia()
-
-    experienceMotion.add(desktopQuery, () =>
-    {
-        const timeline = gsap.timeline(
-        {
-            defaults: { ease: 'none' },
-            scrollTrigger:
-            {
-                trigger: experienceZoom,
-                start: 'top top',
-                end: '+=80%',
-                pin: true,
-                scrub: 1,
-                anticipatePin: 1
-            }
-        })
-
-        timeline.to(experienceStage, { clipPath: 'inset(0%)' }, 0)
-        timeline.to(experienceMedia, { scale: 1 }, 0)
-
-        return () =>
-        {
-            gsap.set(experienceStage, { clearProps: 'clipPath' })
-            gsap.set(experienceMedia, { clearProps: 'transform' })
-        }
-    })
-}
-
 window.addEventListener('load', () => ScrollTrigger.refresh(), { once: true })
 
-if(!prefersReducedMotion)
+const entranceMotion = gsap.matchMedia()
+
+entranceMotion.add(
 {
-    gsap.from('.header > :not(.chapter-menu)',
-    {
-        y: -60,
-        duration: 0.5,
-        ease: 'power2.out',
-        stagger: 0.1,
-        clearProps: 'transform'
-    })
+    compact: '(max-width: 47.99rem)',
+    roomy: '(min-width: 48rem)',
+    reduceMotion: '(prefers-reduced-motion: reduce)'
+}, (context) =>
+{
+    const { compact, reduceMotion } = context.conditions
 
-    gsap.from('.hero__text',
-    {
-        y: 100,
-        opacity: 0,
-        duration: 0.8,
-        ease: 'power3.out',
-        delay: 0.3,
-        clearProps: 'transform,opacity'
-    })
+    const distance = reduceMotion ? 0 : compact ? 16 : 28
+    const revealStart = compact ? 'top 90%' : 'top 84%'
+    const stagger = reduceMotion ? 0.025 : compact ? 0.055 : 0.085
+    const heroText = document.querySelector('[data-animate="hero"]')
+    const hero = heroText?.closest('.hero')
+    const headerItems = header
+        ? Array.from(header.children).filter((element) => !element.classList.contains('chapter-menu'))
+        : []
 
-    const visionTitleLines = document.querySelectorAll('.vision__title span')
-
-    if(visionTitleLines.length)
+    const heroTimeline = gsap.timeline(
     {
-        gsap.from(visionTitleLines,
+        defaults:
         {
-            y: 32,
-            opacity: 0,
-            duration: 0.75,
-            stagger: 0.1,
-            ease: 'power2.out',
-            clearProps: 'transform,opacity',
+            duration: reduceMotion ? 0.25 : compact ? 0.6 : 0.72,
+            ease: reduceMotion ? 'none' : 'power3.out',
+            force3D: !reduceMotion
+        }
+    })
+
+    if(headerItems.length)
+    {
+        heroTimeline.from(headerItems,
+        {
+            y: reduceMotion ? 0 : compact ? -16 : -24,
+            autoAlpha: 0,
+            stagger: reduceMotion ? 0.025 : 0.07,
+            clearProps: 'transform,opacity,visibility'
+        }, 0)
+    }
+
+    if(hero)
+    {
+        const heroCanvas = hero.querySelector('#hero-canvas')
+
+        if(heroCanvas)
+        {
+            heroTimeline.from(heroCanvas,
+            {
+                autoAlpha: 0,
+                duration: reduceMotion ? 0.3 : 1.1,
+                clearProps: 'opacity,visibility'
+            }, 0)
+        }
+    }
+
+    if(heroText)
+    {
+        const eyebrow = heroText.querySelector('.subtitle__tag')
+        const titleLines = heroText.querySelectorAll('.hero__h1')
+        const caption = heroText.querySelector('.hero__caption')
+        const scrollHint = heroText.querySelector('.hero__scroll')
+
+        if(eyebrow)
+        {
+            heroTimeline.from(eyebrow,
+            {
+                y: distance * 0.65,
+                autoAlpha: 0,
+                clearProps: 'transform,opacity,visibility'
+            }, 0.12)
+        }
+
+        if(titleLines.length)
+        {
+            heroTimeline.from(titleLines,
+            {
+                y: distance,
+                autoAlpha: 0,
+                stagger: reduceMotion ? 0.025 : compact ? 0.08 : 0.12,
+                clearProps: 'transform,opacity,visibility'
+            }, 0.2)
+        }
+
+        if(caption)
+        {
+            heroTimeline.from(caption,
+            {
+                y: distance * 0.65,
+                autoAlpha: 0,
+                clearProps: 'transform,opacity,visibility'
+            }, 0.38)
+        }
+
+        if(scrollHint)
+        {
+            heroTimeline.from(scrollHint,
+            {
+                y: reduceMotion ? 0 : 8,
+                autoAlpha: 0,
+                duration: reduceMotion ? 0.2 : 0.45,
+                clearProps: 'transform,opacity,visibility'
+            }, 0.55)
+        }
+
+        if(!compact && !reduceMotion && hero)
+        {
+            gsap.to(heroText,
+            {
+                yPercent: -5,
+                ease: 'none',
+                force3D: true,
+                scrollTrigger:
+                {
+                    trigger: hero,
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: 0.6
+                }
+            })
+        }
+    }
+
+    const reveal = (trigger, targets, options = {}) =>
+    {
+        const elements = gsap.utils.toArray(targets)
+
+        if(!elements.length) return
+
+        gsap.from(elements,
+        {
+            y: options.y ?? distance,
+            autoAlpha: 0,
+            duration: options.duration ?? (reduceMotion ? 0.25 : compact ? 0.55 : 0.68),
+            stagger: options.stagger ?? 0,
+            ease: options.ease ?? (reduceMotion ? 'none' : 'power2.out'),
+            force3D: !reduceMotion,
+            clearProps: 'transform,opacity,visibility',
             scrollTrigger:
             {
-                trigger: '.section--vision',
-                start: 'top 72%',
-                once: true
+                trigger,
+                start: options.start ?? revealStart,
+                once: true,
+                fastScrollEnd: true
             }
         })
     }
 
-    gsap.utils.toArray('.section__head, .section__content').forEach((element) =>
+    gsap.utils.toArray('[data-animate="title"]').forEach((element) =>
     {
-        if(element.closest('#contexte, #refuge, #vision, #experience')) return
+        const subtitle = element.querySelector('.subtitle__tag')
+        const title = element.querySelector('h2')
+        const hasLooseText = title
+            ? Array.from(title.childNodes).some((node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim())
+            : false
+        const titleLines = title && !hasLooseText ? Array.from(title.children) : []
+        const targets = [subtitle, ...(titleLines.length ? titleLines : [title])].filter(Boolean)
 
-        gsap.from(element,
-        {
-            y: 30,
-            opacity: 0,
-            duration: 0.6,
-            ease: 'power2.out',
-            clearProps: 'transform,opacity',
-            scrollTrigger:
-            {
-                trigger: element,
-                start: 'top 80%',
-                once: true
-            }
-        })
+        reveal(element, targets, { stagger })
     })
 
-    gsap.utils.toArray('.section__body').forEach((element) =>
+    gsap.utils.toArray('[data-animate="fade-up"]').forEach((element) =>
     {
-        if(element.closest('#vision, #experience')) return
-        if(element.querySelector('.card')) return
+        const targets = element.children.length ? Array.from(element.children) : element
+        reveal(element, targets, { y: distance * 0.75, stagger: stagger * 0.75 })
+    })
 
-        gsap.from(element,
-        {
-            y: 20,
-            opacity: 0,
-            duration: 0.6,
-            ease: 'power2.out',
-            clearProps: 'transform,opacity',
-            scrollTrigger:
-            {
-                trigger: element,
-                start: 'top 82%',
-                once: true
-            }
-        })
+    gsap.utils.toArray('[data-animate="fade"]').forEach((element) =>
+    {
+        reveal(element, element, { y: 0, duration: reduceMotion ? 0.2 : compact ? 0.45 : 0.58 })
     })
 
     gsap.utils.toArray('[data-animate="cards"]').forEach((container) =>
     {
-        gsap.from(container.querySelectorAll('.card'),
-        {
-            y: 20,
-            opacity: 0,
-            duration: 0.6,
-            stagger: 0.1,
-            ease: 'power2.out',
-            clearProps: 'transform,opacity',
-            scrollTrigger:
-            {
-                trigger: container,
-                start: 'top 80%',
-                once: true
-            }
-        })
+        reveal(container, container.querySelectorAll('.card'), { y: distance * 0.8, stagger })
+    })
+
+    gsap.utils.toArray('[data-animate="list"]').forEach((container) =>
+    {
+        reveal(container, Array.from(container.children), { y: distance * 0.6, stagger: stagger * 0.75 })
+    })
+
+    gsap.utils.toArray('[data-animate="links"]').forEach((container) =>
+    {
+        reveal(container, container.querySelectorAll('a'), { y: 10, stagger: stagger * 0.7 })
     })
 
     gsap.utils.toArray('[data-animate="image"] .section__img-frame').forEach((frame) =>
     {
-        gsap.from(frame,
-        {
-            y: 24,
-            opacity: 0,
-            duration: 0.9,
-            ease: 'power2.out',
-            clearProps: 'transform,opacity',
-            scrollTrigger:
-            {
-                trigger: frame,
-                start: 'top 80%',
-                once: true
-            }
-        })
+        reveal(frame, frame, { y: distance * 0.8, duration: reduceMotion ? 0.25 : compact ? 0.65 : 0.85 })
     })
-
-    const cta = document.querySelector('[data-animate="cta"]')
-    if(cta)
-    {
-        gsap.from(cta,
-        {
-            y: 30,
-            opacity: 0,
-            duration: 0.8,
-            ease: 'power2.out',
-            clearProps: 'transform,opacity',
-            scrollTrigger:
-            {
-                trigger: cta,
-                start: 'top 80%',
-                once: true
-            }
-        })
-    }
-
-    const footer = document.querySelector('.footer')
-    if(footer)
-    {
-        gsap.from('.footer__inner, .footer__copy',
-        {
-            opacity: 0,
-            duration: 0.6,
-            ease: 'power2.out',
-            clearProps: 'opacity',
-            scrollTrigger:
-            {
-                trigger: footer,
-                start: 'top 90%',
-                once: true
-            }
-        })
-    }
-}
+})
