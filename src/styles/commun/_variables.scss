@@ -24,7 +24,9 @@ $font-display: 122px;
 /* ratio spatial */
 $space-half: 6px;
 $space-1: 12px;
+$space-18: 18px;
 $space-2: 24px;
+$space-30: 30px;
 $space-3: 36px;
 $space-4: 48px;
 $space-5: 60px;
@@ -35,10 +37,10 @@ $space-10: 120px;
 /* marges de page */
 $space-margin-small: $space-half;
 $space-margin-mobile: $space-1;
-$space-margin-tablet: $space-2;
-$space-margin-landscape: $space-3;
-$space-margin-laptop: $space-4;
-$space-margin-desktop: $space-5;
+$space-margin-tablet: $space-18;
+$space-margin-landscape: $space-2;
+$space-margin-laptop: $space-30;
+$space-margin-desktop: $space-3;
 
 /* composition */
 $paragraph-width: 50ch;

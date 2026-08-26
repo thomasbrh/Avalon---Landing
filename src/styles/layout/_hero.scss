@@ -332,10 +332,10 @@
     @include responsive(desktop)
     {
         position: absolute;
-        right: 48px;
-        bottom: 48px;
+        right: $space-3;
+        bottom: $space-3;
         display: block;
-        width: min(384px, calc(100% - 96px));
+        width: min(384px, calc(100% - #{$space-6}));
     }
 }
 

@@ -249,11 +249,19 @@
 
     .number
     {
+        position: static;
         grid-column: 3;
+        justify-self: end;
+        align-self: end;
         margin: 0;
         color: rgba($color-accent-gold, 0.18);
         font-size: 81px;
         line-height: 1;
+
+        @include responsive(phone-small)
+        {
+            grid-column: 3;
+        }
 
         @include responsive(tablet)
         {
@@ -261,11 +269,25 @@
             font-size: 137px;
         }
 
+        @include responsive(tablet-landscape)
+        {
+            grid-column: 5;
+        }
+
+        @include responsive(laptop)
+        {
+            grid-column: 5;
+        }
+
         @include responsive(desktop)
         {
             position: absolute;
+            right: auto;
             bottom: clamp(72px, 9vw, 128px);
             left: clamp(16px, 4vw, 64px);
+            grid-column: auto;
+            justify-self: auto;
+            align-self: auto;
             font-size: 228px;
         }
     }
@@ -504,10 +526,25 @@
         font-size: 81px;
         line-height: 1;
 
+        @include responsive(phone-small)
+        {
+            grid-column: 3;
+        }
+
         @include responsive(tablet)
         {
             grid-column: 5;
             font-size: 137px;
+        }
+
+        @include responsive(tablet-landscape)
+        {
+            grid-column: 5;
+        }
+
+        @include responsive(laptop)
+        {
+            grid-column: 5;
         }
 
         @include responsive(desktop)
@@ -515,6 +552,9 @@
             position: absolute;
             right: 0;
             bottom: $space-4;
+            grid-column: auto;
+            justify-self: auto;
+            align-self: auto;
             font-size: 228px;
         }
     }
@@ -782,10 +822,18 @@
 
     .number
     {
+        position: static;
         grid-column: 3;
+        justify-self: end;
+        align-self: end;
         color: rgba($color-accent-gold, 0.14);
         font-size: 81px;
         line-height: 1;
+
+        @include responsive(phone-small)
+        {
+            grid-column: 3;
+        }
 
         @include responsive(tablet)
         {
@@ -793,11 +841,24 @@
             font-size: 137px;
         }
 
+        @include responsive(tablet-landscape)
+        {
+            grid-column: 5;
+        }
+
+        @include responsive(laptop)
+        {
+            grid-column: 5;
+        }
+
         @include responsive(desktop)
         {
             position: absolute;
             right: clamp(16px, 4vw, 64px);
             bottom: clamp(80px, 10vw, 144px);
+            grid-column: auto;
+            justify-self: auto;
+            align-self: auto;
             font-size: 228px;
         }
     }
@@ -1053,10 +1114,25 @@
         font-size: 81px;
         line-height: 1;
 
+        @include responsive(phone-small)
+        {
+            grid-column: 3;
+        }
+
         @include responsive(tablet)
         {
             grid-column: 5;
             font-size: 137px;
+        }
+
+        @include responsive(tablet-landscape)
+        {
+            grid-column: 5;
+        }
+
+        @include responsive(laptop)
+        {
+            grid-column: 5;
         }
 
         @include responsive(desktop)
@@ -1064,6 +1140,9 @@
             position: absolute;
             right: clamp(96px, 9vw, 160px);
             bottom: clamp(72px, 9vw, 128px);
+            grid-column: auto;
+            justify-self: auto;
+            align-self: auto;
             font-size: 228px;
         }
     }

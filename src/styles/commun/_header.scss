@@ -58,7 +58,7 @@
 .header.menu-open
 {
     border-bottom: 1px solid $color-border-gold;
-    background: $color-bg-deep;
+    background: rgba($color-bg-deep, 0.78);
 }
 
 .chapter-menu__toggle,
@@ -226,7 +226,7 @@
     display: block;
     visibility: hidden;
     opacity: 0;
-    background: $color-bg-deep;
+    background: rgba($color-bg-deep, 0.78);
     overscroll-behavior: contain;
     pointer-events: none;
     transition:
@@ -254,7 +254,7 @@
     box-sizing: border-box;
     overflow-y: auto;
     border-right: 1px solid $color-border-gold;
-    background: $color-bg-surface;
+    background: rgba($color-bg-surface, 0.9);
     box-shadow: 24px 0 64px rgba(0, 0, 0, 0.18);
     overscroll-behavior: contain;
     transform: translateX(-100%);
