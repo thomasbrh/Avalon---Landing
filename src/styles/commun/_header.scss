@@ -47,6 +47,18 @@
         min-height: 72px;
         padding: $space-1 $space-margin-desktop;
     }
+
+    @include responsive(phone)
+    {
+        padding-block: $space-1;
+    }
+
+    @include responsive(phone-landscape)
+    {
+        grid-template-columns: minmax(36px, 1fr) auto minmax(36px, 1fr);
+        min-height: 48px;
+        padding: $space-1 $space-margin-mobile;
+    }
 }
 
 .header.is-scrolled:not(.menu-open)
@@ -111,6 +123,18 @@
         height: 48px;
         min-height: 48px;
     }
+
+    @include responsive(phone)
+    {
+        grid-row: 1;
+    }
+
+    @include responsive(phone-landscape)
+    {
+        width: 36px;
+        height: 36px;
+        min-height: 36px;
+    }
 }
 
 .chapter-menu__toggle span
@@ -133,6 +157,11 @@
     @include responsive(desktop)
     {
         width: 20px;
+    }
+
+    @include responsive(phone-landscape)
+    {
+        width: 14px;
     }
 }
 
@@ -179,6 +208,18 @@
     {
         font-size: 13px;
     }
+
+    @include responsive(phone)
+    {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        justify-self: center;
+    }
+
+    @include responsive(phone-landscape)
+    {
+        font-size: 11px;
+    }
 }
 
 .header__action
@@ -216,6 +257,11 @@
 {
     grid-column: 3;
     justify-self: end;
+
+    @include responsive(phone)
+    {
+        grid-row: 1;
+    }
 }
 
 .chapter-menu
@@ -278,6 +324,13 @@
         width: min(384px, calc(100% - 16px));
         padding-top: 90px;
     }
+
+    @include responsive(phone-landscape)
+    {
+        gap: 0;
+        width: min(288px, 100%);
+        padding: 60px $space-margin-mobile $space-margin-mobile;
+    }
 }
 
 .header.menu-open .chapter-menu__panel
@@ -310,6 +363,11 @@
     @include responsive(desktop)
     {
         font-size: 13px;
+    }
+
+    @include responsive(phone-landscape)
+    {
+        font-size: 11px;
     }
 }
 
@@ -366,6 +424,17 @@
 .chapter-menu__panel > :nth-child(5) { --menu-entry-delay: 0.24s; }
 .chapter-menu__panel > :nth-child(6) { --menu-entry-delay: 0.28s; }
 .chapter-menu__panel > :nth-child(7) { --menu-entry-delay: 0.32s; }
+
+.chapter-menu__item,
+.chapter-menu__landing
+{
+    @include responsive(phone-landscape)
+    {
+        min-height: 36px;
+        padding: 6px 0;
+        font-size: 15px;
+    }
+}
 
 .header.menu-open .chapter-menu__eyebrow,
 .header.menu-open .chapter-menu__item,
@@ -437,6 +506,11 @@
     @include responsive(desktop)
     {
         font-size: 13px;
+    }
+
+    @include responsive(phone-landscape)
+    {
+        font-size: 11px;
     }
 }
 
