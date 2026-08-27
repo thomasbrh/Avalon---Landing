@@ -118,6 +118,21 @@
     }
 }
 
+.credits-section__heading--split
+{
+    max-width: 100%;
+
+    @include responsive(tablet)
+    {
+        max-width: 840px;
+    }
+
+    @include responsive(desktop)
+    {
+        max-width: 1120px;
+    }
+}
+
 .credits-section__title
 {
     max-width: 100%;
